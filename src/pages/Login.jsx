@@ -15,7 +15,7 @@ function Login() {
         <input type="password" name="password" id="password" />
         <button type="submit">Log in</button>
       </form>
-      <Link to="/login">Need an account? Register</Link>
+      <Link to="/register">Need an account? Sign up</Link>
     </>
   )
 }
