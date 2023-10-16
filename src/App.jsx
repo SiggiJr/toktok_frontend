@@ -37,7 +37,11 @@ function App() {
           <Route path="/upload" element={<Upload />} />
         </Route>
       </Routes>
-      <NavbarMobile />
+
+      {location.pathname === '/' || location.pathname === '/login' || location.pathname === '/register' ? null : (
+        <NavbarMobile />
+      )}
+
     </>
   )
 }
