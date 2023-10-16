@@ -1,7 +1,7 @@
 function Brandscreen() {
   return (
     <div>
-      <h1>Brandcscreen</h1>
+      <h2>Brandcscreen</h2>
     </div>
   )
 }
