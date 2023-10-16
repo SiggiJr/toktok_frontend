@@ -1,8 +1,10 @@
-export const loginFetch = event => {
-  const form = new FormData(event.target.location)
-  fetch(`${import.meta.env.VITE_BACKEND_URL}/login`, {
+export const loginFetch = async (event, navigate) => {
+  const form = new FormData(event.target)
+  const response = fetch(`${import.meta.env.VITE_BACKEND_URL}/login`, {
     method: 'POST',
     body: form,
   })
-  console.log('login geht')
+  if (response.ok) {
+    navigate(`/register/${response.id}`)
+  }
 }
