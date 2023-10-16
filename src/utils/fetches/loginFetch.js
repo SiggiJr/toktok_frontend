@@ -4,7 +4,4 @@ export const loginFetch = async (event, navigate) => {
     method: 'POST',
     body: form,
   })
-  if (response.ok) {
-    navigate(`/register/${response.id}`)
-  }
 }
