@@ -22,7 +22,6 @@ function App() {
         <Route path="/" element={<Brandscreen />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
-
         <Route element={<Protected />}>
           <Route path="/feed" element={<Feeds />} />
           <Route path="/profile" element={<MyProfilePage />} />
@@ -34,9 +33,9 @@ function App() {
           <Route path="/feeds/:hashtag" element={<HashtagPage />} />
           <Route path="/saved" element={<SavedPosts />} />
           <Route path="/upload" element={<Upload />} />
-          <NavbarMobile />
         </Route>
       </Routes>
+      <NavbarMobile />
     </>
   )
 }
