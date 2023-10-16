@@ -14,6 +14,7 @@ import SavedPosts from './pages/SavedPosts.jsx'
 import Upload from './pages/Upload.jsx'
 import NavbarMobile from './shared/NavbarMobile.jsx'
 import CommentDetails from './shared/CommentDetails.jsx'
+import CreateUserProfile from './pages/CreateUserProfile.jsx'
 
 function App() {
   return (
@@ -21,8 +22,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Brandscreen />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/register/:id" element={<CreateUserProfile />} />
         <Route path="/login" element={<Login />} />
-
         <Route element={<Protected />}>
           <Route path="/feed" element={<Feeds />} />
           <Route path="/profile" element={<MyProfilePage />} />
@@ -36,9 +37,11 @@ function App() {
           <Route path="/upload" element={<Upload />} />
         </Route>
       </Routes>
+
       {location.pathname === '/' || location.pathname === '/login' || location.pathname === '/register' ? null : (
         <NavbarMobile />
       )}
+
     </>
   )
 }

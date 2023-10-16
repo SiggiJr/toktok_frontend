@@ -31,7 +31,6 @@ export const upload = [
     socialMedia: {
       facebook: true,
       x: false,
-
       tumblr: false,
     },
     advanced: {
