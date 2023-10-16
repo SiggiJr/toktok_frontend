@@ -34,9 +34,11 @@ function App() {
           <Route path="/feeds/:hashtag" element={<HashtagPage />} />
           <Route path="/saved" element={<SavedPosts />} />
           <Route path="/upload" element={<Upload />} />
-          <NavbarMobile />
         </Route>
       </Routes>
+      {location.pathname === '/' || location.pathname === '/login' || location.pathname === '/register' ? null : (
+        <NavbarMobile />
+      )}
     </>
   )
 }
