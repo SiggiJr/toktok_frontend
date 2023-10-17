@@ -15,7 +15,7 @@ function CreateUserProfile() {
       <section className="flex-col">
         <h1>Create your user profile</h1>
         <form onSubmit={sendUserProfile}>
-          <input type="file" name="profile_image" />
+          {/*<input type="file" name="profile_image" />*/}
           <input type="text" name="first_name" />
           <input type="text" name="last_name" />
           <input type="text" name="nickname" />
