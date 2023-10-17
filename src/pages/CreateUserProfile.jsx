@@ -5,7 +5,6 @@ import { Button, Input, Option, Select } from '@material-tailwind/react'
 import { createUser } from '../utils/fetches/registerFetch.js'
 import { user } from '../utils/data.js'
 
-
 function CreateUserProfile() {
   const userId = useParams()
 
@@ -16,16 +15,14 @@ function CreateUserProfile() {
 
   return (
     <>
-
-
       <section className="flex flex-col items-center">
         <article className="mt-6">
           <h2 className="text-start w-72 mx-auto text-4xl">Create your user profile</h2>
         </article>
         <form onSubmit={sendUserProfile} className="flex flex-col ">
-          //<div className="w-72 mt-4 mx-auto">
-            //<Input type="file" name="profile_image" />
-          //</div>
+          {/*<div className="w-72 mt-4 mx-auto">*/}
+          {/*  <Input type="file" name="profile_image" />*/}
+          {/*</div>*/}
           <div className="w-72 mt-4 mx-auto">
             <Input label="first name" type="text" name="first_name" />
           </div>
@@ -58,7 +55,6 @@ function CreateUserProfile() {
           <Button className="w-72 mt-8 mx-auto bg-[#E98090] rounded-3xl" type="submit">
             Update
           </Button>
-
         </form>
       </section>
     </>
