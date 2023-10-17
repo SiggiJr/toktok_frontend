@@ -1,6 +1,8 @@
 import { registerFetch } from '../utils/fetches/registerFetch.js'
 import { Link, useNavigate } from 'react-router-dom'
+import logo from '../assets/icons/Logo.svg'
 import Login from './Login.jsx'
+import { Button, Input } from '@material-tailwind/react'
 
 function Register() {
   const navigate = useNavigate()
@@ -10,16 +12,35 @@ function Register() {
   }
 
   return (
-    <>
-      <form onSubmit={register} className="flex-col bg-zinc-600 w-52">
-        <label htmlFor="email">Email</label>
-        <input type="email" name="email" id="email" />
-        <label htmlFor="password">Password</label>
-        <input type="password" name="password" id="password" />
-        <button type="submit">Register</button>
+    <section className="flex flex-col items-center">
+      <article className=" mt-6">
+        <h2 className="text-start w-72 mx-auto text-4xl">Create your </h2>
+        <h2 className="text-start w-72 mx-auto text-4xl">Account</h2>
+      </article>
+      <div className=" my-28">
+        <img src={logo} alt="logo icon" className="w-[140px]" />
+      </div>
+      <form onSubmit={register} className="felx flex-col bg-zinc-600 justify-center">
+        {/* <label htmlFor="email">Email</label> */}
+        <div className="w-72 mt-8 mx-auto">
+          <Input label="email" type="email" name="email" id="email" />
+        </div>
+        {/* <label htmlFor="password">Password</label> */}
+        <div className="w-72 mt-8 mx-auto">
+          <Input label="password" type="password" name="password" id="password" />
+        </div>
+        <Button className="w-72 mt-8 mx-auto bg-[#E98090] rounded-3xl" type="submit">
+          Sign up
+        </Button>
       </form>
-      <Link to="/login">Already have an account? Log in</Link>
-    </>
+      <p className="text-center mt-8">
+        Already have an account?{' '}
+        <Link to="/login" className="text-[#FF4D67]">
+          {' '}
+          Log in
+        </Link>
+      </p>
+    </section>
   )
 }
 
