@@ -27,7 +27,7 @@ function Register() {
         </div>
         {/* <label htmlFor="password">Password</label> */}
         <div className="w-72 mt-8 mx-auto">
-          <Input label="Password" type="assword" name="password" id="password" />
+          <Input label="Password" type="password" name="password" id="password" />
         </div>
         <Button className="w-72 mt-8 mx-auto bg-[#E98090] rounded-3xl" type="submit">
           Sign up
