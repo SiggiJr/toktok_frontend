@@ -22,9 +22,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Brandscreen />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/register/:id" element={<CreateUserProfile />} />
         <Route path="/login" element={<Login />} />
         <Route element={<Protected />}>
+        <Route path="/register/:id" element={<CreateUserProfile />} />
           <Route path="/feed" element={<Feeds />} />
           <Route path="/profile" element={<MyProfilePage />} />
           <Route path="/user/:user" element={<OtherUserProfile />} />
