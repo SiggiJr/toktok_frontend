@@ -1,16 +1,17 @@
 import { useParams } from 'react-router-dom'
-
 import { Button, Input, Option, Select } from '@material-tailwind/react'
-
 import { createUser } from '../utils/fetches/registerFetch.js'
-import { user } from '../utils/data.js'
+import { useContext, useState } from 'react'
+import { UserContext } from '../utils/Contexts/UserContext.jsx'
 
 function CreateUserProfile() {
+  const { userIdContext, setUserIdContext } = useContext(UserContext)
   const userId = useParams()
 
   const sendUserProfile = event => {
     event.preventDefault()
     createUser(event, userId)
+    setUserIdContext(userId.id)
   }
 
   return (
