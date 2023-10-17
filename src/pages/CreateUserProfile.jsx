@@ -1,15 +1,27 @@
 import { useParams } from 'react-router-dom'
+
 import { Button, Input, Option, Select } from '@material-tailwind/react'
 
+import { createUser } from '../utils/fetches/registerFetch.js'
+import { user } from '../utils/data.js'
+
+
 function CreateUserProfile() {
-  const params = useParams()
+  const userId = useParams()
+
+  const sendUserProfile = event => {
+    event.preventDefault()
+    createUser(event, userId)
+  }
+
   return (
     <>
+
       <section className="flex flex-col items-center">
         <article className="mt-6">
           <h2 className="text-start w-72 mx-auto text-4xl">Create your user profile</h2>
         </article>
-        <form className="flex flex-col ">
+        <form onSubmit={sendUserProfile} className="flex flex-col ">
           <div className="w-72 mt-4 mx-auto">
             <Input type="file" name="profile_image" />
           </div>
