@@ -6,17 +6,20 @@ export const registerFetch = async (event, navigate) => {
     method: 'POST',
     body: form,
   })
-  
+
   console.log('register geht')
   if (response) {
-    const data = response.json()
-    const data2 = JSON.parse(await data)
-    navigate(`/register/${data2.id}`)
-    console.log(await data2)
+    const dataJson = response.json()
+    const data = JSON.parse(await dataJson)
+    navigate(`/register/${data.id}`)
   }
 }
 
-export const createUser = event => {
-  const params = useParams()
-  const form = new FormData().set('id', params)
+export const createUser = async (event, params) => {
+  const form = new FormData(event.target)
+  form.set('id', params.id)
+  const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/createprofile`, {
+    method: 'PUT',
+    body: form,
+  })
 }
