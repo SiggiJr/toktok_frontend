@@ -23,11 +23,11 @@ function Register() {
       <form onSubmit={register} className="felx flex-col bg-zinc-600 justify-center">
         {/* <label htmlFor="email">Email</label> */}
         <div className="w-72 mt-8 mx-auto">
-          <Input label="email" type="email" name="email" id="email" />
+          <Input label="Email" type="email" name="email" id="email" />
         </div>
         {/* <label htmlFor="password">Password</label> */}
         <div className="w-72 mt-8 mx-auto">
-          <Input label="password" type="password" name="password" id="password" />
+          <Input label="Password" type="assword" name="password" id="password" />
         </div>
         <Button className="w-72 mt-8 mx-auto bg-[#E98090] rounded-3xl" type="submit">
           Sign up
