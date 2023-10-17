@@ -45,7 +45,6 @@ function App() {
         </Routes>
       </UserContext.Provider>
 
-
       {location.pathname === '/' || location.pathname === '/login' || location.pathname === '/register' ? null : (
         <NavbarMobile />
       )}
