@@ -2,12 +2,28 @@ import { Link } from 'react-router-dom'
 import { loginFetch } from '../utils/fetches/loginFetch.js'
 import { Button, Input } from '@material-tailwind/react'
 import logo from '../assets/icons/Logo.svg'
+import { useState } from 'react'
+import eye from '../assets/icons/visibility_on.svg'
+import eyeOff from '../assets/icons/visibility_off.svg'
 
 function Login() {
+  const [type, setType] = useState('password')
+  const [icon, setIcon] = useState(false)
   const login = event => {
     event.preventDefault()
     loginFetch(event)
   }
+
+  const handleToggle = () => {
+    if (type === 'password') {
+      setIcon(false)
+      setType('text')
+    } else {
+      setIcon(true)
+      setType('password')
+    }
+  }
+
   return (
     <section className="flex flex-col items-center">
       <article className=" mt-6">
@@ -22,9 +38,15 @@ function Login() {
         <div className="w-72 mt-8 mx-auto">
           <Input label="Email" type="email" name="email" id="email" />
         </div>
-        {/* <label htmlFor="password">Password</label> */}
-        <div className="w-72 mt-8 mx-auto">
-          <Input label="Password" type="password" name="password" id="password" />
+
+        <div className="w-72 mt-8 mx-auto relative">
+          <Input label="Password" type={type} name="password" id="password" />
+          <img
+            className="cursor-pointer absolute top-2 right-2"
+            onClick={handleToggle}
+            src={icon ? eye : eyeOff}
+            alt="pw_visibility"
+          />
         </div>
         <Button className="w-72 mt-8 mx-auto bg-[#E98090] rounded-3xl" type="submit">
           Sign in
