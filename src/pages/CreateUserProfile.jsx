@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { Button, Input, Option, Select } from '@material-tailwind/react'
 import { createUser } from '../utils/fetches/registerFetch.js'
 import { useContext, useState } from 'react'
@@ -8,10 +8,11 @@ import upload_icon from '../assets/icons/Editsquare.svg'
 function CreateUserProfile() {
   const { userIdContext, setUserIdContext } = useContext(UserContext)
   const userId = useParams()
+  const navigate = useNavigate()
 
   const sendUserProfile = event => {
     event.preventDefault()
-    createUser(event, userId)
+    createUser(event, userId, navigate)
     setUserIdContext(userId.id)
   }
   const [imgurl, setImgUrl] = useState('/img/dummy.svg')
@@ -28,14 +29,14 @@ function CreateUserProfile() {
         </article>
         <form onSubmit={sendUserProfile} className="flex flex-col ">
           <div className=" relative w-[140px] h-[140px] mt-4 mx-auto flex">
-            <img className="object-cover rounded-full p-1 items-center mx-auto" src={imgurl} alt="profil Image" />
+            <img className="object-cover rounded-full p-1 items-center mx-auto" src={imgurl} alt="profile_image" />
             <img
               className=" absolute bottom-0 right-[5%]"
               src={upload_icon}
               alt="upload_icon"
               onClick={() => document.getElementById('uploadInput').click()}
             />
-            <input type="file" name="img" id="uploadInput" onChange={previewImage} className="hidden" />
+            <input type="file" name="profile_image" id="uploadInput" onChange={previewImage} className="hidden" />
           </div>
           <div className="w-72 mt-8 mx-auto">
             <Input label="first name" type="text" name="first_name" required />

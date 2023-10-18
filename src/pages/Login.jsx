@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { loginFetch } from '../utils/fetches/loginFetch.js'
 import { Button, Input } from '@material-tailwind/react'
 import logo from '../assets/icons/Logo.svg'
@@ -9,9 +9,10 @@ import eyeOff from '../assets/icons/visibility_off.svg'
 function Login() {
   const [type, setType] = useState('password')
   const [icon, setIcon] = useState(false)
+  const navigate = useNavigate()
   const login = event => {
     event.preventDefault()
-    loginFetch(event)
+    loginFetch(event, navigate)
   }
 
   const handleToggle = () => {

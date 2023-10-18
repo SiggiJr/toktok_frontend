@@ -40,6 +40,7 @@ function App() {
             <Route path="/feeds/:hashtag" element={<HashtagPage />} />
             <Route path="/saved" element={<SavedPosts />} />
             <Route path="/upload" element={<Upload />} />
+            <Route path="/upload/:id" element={<Upload />} />
           </Route>
         </Routes>
       </UserContext.Provider>

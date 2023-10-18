@@ -14,5 +14,4 @@ module.exports = {
     'react/jsx-uses-react': 'off',
     'import/extensions': 'off'
   }
-
 }
