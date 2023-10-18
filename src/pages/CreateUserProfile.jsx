@@ -21,9 +21,9 @@ function CreateUserProfile() {
           <h2 className="text-start w-72 mx-auto text-4xl">Create your user profile</h2>
         </article>
         <form onSubmit={sendUserProfile} className="flex flex-col ">
-          {/*<div className="w-72 mt-4 mx-auto">*/}
-          {/*  <Input type="file" name="profile_image" />*/}
-          {/*</div>*/}
+          <div className="w-72 mt-4 mx-auto">
+            <Input type="file" name="profile_image" />
+          </div>
           <div className="w-72 mt-4 mx-auto">
             <Input label="first name" type="text" name="first_name" />
           </div>
