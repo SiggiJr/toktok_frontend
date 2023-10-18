@@ -15,7 +15,7 @@ export const registerFetch = async (event, navigate) => {
   }
 }
 
-export const createUser = async (event, params) => {
+export const createUser = async (event, params, navigate) => {
   const form = new FormData(event.target)
   form.set('id', params.id)
   const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/createprofile`, {
@@ -23,4 +23,7 @@ export const createUser = async (event, params) => {
     method: 'PUT',
     body: form,
   })
+  if (response) {
+    navigate('/profile')
+  }
 }

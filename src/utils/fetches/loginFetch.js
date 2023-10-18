@@ -5,4 +5,7 @@ export const loginFetch = async (event, navigate) => {
     method: 'POST',
     body: form,
   })
+  if (response) {
+    navigate('/feed')
+  }
 }
