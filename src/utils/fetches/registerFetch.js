@@ -8,7 +8,6 @@ export const registerFetch = async (event, navigate) => {
     body: form,
   })
 
-  console.log('register geht')
   if (response) {
     const dataJson = response.json()
     const data = JSON.parse(await dataJson)

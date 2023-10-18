@@ -1,18 +1,35 @@
 module.exports = {
   root: true,
-  env: {browser: true, es2020: true},
+  env: { browser: true, es2020: true },
   extends: ['airbnb', 'prettier'],
   ignorePatterns: ['dist', 'eslintrc.cjs'],
-  parserOptions: {ecmaVersion: 'latest', sourceType: 'module'},
-  settings: {react: {version: '18.2'}},
+  parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
+  settings: { react: { version: '18.2' } },
   plugins: ['react-refresh', 'prettier'],
   rules: {
+    rules: {
+      'jsx-a11y/label-has-associated-control': [
+        'error',
+        {
+          required: {
+            some: ['nesting', 'name'],
+          },
+        },
+      ],
+      'jsx-a11y/label-has-for': [
+        'error',
+        {
+          required: {
+            some: ['nesting', 'name'],
+          },
+        },
+      ],
+    },
     'no-unused-vars': 'off',
     'prettier/prettier': ['error'],
     'react/prop-types': 'off',
     'react/react-in-jsx-scope': 'off',
     'react/jsx-uses-react': 'off',
-    'import/extensions': 'off'
-  }
-
+    'import/extensions': 'off',
+  },
 }

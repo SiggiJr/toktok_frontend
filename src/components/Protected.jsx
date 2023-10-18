@@ -7,14 +7,12 @@ function Protected() {
 
   useEffect(() => {
     const checkToken = async () => {
-      const response = await fetch(import.meta.env.VITE_BACKEND_URL + "/auth/check", {
-        credentials: 'include'
+      const response = await fetch(import.meta.env.VITE_BACKEND_URL + '/auth/check', {
+        credentials: 'include',
       })
-      console.log(response)
       if (!response.ok) {
-        router("/login")
+        router('/login')
       } else {
-        console.log("fetch war ok")
         setAuth(true)
       }
     }
@@ -23,9 +21,7 @@ function Protected() {
   return (
     <>
       <h1>protected</h1>
-      {auth &&
-      <Outlet />
-      }
+      {auth && <Outlet />}
     </>
   )
 }
