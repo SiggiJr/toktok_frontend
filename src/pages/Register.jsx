@@ -1,7 +1,6 @@
 import { registerFetch } from '../utils/fetches/registerFetch.js'
 import { Link, useNavigate } from 'react-router-dom'
 import logo from '../assets/icons/Logo.svg'
-import Login from './Login.jsx'
 import { Button, Input } from '@material-tailwind/react'
 import eyeOff from '../../src/assets/icons/visibility_off.svg'
 import eye from '../../src/assets/icons/visibility_on.svg'
