@@ -53,6 +53,7 @@ function Login() {
           Sign in
         </Button>
       </form>
+      <p className="text-[#FF4D67] mt-8"> Forgot the password?</p>
       <p className="text-center mt-8">
         Need an account?{' '}
         <Link to="/register" className="text-[#FF4D67]">
