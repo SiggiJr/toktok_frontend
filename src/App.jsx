@@ -23,7 +23,6 @@ function App() {
 
   return (
     <>
-
       <UserContext.Provider value={{ userIdContext, setUserIdContext }}>
         <Routes>
           <Route path="/" element={<Brandscreen />} />
@@ -45,7 +44,9 @@ function App() {
         </Routes>
       </UserContext.Provider>
 
-      {location.pathname === '/' || location.pathname === '/login' || location.pathname === '/register' ? null : (
+      {location.pathname === '/' ||
+      location.pathname.startsWith === '/login' ||
+      location.pathname.startsWith === '/register' ? null : (
         <NavbarMobile />
       )}
     </>
