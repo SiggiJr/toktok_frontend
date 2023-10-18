@@ -12,11 +12,9 @@ function Upload() {
   return (
     <section>
       <h1>New Post</h1>
-      <form>
+      <form onSubmit={upload}>
         <input type="file" name="selected_image" id="selected_image" />
-        <button type="button" onClick={upload}>
-          Upload
-        </button>
+        <button type="submit">Upload</button>
       </form>
     </section>
   )

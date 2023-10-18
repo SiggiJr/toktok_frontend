@@ -1,11 +1,8 @@
-import { useParams } from 'react-router-dom'
-
 export const registerFetch = async (event, navigate) => {
   const form = new FormData(event.target)
   const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/user/register`, {
     credentials: 'include',
     method: 'POST',
-
     body: form,
   })
 
