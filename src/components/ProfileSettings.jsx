@@ -10,11 +10,12 @@ import timesquare from '../assets/icons/TimeSquare.svg'
 
 import line from '../assets/icons/Line.svg'
 
+
 function ProfileSettings() {
   const userId = JSON.parse(sessionStorage.getItem('userId'))
   return (
     <div>
-      <ul className="flex flex-col gap-6 px-6 rounded-t-3xl border-2 border-zinc-600 absolute bottom-0 w-screen z-10">
+      <ul className="flex flex-col gap-6 px-6 rounded-t-3xl border-2 border-zinc-600 absolute bottom-0 w-screen z-10 bg-white">
         <div className="flex mx-auto pt-2">
           <img src={line} alt="" />
         </div>

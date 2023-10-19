@@ -11,10 +11,15 @@ import { getUser } from '../utils/fetches/getUserFetch.js'
 
 function MyProfilePage() {
   const [user, setUser] = useState(false)
+  const [isExpanded, setIsExpanded] = useState(false)
+  const handleMoreCicleClick = () => {
+    setIsExpanded(prevState => !prevState)
+  }
 
   useEffect(() => {
     getUser(setUser)
   }, [])
+
   return (
     <>
       <section className="flex flex-col px-6 pt-6">
@@ -25,8 +30,8 @@ function MyProfilePage() {
           </div>
           <div className="flex gap-2">
             <img src={plus2} alt=" plus icon" />
-            <img src={edit} alt="edit icon" />
-            <img src={morecicle} alt="more icon" />
+            <img src={edit} alt="edit icon" onClick={handelEditClick} />
+            <img src={morecicle} alt="more icon" onClick={handleMoreCicleClick} />
           </div>
         </article>
         <div className="relative flex flex-col w-max items-end gap-4 w-[120px] h-[120px] mx-auto rounded-full my-6">
@@ -81,7 +86,7 @@ function MyProfilePage() {
         </article>
       </section>
 
-      <ProfileSettings />
+      {isExpanded && <ProfileSettings />}
     </>
   )
 }
