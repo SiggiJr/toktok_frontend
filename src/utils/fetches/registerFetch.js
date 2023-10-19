@@ -25,3 +25,16 @@ export const createUser = async (event, params, navigate) => {
     navigate('/profile')
   }
 }
+
+export const updateUser = async (event, params, navigate) => {
+  const form = new FormData(event.target)
+  form.set('id', params.id)
+  const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/user/createprofile`, {
+    credentials: 'include',
+    method: 'PUT',
+    body: form,
+  })
+  if (response) {
+    navigate('/profile')
+  }
+}
