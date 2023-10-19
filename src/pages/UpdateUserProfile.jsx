@@ -25,9 +25,7 @@ function UpdateUserProfile() {
   const updateUserProfile = event => {
     event.preventDefault()
     updateUser(event, userIdContext, navigate)
-    console.log('context', userIdContext)
   }
-  console.log(userIdContext)
 
   function previewImage(event) {
     const url = URL.createObjectURL(event.target.files[0])

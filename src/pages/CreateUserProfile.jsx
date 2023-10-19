@@ -29,6 +29,7 @@ function CreateUserProfile() {
       <article className="mt-6">
         <h2 className="text-start mx-auto text-3xl">Create your user profile</h2>
       </article>
+
       <form onSubmit={sendUserProfile} className="flex flex-col ">
         <div className=" relative w-[140px] h-[140px] mt-4 mx-auto flex">
           <img className="object-cover rounded-full p-1 items-center mx-auto" src={imgUrl} alt="profile_image" />
@@ -59,11 +60,14 @@ function CreateUserProfile() {
           <Input label="Mobile" type="number" name="mobile_number" />
         </div>
         <div className="w-72 mt-3 mx-auto">
-          <Select label="Gender" name="gender" required>
-            <Option value="male">Male</Option>
-            <Option value="female">Female</Option>
-            <Option value="diverse">Diverse</Option>
-          </Select>
+          {/* <select label="Gender" name="gender" required>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="diverse">Diverse</option>
+          </select> */}
+          <input type="radio" name="gender" value="fotze" label="fotze" />
+          <input type="radio" name="gender" value="fotze" label="fotze" />
+          <input type="radio" name="gender" value="fotze" label="fotze" />
         </div>
         <div className="w-72 mt-3 mx-auto">
           <Input label="Website" type="text" name="website" />
