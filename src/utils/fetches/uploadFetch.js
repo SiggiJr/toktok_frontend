@@ -13,3 +13,16 @@ export const uploadFetch = async (event, navigate) => {
     navigate(`/upload/${data.id}`)
   }
 }
+
+export const newPost = async (params, navigate) => {
+  const form = new FormData()
+  form.set('imageId', params)
+  const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/post/upload`, {
+    credentials: 'include',
+    method: 'PUT',
+    body: form,
+  })
+  if (response) {
+    navigate(`/feed`)
+  }
+}

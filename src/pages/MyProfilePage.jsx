@@ -12,9 +12,10 @@ import { getUser } from '../utils/fetches/getUserFetch.js'
 function MyProfilePage() {
   const [user, setUser] = useState(false)
   const [isExpanded, setIsExpanded] = useState(false)
-  const handleMoreCicleClick = () => {
+  const handleMoreCycleClick = () => {
     setIsExpanded(prevState => !prevState)
   }
+  const handleEditClick = () => {}
 
   useEffect(() => {
     getUser(setUser)
@@ -30,8 +31,8 @@ function MyProfilePage() {
           </div>
           <div className="flex gap-2">
             <img src={plus2} alt=" plus icon" />
-            <img src={edit} alt="edit icon" onClick={handelEditClick} />
-            <img src={morecicle} alt="more icon" onClick={handleMoreCicleClick} />
+            <img src={edit} alt="edit icon" onClick={handleEditClick} />
+            <img src={morecicle} alt="more icon" onClick={handleMoreCycleClick} />
           </div>
         </article>
         <div className="relative flex flex-col w-max items-end gap-4 w-[120px] h-[120px] mx-auto rounded-full my-6">
