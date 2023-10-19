@@ -17,6 +17,7 @@ import CommentDetails from './shared/CommentDetails.jsx'
 import CreateUserProfile from './pages/CreateUserProfile.jsx'
 import { useState } from 'react'
 import { UserContext } from './utils/Contexts/UserContext.jsx'
+import UpdateUserProfile from './pages/UpdateUserProfile.jsx'
 
 function App() {
   const [userIdContext, setUserIdContext] = useState(undefined)
@@ -41,6 +42,7 @@ function App() {
             <Route path="/saved" element={<SavedPosts />} />
             <Route path="/upload" element={<Upload />} />
             <Route path="/upload/:id" element={<Upload />} />
+            <Route path="/update/:id" element={<UpdateUserProfile />} />
           </Route>
         </Routes>
       </UserContext.Provider>

@@ -3,7 +3,7 @@ import { Button, Input, Option, Select } from '@material-tailwind/react'
 import { createUser } from '../utils/fetches/registerFetch.js'
 import { useContext, useState } from 'react'
 import { UserContext } from '../utils/Contexts/UserContext.jsx'
-import upload_icon from '../assets/icons/Editsquare.svg'
+import uploadIcon from '../assets/icons/Editsquare.svg'
 
 function CreateUserProfile() {
   const { userIdContext, setUserIdContext } = useContext(UserContext)
@@ -15,7 +15,8 @@ function CreateUserProfile() {
     createUser(event, userId, navigate)
     setUserIdContext(userId.id)
   }
-  const [imgurl, setImgUrl] = useState('/img/dummy.svg')
+  const [imgUrl, setImgUrl] = useState('/img/dummy.svg')
+
   function previewImage(event) {
     const url = URL.createObjectURL(event.target.files[0])
     setImgUrl(url)
@@ -29,10 +30,10 @@ function CreateUserProfile() {
         </article>
         <form onSubmit={sendUserProfile} className="flex flex-col ">
           <div className=" relative w-[140px] h-[140px] mt-4 mx-auto flex">
-            <img className="object-cover rounded-full p-1 items-center mx-auto" src={imgurl} alt="profile_image" />
+            <img className="object-cover rounded-full p-1 items-center mx-auto" src={imgUrl} alt="profile_image" />
             <img
               className=" absolute bottom-0 right-[5%]"
-              src={upload_icon}
+              src={uploadIcon}
               alt="upload_icon"
               onClick={() => document.getElementById('uploadInput').click()}
             />
@@ -52,9 +53,6 @@ function CreateUserProfile() {
           </div>
           <div className="w-72 mt-3 mx-auto">
             <Input label="date of birth" type="date" name="date_of_birth" required />
-          </div>
-          <div className="w-72 mt-3 mx-auto">
-            <Input label="Email" type="email" name="email" required />
           </div>
           <div className="w-72 mt-3 mx-auto">
             <Input label="Mobile" type="number" name="mobile_number" />

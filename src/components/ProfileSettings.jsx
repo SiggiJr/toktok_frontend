@@ -1,4 +1,5 @@
-import { Link, NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import { useContext } from 'react'
 import user3 from '../assets/icons/3User.svg'
 import arrowdown from '../assets/icons/ArrowDownSquare.svg'
 import bookmark from '../assets/icons/Bookmark.svg'
@@ -7,8 +8,10 @@ import infosquare from '../assets/icons/InfoSquare.svg'
 import scan from '../assets/icons/Scan.svg'
 import setting from '../assets/icons/Setting.svg'
 import timesquare from '../assets/icons/TimeSquare.svg'
+import { UserContext } from '../utils/Contexts/UserContext.jsx'
 
 function ProfileSettings() {
+  const { userIdContext, setUserIdContext } = useContext(UserContext)
   return (
     <div>
       <ul className="flex flex-col gap-6 px-6 rounded-t-3xl border-2 border-zinc-600 absolute bottom-0 w-screen z-10">
@@ -26,7 +29,7 @@ function ProfileSettings() {
         </div>
 
         <li>
-          <Link to={'/'} className="flex gap-5">
+          <Link to={`/update/${userIdContext}`} className="flex gap-5">
             <img src={setting} alt="Setting Icon" className="w-[28px] h-[28px]" />
             <p>Settings</p>
           </Link>
