@@ -1,5 +1,5 @@
 import { useNavigate, useParams } from 'react-router-dom'
-import { Button, Input, Option, Select } from '@material-tailwind/react'
+import { Button, Checkbox, Input, Option, Radio, Select } from '@material-tailwind/react'
 import { createUser } from '../utils/fetches/registerFetch.js'
 import { useContext, useState } from 'react'
 import { UserContext } from '../utils/Contexts/UserContext.jsx'
@@ -58,13 +58,27 @@ function CreateUserProfile() {
         <div className="w-72 mt-3 mx-auto">
           <Input label="Mobile" type="number" name="mobile_number" />
         </div>
-        <div className="w-72 mt-3 mx-auto">
-          <Select label="Gender" name="gender" required>
-            <Option value="male">Male</Option>
-            <Option value="female">Female</Option>
-            <Option value="diverse">Diverse</Option>
-          </Select>
+        <div className="flex w-72 mt-3 mx-auto gap-8 text-blue-gray-400">
+          <div className="flex">
+            <label className=" mr-2" htmlFor="male">
+              Male
+            </label>
+            <input type="radio" name="gender" id="male" />
+          </div>
+          <div className="felx">
+            <label className=" mr-2" htmlFor="female">
+              Female
+            </label>
+            <input type="radio" name="gender" id="female" />
+          </div>
+          <div className="felx">
+            <label className=" mr-2" htmlFor="deverse">
+              Diverse
+            </label>
+            <input type="radio" name="gender" id="deverse" />
+          </div>
         </div>
+
         <div className="w-72 mt-3 mx-auto">
           <Input label="Website" type="text" name="website" />
         </div>
