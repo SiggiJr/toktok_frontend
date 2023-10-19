@@ -1,21 +1,18 @@
-import { useNavigate, useParams } from 'react-router-dom'
-import { Button, Checkbox, Input, Option, Radio, Select } from '@material-tailwind/react'
+import { useNavigate } from 'react-router-dom'
+import { Button, Input } from '@material-tailwind/react'
 import { createUser } from '../utils/fetches/registerFetch.js'
-import { useContext, useState } from 'react'
-import { UserContext } from '../utils/Contexts/UserContext.jsx'
+import { useState } from 'react'
 import uploadIcon from '../assets/icons/Editsquare.svg'
 
 function CreateUserProfile() {
-  const { userIdContext, setUserIdContext } = useContext(UserContext)
-  const userId = useParams()
+  const userId = JSON.parse(sessionStorage.getItem('userId'))
   const navigate = useNavigate()
 
   const sendUserProfile = event => {
     event.preventDefault()
     createUser(event, userId, navigate)
-    console.log('params', userId.id)
-    setUserIdContext(userId.id)
   }
+  console.log(userId)
 
   const [imgUrl, setImgUrl] = useState('/img/dummy.svg')
 
@@ -60,26 +57,26 @@ function CreateUserProfile() {
           <Input label="Mobile" type="number" name="mobile_number" />
         </div>
 
-        <div className="flex w-72 mt-3 mx-auto gap-8 text-blue-gray-400">
+        <div className="flex w-72 mt-3 mx-auto gap-8 text-blue-gray-400 justify-around">
           <div className="flex">
             <label className=" mr-2" htmlFor="male">
               Male
             </label>
-            <input type="radio" name="gender" id="male" />
+            <input type="radio" name="gender" id="male" value="male" />
           </div>
-          <div className="felx">
+          <div className="flex">
             <label className=" mr-2" htmlFor="female">
               Female
             </label>
-            <input type="radio" name="gender" id="female" />
+            <input type="radio" name="gender" id="female" value="female" />
           </div>
-          <div className="felx">
-            <label className=" mr-2" htmlFor="deverse">
+          <div className="flex">
+            <label className=" mr-2" htmlFor="diverse">
               Diverse
             </label>
-            <input type="radio" name="gender" id="deverse" />
+            <input type="radio" name="gender" id="diverse" value="diverse" />
           </div>
-         </div>
+        </div>
 
         <div className="w-72 mt-3 mx-auto">
           <Input label="Website" type="text" name="website" />

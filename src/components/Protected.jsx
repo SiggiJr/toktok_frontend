@@ -18,12 +18,7 @@ function Protected() {
     }
     checkToken()
   }, [])
-  return (
-    <>
-      <h1>protected</h1>
-      {auth && <Outlet />}
-    </>
-  )
+  return <>{auth && <Outlet />}</>
 }
 
 export default Protected
