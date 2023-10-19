@@ -10,8 +10,6 @@ import { useContext } from 'react'
 import { UserContext } from '../utils/Contexts/UserContext'
 
 function MyProfilePage() {
-  const { userIdContext } = useContext(UserContext)
-  console.log(userIdContext)
   return (
     <>
       <section className="flex flex-col px-6 pt-6">

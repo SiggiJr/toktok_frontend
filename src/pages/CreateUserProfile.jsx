@@ -29,6 +29,7 @@ function CreateUserProfile() {
       <article className="mt-6">
         <h2 className="text-start mx-auto text-3xl">Create your user profile</h2>
       </article>
+
       <form onSubmit={sendUserProfile} className="flex flex-col ">
         <div className=" relative w-[140px] h-[140px] mt-4 mx-auto flex">
           <img className="object-cover rounded-full p-1 items-center mx-auto" src={imgUrl} alt="profile_image" />
@@ -58,6 +59,7 @@ function CreateUserProfile() {
         <div className="w-72 mt-3 mx-auto">
           <Input label="Mobile" type="number" name="mobile_number" />
         </div>
+
         <div className="flex w-72 mt-3 mx-auto gap-8 text-blue-gray-400">
           <div className="flex">
             <label className=" mr-2" htmlFor="male">
@@ -77,7 +79,7 @@ function CreateUserProfile() {
             </label>
             <input type="radio" name="gender" id="deverse" />
           </div>
-        </div>
+         </div>
 
         <div className="w-72 mt-3 mx-auto">
           <Input label="Website" type="text" name="website" />
