@@ -9,6 +9,7 @@ export const registerFetch = async (event, navigate) => {
   if (response) {
     const dataJson = response.json()
     const data = JSON.parse(await dataJson)
+    sessionStorage.setItem('userId', JSON.stringify(data.id))
     navigate(`/register/${data.id}`)
   }
 }

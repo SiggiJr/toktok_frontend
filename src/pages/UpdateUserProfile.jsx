@@ -1,15 +1,12 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import uploadIcon from '../assets/icons/Editsquare.svg'
-import { useContext } from 'react'
-import { Button, Input, Option, Select } from '@material-tailwind/react'
+import { Button, Input } from '@material-tailwind/react'
 import { updateUser } from '../utils/fetches/registerFetch.js'
-import { UserContext } from '../utils/Contexts/UserContext'
 import { useNavigate } from 'react-router-dom'
-import { useEffect } from 'react'
 import { getUser } from '../utils/fetches/getUserFetch'
 
 function UpdateUserProfile() {
-  const { userIdContext, setUserIdContext } = useContext(UserContext)
+  const userId = JSON.parse(sessionStorage.getItem('userId'))
   const navigate = useNavigate()
   const [imgUrl, setImgUrl] = useState('/img/dummy.svg')
   const [user, setUser] = useState([])
@@ -24,7 +21,7 @@ function UpdateUserProfile() {
 
   const updateUserProfile = event => {
     event.preventDefault()
-    updateUser(event, userIdContext, navigate)
+    updateUser(event, userId, navigate)
   }
 
   function previewImage(event) {
@@ -65,6 +62,9 @@ function UpdateUserProfile() {
           <Input label="profession" type="text" name="profession" defaultValue={user.profession} />
         </div>
         <div className="w-72 mt-3 mx-auto">
+          <textarea label="bio" name="bio" defaultValue={user?.bio} placeholder="About me" rows="3" />
+        </div>
+        <div className="w-72 mt-3 mx-auto">
           <Input label="date of birth" type="date" name="date_of_birth" defaultValue={user.date_of_birth} required />
         </div>
         <div className="w-72 mt-3 mx-auto">
@@ -73,12 +73,25 @@ function UpdateUserProfile() {
         <div className="w-72 mt-3 mx-auto">
           <Input label="Mobile" type="number" name="mobile_number" defaultValue={user.mobile_number} />
         </div>
-        <div className="w-72 mt-3 mx-auto">
-          <Select label="Gender" name="gender" id="gender" defaultValue={user.gender} required>
-            <Option value="male">Male</Option>
-            <Option value="female">Female</Option>
-            <Option value="diverse">Diverse</Option>
-          </Select>
+        <div className="flex w-72 mt-3 mx-auto gap-8 justify-around text-blue-gray-400">
+          <div className="flex">
+            <label className=" mr-2" htmlFor="male">
+              Male
+            </label>
+            <input type="radio" name="gender" id="male" value="male" />
+          </div>
+          <div className="flex">
+            <label className=" mr-2" htmlFor="female">
+              Female
+            </label>
+            <input type="radio" name="gender" id="female" value="female" />
+          </div>
+          <div className="flex">
+            <label className=" mr-2" htmlFor="diverse">
+              Diverse
+            </label>
+            <input type="radio" name="gender" id="diverse" value="diverse" />
+          </div>
         </div>
         <div className="w-72 mt-3 mx-auto">
           <Input label="Website" type="text" name="website" defaultValue={user.website} />

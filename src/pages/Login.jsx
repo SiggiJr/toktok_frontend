@@ -1,16 +1,12 @@
-import { Link, useNavigate, useParams } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Button, Input } from '@material-tailwind/react'
 import { useState } from 'react'
 import { loginFetch } from '../utils/fetches/loginFetch.js'
 import logo from '../assets/icons/Logo.svg'
 import eye from '../assets/icons/visibility_on.svg'
 import eyeOff from '../assets/icons/visibility_off.svg'
-import { useContext } from 'react'
-import { UserContext } from '../utils/Contexts/UserContext.jsx'
 
 function Login() {
-  const { userIdContext, setUserIdContext } = useContext(UserContext)
-  const userId = useParams()
   const [type, setType] = useState('password')
   const [icon, setIcon] = useState(false)
   const navigate = useNavigate()
@@ -18,7 +14,6 @@ function Login() {
   const login = event => {
     event.preventDefault()
     loginFetch(event, navigate)
-    setUserIdContext(userId.id)
   }
 
   const handleToggle = () => {

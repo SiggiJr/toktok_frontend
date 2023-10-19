@@ -6,6 +6,8 @@ export const loginFetch = async (event, navigate) => {
     body: form,
   })
   if (response) {
+    const data = await response.json()
+    sessionStorage.setItem('userId', JSON.stringify(data.id))
     navigate('/feed')
   }
 }

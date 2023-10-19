@@ -6,10 +6,15 @@ import morecicle from '../assets/icons/MoreCircle.svg'
 import postsicon from '../assets/icons/posticon.svg'
 import { Avatar } from '@material-tailwind/react'
 import edit_icon from '../assets/icons/Editsquare.svg'
-import { useContext } from 'react'
-import { UserContext } from '../utils/Contexts/UserContext'
+import { useEffect, useState } from 'react'
+import { getUser } from '../utils/fetches/getUserFetch.js'
 
 function MyProfilePage() {
+  const [user, setUser] = useState(false)
+
+  useEffect(() => {
+    getUser(setUser)
+  }, [])
   return (
     <>
       <section className="flex flex-col px-6 pt-6">
@@ -25,21 +30,14 @@ function MyProfilePage() {
           </div>
         </article>
         <div className="relative flex flex-col w-max items-end gap-4 w-[120px] h-[120px] mx-auto rounded-full my-6">
-          <Avatar
-            src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
-            alt="avatar"
-            size="xxl"
-          />
+          <Avatar src={user.profile_image_url} alt="avatar" size="xxl" />
           <img className="absolute bottom-0 right-0" src={edit_icon} alt="edit icon" />
         </div>
         <article>
-          <h2 className="text-2xl text-center ">my nickname</h2>
-          <h3 className="text-l text-center py-2">my professtion</h3>
-          <p className=" text-xs text-center text-[#424242]">
-            my bio : Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-            et dolore..
-          </p>
-          <p className="text-xs text-center text-[#246BFD] pt-2">www.yourdomain.com</p>
+          <h2 className="text-2xl text-center ">{user.nickname}</h2>
+          <h3 className="text-l text-center py-2">{user.profession}</h3>
+          <p className=" text-xs text-center text-[#424242]">{user.bio}</p>
+          <p className="text-xs text-center text-[#246BFD] pt-2">{user.website}</p>
         </article>
         <article>
           <ul className="flex justify-between mt-6 mx-7">
