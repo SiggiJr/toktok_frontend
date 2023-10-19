@@ -14,8 +14,8 @@ export const uploadFetch = async (event, navigate) => {
   }
 }
 
-export const newPost = async (params, navigate) => {
-  const form = new FormData()
+export const newPost = async (event, params, navigate) => {
+  const form = new FormData(event.target)
   form.set('imageId', params)
   const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/post/upload`, {
     credentials: 'include',
