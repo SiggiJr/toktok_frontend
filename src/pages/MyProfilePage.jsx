@@ -5,8 +5,12 @@ import edit from '../assets/icons/Edit.svg'
 import morecicle from '../assets/icons/MoreCircle.svg'
 import { Avatar } from '@material-tailwind/react'
 import edit_icon from '../assets/icons/Editsquare.svg'
+import { useContext } from 'react'
+import { UserContext } from '../utils/Contexts/UserContext'
 
 function MyProfilePage() {
+  const { userIdContext } = useContext(UserContext)
+  console.log(userIdContext)
   return (
     <>
       <section className="flex flex-col px-6 pt-6">
@@ -58,7 +62,7 @@ function MyProfilePage() {
         <div></div>
       </section>
 
-      {/* <ProfileSettings /> */}
+      <ProfileSettings />
     </>
   )
 }
