@@ -3,6 +3,7 @@ import logo from '../assets/icons/Logo.svg'
 import plus2 from '../assets/icons/Plus2.svg'
 import edit from '../assets/icons/Edit.svg'
 import morecicle from '../assets/icons/MoreCircle.svg'
+import postsicon from '../assets/icons/posticon.svg'
 import { Avatar } from '@material-tailwind/react'
 import edit_icon from '../assets/icons/Editsquare.svg'
 import { useContext } from 'react'
@@ -59,7 +60,29 @@ function MyProfilePage() {
             </li>
           </ul>
         </article>
-        <div></div>
+        <article>
+          <div className="flex justify-center items-center gap-3 border-b-[3px] border-[#FF4D67] w-1/3 mt-8 pb-2">
+            <img src={postsicon} alt=" post icon" />
+            <h2 className="text-[#FF4D67]">Posts</h2>
+          </div>
+          <ul className="flex flex-wrap my-6">
+            <li className="w-1/3 rounded-2xl overflow-hidden px-1">
+              <img src="../img/IMG_0820.JPG" alt="post image" />
+            </li>
+            <li className="w-1/3 rounded-2xl overflow-hidden px-1">
+              <img src="../img/IMG_0820.JPG" alt="post image" />
+            </li>
+            <li className="w-1/3 rounded-2xl overflow-hidden px-1">
+              <img src="../img/IMG_0820.JPG" alt="post image" />
+            </li>{' '}
+            <li className="w-1/3 rounded-2xl overflow-hidden px-1">
+              <img src="../img/IMG_0820.JPG" alt="post image" />
+            </li>{' '}
+            <li className="w-1/3 rounded-2xl overflow-hidden px-1">
+              <img src="../img/IMG_0820.JPG" alt="post image" />
+            </li>
+          </ul>
+        </article>
       </section>
 
       <ProfileSettings />
