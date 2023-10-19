@@ -7,7 +7,7 @@ export const loginFetch = async (event, navigate) => {
   })
   if (response) {
     const data = await response.json()
-    sessionStorage.setItem('userId', JSON.stringify(data.id))
-    navigate('/feed')
+    sessionStorage.setItem('userId', JSON.stringify(data))
+    navigate('/profile')
   }
 }
