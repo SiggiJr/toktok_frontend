@@ -41,7 +41,6 @@ function Login() {
         <img src={logo} alt="logo icon" className="w-[140px]" />
       </div>
       <form onSubmit={login} className="flex flex-col bg-zinc-600 justify-center">
-        {/* <label htmlFor="email">Email</label> */}
         <div className="w-72 mt-8 mx-auto">
           <Input label="Email" type="email" name="email" id="email" />
         </div>
