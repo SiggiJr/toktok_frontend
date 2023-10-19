@@ -7,7 +7,7 @@ function NewPostPage() {
 
   const sendNewPost = event => {
     event.preventDefault()
-    newPost(imageId, navigate)
+    newPost(event, imageId, navigate)
   }
 
   return (
