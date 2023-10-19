@@ -7,22 +7,14 @@ import infosquare from '../assets/icons/InfoSquare.svg'
 import scan from '../assets/icons/Scan.svg'
 import setting from '../assets/icons/Setting.svg'
 import timesquare from '../assets/icons/TimeSquare.svg'
+import line from '../assets/icons/Line.svg'
 
 function ProfileSettings() {
   return (
     <div>
       <ul className="flex flex-col gap-6 px-6 rounded-t-3xl border-2 border-zinc-600 absolute bottom-0 w-screen z-10">
         <div className="flex mx-auto pt-2">
-          <svg xmlns="http://www.w3.org/2000/svg" width="38" height="3" viewBox="0 0 38 3" fill="none">
-            <g clip-path="url(#clip0_1_1683)">
-              <rect width="38" height="3" rx="1.5" fill="#E0E0E0" />
-            </g>
-            <defs>
-              <clipPath id="clip0_1_1683">
-                <rect width="38" height="3" fill="white" />
-              </clipPath>
-            </defs>
-          </svg>
+          <img src={line} alt="" />
         </div>
 
         <li>

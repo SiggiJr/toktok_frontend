@@ -11,7 +11,7 @@ function MyProfilePage() {
     <>
       <section className="flex flex-col px-6 pt-6">
         <article className="flex gap-2 justify-between items-center">
-          <div className="flex">
+          <div className="flex gap-2">
             <img src={logo} alt="logo img" className="w-[32px] h-[32px]" />
             <h2 className="text-2xl">my profile</h2>
           </div>
@@ -29,9 +29,36 @@ function MyProfilePage() {
           />
           <img className="absolute bottom-0 right-0" src={edit_icon} alt="edit icon" />
         </div>
-        <h2 className="text-2xl">my name</h2>
+        <article>
+          <h2 className="text-2xl text-center ">my nickname</h2>
+          <h3 className="text-l text-center py-2">my professtion</h3>
+          <p className=" text-xs text-center text-[#424242]">
+            my bio : Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+            et dolore..
+          </p>
+          <p className="text-xs text-center text-[#246BFD] pt-2">www.yourdomain.com</p>
+        </article>
+        <article>
+          <ul className="flex justify-between mt-6 mx-7">
+            <li className="flex flex-col items-center">
+              <span className="text-2xl">0</span>
+              <p className="text-sm text-[#424242]">posts</p>
+            </li>
+
+            <li className="flex flex-col items-center">
+              <span className="text-2xl">0</span>
+              <p className="text-sm text-[#424242]">followers</p>
+            </li>
+            <li className="flex flex-col items-center">
+              <span className="text-2xl">0</span>
+              <p className="text-sm text-[#424242]">following</p>
+            </li>
+          </ul>
+        </article>
+        <div></div>
       </section>
-      <ProfileSettings />
+
+      {/* <ProfileSettings /> */}
     </>
   )
 }

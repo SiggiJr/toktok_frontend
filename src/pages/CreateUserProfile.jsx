@@ -54,9 +54,6 @@ function CreateUserProfile() {
             <Input label="date of birth" type="date" name="date_of_birth" required />
           </div>
           <div className="w-72 mt-3 mx-auto">
-            <Input label="Email" type="email" name="email" required />
-          </div>
-          <div className="w-72 mt-3 mx-auto">
             <Input label="Mobile" type="number" name="mobile_number" />
           </div>
           <div className="w-72 mt-3 mx-auto">
