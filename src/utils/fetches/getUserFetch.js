@@ -10,7 +10,6 @@ export const getUser = async setState => {
 }
 
 export const getFeedFetch = async setState => {
-  const jojojo = await fetch(`${import.meta.env.VITE.BACKEND}`)
   const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/feed/getfeed`, {
     credentials: 'include',
   })
