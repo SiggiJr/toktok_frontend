@@ -17,6 +17,7 @@ export const registerFetch = async (event, navigate) => {
 export const createUser = async (event, params, navigate) => {
   const form = new FormData(event.target)
   form.set('id', params)
+  form.set('following', [])
   const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/user/createprofile`, {
     credentials: 'include',
     method: 'PUT',
