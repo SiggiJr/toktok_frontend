@@ -1,10 +1,13 @@
 import React from 'react'
 
-function FeedsItem(props) {
+function FeedsItem({ post }) {
   return (
     <>
-      <h1>Feedsitem</h1>
-      <p />
+      <div>
+        <h2>{post.nickname}</h2>
+        <h3>{post.title}</h3>
+        <img src={post.image_url} />
+      </div>
     </>
   )
 }
