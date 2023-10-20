@@ -2,6 +2,9 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { newPost } from '../utils/fetches/uploadFetch.js'
 import { getUser } from '../utils/fetches/getUserFetch.js'
+import { Button, Input } from '@material-tailwind/react'
+import back from '../assets/icons/back.svg'
+import mapmaker from '../assets/icons/mapmarker.svg'
 
 function NewPostPage() {
   const navigate = useNavigate()
@@ -18,20 +21,26 @@ function NewPostPage() {
   }, [])
 
   return (
-    <section className=" flex flex-col border-black">
+    <section className=" p-6 flex flex-col border-black">
       <form onSubmit={sendNewPost}>
         <div className=" flex flex-col border-black">
-          <p>BackButton</p>
-          <h1>New Post</h1>
+          <div className="flex gap-2">
+            <img className="w-[17px]" src={back} alt=" back icon " />
+            <h1>New Post</h1>
+          </div>
           {/* post button only available when title is set */}
-          <button className="border-2 border-black text-red-500" type="submit">
+          <Button className="w-72 mt-8 mx-auto bg-[#E98090] rounded-3xl" type="submit">
             Post
-          </button>
-          <input className="border-2 border-black text-red-500" type="text" name="title" />
-          <label htmlFor="location">Add location</label>
-          <input className="border-2 border-black text-red-500" type="text" name="location" />
+          </Button>
+          <div className=" w-48 mt-8 mx-auto">
+            <Input label=" Write a cation .." type="text" name="title" />
+          </div>
+          <div className="flex gap-2 w-72 mt-8 mx-auto">
+            <img src={mapmaker} alt=" map maker icon" />
+            <Input label="Add location" type="text" name="location" />
+          </div>
         </div>
-        <div>
+        <div className="mt-8 ">
           <h2>Also post to</h2>
           <label htmlFor="facebook" />
           <input type="radio" name="facebook" />
