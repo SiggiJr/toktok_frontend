@@ -1,4 +1,4 @@
-export const searchFetch = async (setState, value) => {
+export const searchFetch = async (value, setState) => {
   const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/search/user`, {
     method: 'POST',
     headers: {
