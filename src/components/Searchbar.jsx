@@ -4,15 +4,18 @@ import { searchFetch } from '../utils/fetches/SearchFetch.js'
 
 function Searchbar() {
   const [requestedUser, setRequestedUser] = useState([])
-  const [inputValue, setInputValue] = useState('')
+  const [inputValue, setInputValue] = useState()
 
   useEffect(() => {
     const searchTimeout = setTimeout(() => {
-      searchFetch(setRequestedUser, inputValue)
-    }, 300)
+      searchFetch(inputValue, setRequestedUser)
+    }, 700)
+    return () => {
+      clearTimeout(searchTimeout)
+    }
   }, [inputValue])
 
-  console.log(inputValue)
+  console.log(requestedUser)
 
   return (
     <>
