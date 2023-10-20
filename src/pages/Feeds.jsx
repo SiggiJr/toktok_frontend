@@ -1,5 +1,15 @@
+import { useEffect, useState } from 'react'
+import { getFeedFetch } from '../utils/fetches/getUserFetch.js'
+
 function Feeds() {
-  return <section></section>
+  const [user, setUser] = useState()
+
+  useEffect(event => {
+    event.preventDefault()
+    getFeedFetch(setUser)
+  }, [])
+
+  return <section />
 }
 
 export default Feeds

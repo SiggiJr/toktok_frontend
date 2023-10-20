@@ -1,12 +1,12 @@
+import { Avatar } from '@material-tailwind/react'
+import { useEffect, useState } from 'react'
 import ProfileSettings from '../components/ProfileSettings'
 import logo from '../assets/icons/Logo.svg'
 import plus2 from '../assets/icons/Plus2.svg'
 import edit from '../assets/icons/Edit.svg'
 import morecicle from '../assets/icons/MoreCircle.svg'
 import postsicon from '../assets/icons/posticon.svg'
-import { Avatar } from '@material-tailwind/react'
 import edit_icon from '../assets/icons/Editsquare.svg'
-import { useEffect, useState } from 'react'
 import { getUser } from '../utils/fetches/getUserFetch.js'
 
 function MyProfilePage() {

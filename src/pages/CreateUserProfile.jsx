@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import { Button, Input } from '@material-tailwind/react'
-import { createUser } from '../utils/fetches/registerFetch.js'
 import { useState } from 'react'
+import { createUser } from '../utils/fetches/registerFetch.js'
 import uploadIcon from '../assets/icons/Editsquare.svg'
 
 function CreateUserProfile() {

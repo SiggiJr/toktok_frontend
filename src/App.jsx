@@ -42,9 +42,7 @@ function App() {
         </Route>
       </Routes>
 
-      {location.pathname === '/' ||
-      location.pathname.startsWith === '/login' ||
-      location.pathname.startsWith === '/register' ? null : (
+      {location.pathname === '/' || location.pathname === '/login' || location.pathname === '/register' ? null : (
         <NavbarMobile />
       )}
     </>
