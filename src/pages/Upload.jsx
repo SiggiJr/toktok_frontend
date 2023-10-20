@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import { uploadFetch } from '../utils/fetches/uploadFetch'
 import plus from '../assets/icons/Closesquare.svg'
-import cam from '../assets/icons/Cam.svg'
+import cam from '../assets/icons/cam.svg'
 import { Button } from '@material-tailwind/react'
 
 function Upload() {
