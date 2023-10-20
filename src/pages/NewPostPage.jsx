@@ -2,6 +2,10 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { newPost } from '../utils/fetches/uploadFetch.js'
 import { getUser } from '../utils/fetches/getUserFetch.js'
+import { Button, Input, Switch } from '@material-tailwind/react'
+import back from '../assets/icons/back.svg'
+import mapmaker from '../assets/icons/mapmarker.svg'
+import setting from '../assets/icons/Setting.svg'
 
 function NewPostPage() {
   const navigate = useNavigate()
@@ -18,29 +22,46 @@ function NewPostPage() {
   }, [])
 
   return (
-    <section className=" flex flex-col border-black">
+    <section className=" p-6 flex flex-col border-black">
       <form onSubmit={sendNewPost}>
-        <div className=" flex flex-col border-black">
-          <p>BackButton</p>
-          <h1>New Post</h1>
-          {/* post button only available when title is set */}
-          <button className="border-2 border-black text-red-500" type="submit">
-            Post
-          </button>
-          <input className="border-2 border-black text-red-500" type="text" name="title" />
-          <label htmlFor="location">Add location</label>
-          <input className="border-2 border-black text-red-500" type="text" name="location" />
+        <div className=" flex flex-col">
+          <div className="flex justify-between ">
+            <div className="flex gap-2 items-center">
+              <img className="w-[17px]" src={back} alt=" back icon " />
+              <h1>New Post</h1>
+            </div>
+            {/* post button only available when title is set */}
+            <Button className="w-[150px] bg-[#E98090] rounded-3xl" type="submit">
+              Post
+            </Button>
+          </div>
+          <div className=" w-48 mt-8 mx-auto">
+            <Input label=" Write a cation .." type="text" name="title" />
+          </div>
+          <div className="flex gap-2 w-72 mt-8 mx-auto">
+            <img src={mapmaker} alt=" map maker icon" />
+            <Input label="Add location" type="text" name="location" />
+          </div>
         </div>
-        <div>
+        <div className="my-6 flex flex-col text-[#424242]">
           <h2>Also post to</h2>
-          <label htmlFor="facebook" />
-          <input type="radio" name="facebook" />
-          <label htmlFor="x" />
-          <input type="radio" name="x" />
-          <label htmlFor="tumblr" />
-          <input type="radio" name="tumblr" />
+          <div className="flex justify-between ">
+            <label htmlFor="facebook">Facebook</label>
+            <Switch name="facebook" />
+          </div>
+          <div className="flex justify-between ">
+            <label htmlFor="x">X</label>
+            <Switch name="x" />
+          </div>
+          <div className="flex justify-between ">
+            <label htmlFor="tumblr">Tumblr</label>
+            <Switch name="tumblr" />
+          </div>
         </div>
-        <button className="border-2 border-black text-red-500">Advanced Settings</button>
+        <div className="flex gap-2 mt-6">
+          <img src={setting} alt=" setting icon" />
+          <button className="text-[#424242]">Advanced Settings</button>
+        </div>
       </form>
     </section>
   )
