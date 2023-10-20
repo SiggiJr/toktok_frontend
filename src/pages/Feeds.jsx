@@ -4,8 +4,7 @@ import { getFeedFetch } from '../utils/fetches/getUserFetch.js'
 function Feeds() {
   const [user, setUser] = useState()
 
-  useEffect(event => {
-    event.preventDefault()
+  useEffect(() => {
     getFeedFetch(setUser)
   }, [])
 
