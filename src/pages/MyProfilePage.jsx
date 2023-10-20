@@ -67,21 +67,24 @@ function MyProfilePage() {
             <img src={postsicon} alt=" post icon" />
             <h2 className="text-[#FF4D67]">Posts</h2>
           </div>
-          <ul className="flex flex-wrap my-6">
-            <li className="w-1/3 rounded-2xl overflow-hidden px-1">
-              <img src="../img/IMG_0820.JPG" alt="post image" />
+          <ul className="flex flex-wrap my-6 overflow-hidden">
+            <li className="w-1/3 overflow-hidden px-1">
+              <img src="../img/IMG_0820.JPG" alt="post image" className="rounded-2xl" />
             </li>
-            <li className="w-1/3 rounded-2xl overflow-hidden px-1">
-              <img src="../img/IMG_0820.JPG" alt="post image" />
+            <li className="w-1/3 overflow-hidden px-1">
+              <img src="../img/IMG_0820.JPG" alt="post image" className="rounded-2xl" />
             </li>
-            <li className="w-1/3 rounded-2xl overflow-hidden px-1">
-              <img src="../img/IMG_0820.JPG" alt="post image" />
+            <li className="w-1/3 overflow-hidden px-1">
+              <img src="../img/IMG_0820.JPG" alt="post image" className="rounded-2xl" />
             </li>{' '}
-            <li className="w-1/3 rounded-2xl overflow-hidden px-1">
-              <img src="../img/IMG_0820.JPG" alt="post image" />
+            <li className="w-1/3 overflow-hidden px-1">
+              <img src="../img/IMG_0820.JPG" alt="post image" className="rounded-2xl" />
             </li>{' '}
-            <li className="w-1/3 rounded-2xl overflow-hidden px-1">
-              <img src="../img/IMG_0820.JPG" alt="post image" />
+            <li className="w-1/3 overflow-hidden px-1">
+              <img src="../img/IMG_0820.JPG" alt="post image" className="rounded-2xl" />
+            </li>
+            <li className="w-1/3 overflow-hidden px-1">
+              <img src="../img/IMG_0820.JPG" alt="post image" className="rounded-2xl" />
             </li>
           </ul>
         </article>

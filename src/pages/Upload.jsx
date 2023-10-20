@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import { uploadFetch } from '../utils/fetches/uploadFetch'
 import plus from '../assets/icons/Closesquare.svg'
+import cam from '../assets/icons/Cam.svg'
 import { Button } from '@material-tailwind/react'
 
 function Upload() {
@@ -52,6 +53,41 @@ function Upload() {
             </Button>
           </div>
         </form>
+      </article>
+      <article>
+        <div className="flex justify-center items-center gap-3 border-b-[3px] border-[#FF4D67] w-1/3 mt-8 pb-2">
+          <img src={cam} alt=" plus icon" />
+          <h2 className="text-[#FF4D67]">Gallery</h2>
+        </div>
+        <ul className="flex flex-wrap my-6 overflow-hidden h-[270px]">
+          <li className="w-1/3 rounded- overflow-hidden px-1 py-1">
+            <img src="../img/IMG_0820.JPG" alt="post image" className="rounded-xl" />
+          </li>
+          <li className="w-1/3 overflow-hidden px-1 py-1">
+            <img src="../img/IMG_0820.JPG" alt="post image" className="rounded-xl" />
+          </li>
+          <li className="w-1/3 overflow-hidden px-1 py-1">
+            <img src="../img/IMG_0820.JPG" alt="post image" className="rounded-xl" />
+          </li>{' '}
+          <li className="w-1/3 overflow-hidden px-1 py-1">
+            <img src="../img/IMG_0820.JPG" alt="post image" className="rounded-xl" />
+          </li>{' '}
+          <li className="w-1/3 overflow-hidden px-1 py-1">
+            <img src="../img/IMG_0820.JPG" alt="post image" className="rounded-xl" />
+          </li>
+          <li className="w-1/3 overflow-hidden px-1 py-1">
+            <img src="../img/IMG_0820.JPG" alt="post image" className="rounded-xl" />
+          </li>
+          <li className="w-1/3 overflow-hidden px-1 py-1">
+            <img src="../img/IMG_0820.JPG" alt="post image" className="rounded-xl" />
+          </li>
+          <li className="w-1/3 overflow-hidden px-1 py-1">
+            <img src="../img/IMG_0820.JPG" alt="post image" className="rounded-xl" />
+          </li>
+          <li className="w-1/3 overflow-hidden px-1 py-1">
+            <img src="../img/IMG_0820.JPG" alt="post image" className="rounded-xl" />
+          </li>
+        </ul>
       </article>
     </section>
   )
