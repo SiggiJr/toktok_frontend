@@ -9,7 +9,7 @@ import postsicon from '../assets/icons/posticon.svg'
 import edit_icon from '../assets/icons/Editsquare.svg'
 import { getUser } from '../utils/fetches/getUserFetch.js'
 
-function MyProfilePage() {
+function MyProfilePage({ loading, setLoading }) {
   const [user, setUser] = useState(false)
   const [isExpanded, setIsExpanded] = useState(false)
   const handleMoreCycleClick = () => {
@@ -19,7 +19,8 @@ function MyProfilePage() {
 
   useEffect(() => {
     getUser(setUser)
-  }, [])
+    setLoading(true)
+  }, [loading])
 
   return (
     <>

@@ -17,8 +17,10 @@ import CommentDetails from './shared/CommentDetails.jsx'
 import CreateUserProfile from './pages/CreateUserProfile.jsx'
 import UpdateUserProfile from './pages/UpdateUserProfile.jsx'
 import NewPostPage from './pages/NewPostPage.jsx'
+import { useState } from 'react'
 
 function App() {
+  const [navbarLoading, setNavbarLoading] = useState(false)
   return (
     <>
       <Routes>
@@ -28,7 +30,7 @@ function App() {
         <Route element={<Protected />}>
           <Route path="/register/:id" element={<CreateUserProfile />} />
           <Route path="/feed" element={<Feeds />} />
-          <Route path="/profile" element={<MyProfilePage />} />
+          <Route path="/profile" element={<MyProfilePage loading={navbarLoading} setLoading={setNavbarLoading} />} />
           <Route path="/user/:user" element={<OtherUserProfile />} />
           <Route path="/closefriends" element={<CloseFriends />} />
           <Route path="/details" element={<Details />} />
@@ -41,7 +43,6 @@ function App() {
           <Route path="/update/:id" element={<UpdateUserProfile />} />
         </Route>
       </Routes>
-
       {location.pathname === '/' || location.pathname === '/login' || location.pathname === '/register' ? null : (
         <NavbarMobile />
       )}
