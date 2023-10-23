@@ -14,9 +14,11 @@ function SearchUserItem({ user }) {
             <p className="text-xs text-center text-[#424242]">{user.profession}</p>
           </div>
         </div>
+
         <div>
           <SetFollow />
         </div>
+
       </article>
     </Link>
   )
