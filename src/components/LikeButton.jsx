@@ -1,8 +1,8 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import like from '../assets/icons/Heart.svg'
 import { getLikes } from '../utils/fetches/getLikesFetch.js'
 
-function LikeButton({ nickname, likesAmount, postId }) {
+function LikeButton({ nickname, likesAmount, postId, setReload }) {
   const [likes, setLikes] = useState(() => {
     const result = likesAmount.reduce((accumulator, likeStatus) => {
       if (likeStatus === JSON.parse(sessionStorage.getItem('nickname'))) {
@@ -16,7 +16,7 @@ function LikeButton({ nickname, likesAmount, postId }) {
   })
 
   const handleLikes = () => {
-    getLikes(nickname, postId)
+    getLikes(nickname, postId, setReload)
   }
 
   return (

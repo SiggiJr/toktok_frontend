@@ -5,7 +5,6 @@ export const getUser = async setState => {
   if (response.ok) {
     const userData = await response.json()
     setState(userData)
-    console.log(userData)
   }
 }
 
@@ -16,7 +15,6 @@ export const getFeedFetch = async setState => {
   if (response.ok) {
     const userData = await response.json()
     setState(userData)
-    console.log(userData)
   }
 }
 
@@ -27,6 +25,5 @@ export const getUserProfile = async (param, setState) => {
   if (response.ok) {
     const userData = await response.json()
     setState(userData)
-    console.log(userData)
   }
 }

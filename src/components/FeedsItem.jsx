@@ -1,8 +1,8 @@
 import React from 'react'
 import LikeButton from './LikeButton.jsx'
 
-function FeedsItem({ post }) {
-  console.log(post)
+function FeedsItem({ post, setReload }) {
+  // console.log(post)
   return (
     <>
       <div>
@@ -13,6 +13,7 @@ function FeedsItem({ post }) {
           nickname={JSON.parse(sessionStorage.getItem('nickname'))}
           likesAmount={post.likes || []}
           postId={post._id}
+          setReload={setReload}
         />
       </div>
     </>
