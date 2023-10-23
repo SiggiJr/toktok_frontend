@@ -7,11 +7,13 @@ import { useState } from 'react'
 
 function Upload() {
   const [selectedImage, setSelectedImage] = useState(null)
+
   function handleImageChange(event) {
     const file = event.target.files[0]
     const imageUrl = URL.createObjectURL(file)
     setSelectedImage(imageUrl)
   }
+
   const navigate = useNavigate()
   const upload = event => {
     event.preventDefault()
@@ -63,6 +65,7 @@ function Upload() {
                 type="file"
                 className="hidden"
                 onChange={handleImageChange}
+                required
               />
             </label>
           </div>
