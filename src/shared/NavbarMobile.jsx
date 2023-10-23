@@ -1,11 +1,11 @@
 import { NavLink, useLocation } from 'react-router-dom'
-import home from '../assets/icons/Home.svg'
-import homeRed from '../assets/icons/Home_red.svg'
-import search from '../assets/icons/Search.svg'
-import searchRed from '../assets/icons/Search_red.svg'
-import upload from '../assets/icons/Plus.svg'
-import uploadRed from '../assets/icons/Plus_red.svg'
-import profile from '../assets/icons/Profil.svg'
+import homeIcon from '../assets/icons/Home.svg'
+import homeIconRed from '../assets/icons/Home_red.svg'
+import searchIcon from '../assets/icons/Search.svg'
+import searchIconRed from '../assets/icons/Search_red.svg'
+import uploadIcon from '../assets/icons/Plus.svg'
+import uploadIconRed from '../assets/icons/Plus_red.svg'
+import profileIcon from '../assets/icons/Profil.svg'
 import profileRed from '../assets/icons/Profil_red.svg'
 import { useState } from 'react'
 import Searchbar from '../components/Searchbar.jsx'
@@ -50,7 +50,7 @@ function NavbarMobile() {
     <ul className=" absolute bottom-0 left-0 right-0 flex w-sceen justify-evenly  h-12 text-[#9E9E9E] text-[10px]">
       <li className="flex flex-col justify-center items-center">
         <NavLink to="/feed" onClick={handleHomeClick}>
-          <img src={isHomeActive ? homeRed : home} alt="home icon" className="h-[24px] mx-auto" />
+          <img src={isHomeActive ? homeIconRed : homeIcon} alt="home icon" className="h-[24px] mx-auto" />
           <p style={isHomeActive ? { color: 'red' } : { color: ' ' }}>Home</p>
         </NavLink>
       </li>
@@ -61,20 +61,20 @@ function NavbarMobile() {
             handleSearchClick()
             setToggleSearchBar(!toggleSearchBar)
           }}>
-          <img src={isSearchActive ? searchRed : search} alt="search icon" className="h-[24px] mx-auto" />
+          <img src={isSearchActive ? searchIconRed : searchIcon} alt="search icon" className="h-[24px] mx-auto" />
           <p style={isSearchActive ? { color: 'red' } : { color: ' ' }}>Search</p>
         </NavLink>
         {toggleSearchBar && <Searchbar />}
       </li>
       <li className="flex flex-col justify-center">
         <NavLink to="/upload" onClick={handleUploadeClick}>
-          <img src={isUploadActive ? uploadRed : upload} alt="upload icon" className="h-[24px] mx-auto" />
+          <img src={isUploadActive ? uploadIconRed : uploadIcon} alt="upload icon" className="h-[24px] mx-auto" />
           <p style={isUploadActive ? { color: 'red' } : { color: ' ' }}>Upload</p>
         </NavLink>
       </li>
       <li className="flex flex-col justify-center">
         <NavLink to="/profile" onClick={handleProfileClick}>
-          <img src={isProfileActive ? profileRed : profile} alt="profile icon" className="h-[24px] mx-auto" />
+          <img src={isProfileActive ? profileRed : profileIcon} alt="profile icon" className="h-[24px] mx-auto" />
           <p style={isProfileActive ? { color: 'red' } : { color: ' ' }}>Profile</p>
         </NavLink>
       </li>

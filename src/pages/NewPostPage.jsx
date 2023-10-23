@@ -1,11 +1,11 @@
 import { useNavigate, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import { newPost } from '../utils/fetches/uploadFetch.js'
-import { getUser } from '../utils/fetches/getUserFetch.js'
 import { Button, Input, Switch } from '@material-tailwind/react'
-import back from '../assets/icons/back.svg'
-import mapmaker from '../assets/icons/mapmarker.svg'
-import setting from '../assets/icons/Setting.svg'
+import { getUser } from '../utils/fetches/getUserFetch.js'
+import backIcon from '../assets/icons/back.svg'
+import { newPost } from '../utils/fetches/uploadFetch.js'
+import locationIcon from '../assets/icons/mapmarker.svg'
+import settingIcon from '../assets/icons/Setting.svg'
 
 function NewPostPage() {
   const navigate = useNavigate()
@@ -27,7 +27,7 @@ function NewPostPage() {
         <div className=" flex flex-col">
           <div className="flex justify-between ">
             <div className="flex gap-2 items-center">
-              <img className="w-[17px]" src={back} alt=" back icon " />
+              <img className="w-[17px]" src={backIcon} alt=" back icon " />
               <h1>New Post</h1>
             </div>
             {/* post button only available when title is set */}
@@ -39,7 +39,7 @@ function NewPostPage() {
             <Input label=" Write a cation .." type="text" name="title" />
           </div>
           <div className="flex gap-2 w-72 mt-8 mx-auto">
-            <img src={mapmaker} alt=" map maker icon" />
+            <img src={locationIcon} alt=" map maker icon" />
             <Input label="Add location" type="text" name="location" />
           </div>
         </div>
@@ -59,7 +59,7 @@ function NewPostPage() {
           </div>
         </div>
         <div className="flex gap-2 mt-6">
-          <img src={setting} alt=" setting icon" />
+          <img src={settingIcon} alt=" setting icon" />
           <button className="text-[#424242]">Advanced Settings</button>
         </div>
       </form>

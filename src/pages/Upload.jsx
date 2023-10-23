@@ -1,8 +1,8 @@
 import { useNavigate } from 'react-router-dom'
-import { uploadFetch } from '../utils/fetches/uploadFetch'
-import plus from '../assets/icons/Closesquare.svg'
-import cam from '../assets/icons/cam.svg'
 import { Button } from '@material-tailwind/react'
+import { uploadFetch } from '../utils/fetches/uploadFetch'
+import closeIcon from '../assets/icons/Closesquare.svg'
+import cameraIcon from '../assets/icons/cam.svg'
 
 function Upload() {
   const navigate = useNavigate()
@@ -15,7 +15,7 @@ function Upload() {
   return (
     <section className="p-6 flex flex-col">
       <article className="flex mt-6 gap-2 items-center">
-        <img src={plus} alt=" plus icon" />
+        <img src={closeIcon} alt=" plus icon" />
         <h2 className="text-xl">New Post</h2>
       </article>
       <article className="mt-6">
@@ -56,7 +56,7 @@ function Upload() {
       </article>
       <article>
         <div className="flex justify-center items-center gap-3 border-b-[3px] border-[#FF4D67] w-1/3 mt-8 pb-2">
-          <img src={cam} alt=" plus icon" />
+          <img src={cameraIcon} alt=" plus icon" />
           <h2 className="text-[#FF4D67]">Gallery</h2>
         </div>
         <ul className="flex flex-wrap my-6 overflow-hidden h-[270px]">

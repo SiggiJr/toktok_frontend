@@ -1,20 +1,22 @@
 import { Avatar } from '@material-tailwind/react'
 import { useEffect, useState } from 'react'
 import ProfileSettings from '../components/ProfileSettings'
-import logo from '../assets/icons/Logo.svg'
-import plus2 from '../assets/icons/Plus2.svg'
+import brandIcon from '../assets/icons/Logo.svg'
+import plusIcon from '../assets/icons/Plus2.svg'
 import edit from '../assets/icons/Edit.svg'
-import morecicle from '../assets/icons/MoreCircle.svg'
-import postsicon from '../assets/icons/posticon.svg'
-import edit_icon from '../assets/icons/Editsquare.svg'
+import moreIcon from '../assets/icons/MoreCircle.svg'
+import postIcon from '../assets/icons/posticon.svg'
+import editIcon from '../assets/icons/Editsquare.svg'
 import { getUser } from '../utils/fetches/getUserFetch.js'
 
 function MyProfilePage({ loading, setLoading }) {
   const [user, setUser] = useState(false)
   const [isExpanded, setIsExpanded] = useState(false)
+
   const handleMoreCycleClick = () => {
     setIsExpanded(prevState => !prevState)
   }
+
   const handleEditClick = () => {}
 
   useEffect(() => {
@@ -27,18 +29,18 @@ function MyProfilePage({ loading, setLoading }) {
       <section className="flex flex-col px-6 pt-6">
         <article className="flex gap-2 justify-between items-center">
           <div className="flex gap-2">
-            <img src={logo} alt="logo img" className="w-[32px] h-[32px]" />
+            <img src={brandIcon} alt="logo img" className="w-[32px] h-[32px]" />
             <h2 className="text-2xl">my profile</h2>
           </div>
           <div className="flex gap-2">
-            <img src={plus2} alt=" plus icon" />
+            <img src={plusIcon} alt=" plus icon" />
             <img src={edit} alt="edit icon" onClick={handleEditClick} />
-            <img src={morecicle} alt="more icon" onClick={handleMoreCycleClick} />
+            <img src={moreIcon} alt="more icon" onClick={handleMoreCycleClick} />
           </div>
         </article>
         <div className="relative flex flex-col w-max items-end gap-4 w-[120px] h-[120px] mx-auto rounded-full my-6">
           <Avatar src={user.profile_image_url} alt="avatar" size="xxl" />
-          <img className="absolute bottom-0 right-0" src={edit_icon} alt="edit icon" />
+          <img className="absolute bottom-0 right-0" src={editIcon} alt="edit icon" />
         </div>
         <article>
           <h2 className="text-2xl text-center ">{user.nickname}</h2>
@@ -65,7 +67,7 @@ function MyProfilePage({ loading, setLoading }) {
         </article>
         <article>
           <div className="flex justify-center items-center gap-3 border-b-[3px] border-[#FF4D67] w-1/3 mt-8 pb-2">
-            <img src={postsicon} alt=" post icon" />
+            <img src={postIcon} alt=" post icon" />
             <h2 className="text-[#FF4D67]">Posts</h2>
           </div>
           <ul className="flex flex-wrap my-6 overflow-hidden">

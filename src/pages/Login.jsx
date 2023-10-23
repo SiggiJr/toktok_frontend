@@ -2,7 +2,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { Button, Input } from '@material-tailwind/react'
 import { useState } from 'react'
 import { loginFetch } from '../utils/fetches/loginFetch.js'
-import logo from '../assets/icons/Logo.svg'
+import brandIcon from '../assets/icons/Logo.svg'
 import eye from '../assets/icons/visibility_on.svg'
 import eyeOff from '../assets/icons/visibility_off.svg'
 
@@ -33,7 +33,7 @@ function Login() {
         <h2 className="text-start w-72 mx-auto text-4xl">Account</h2>
       </article>
       <div className=" my-28">
-        <img src={logo} alt="logo icon" className="w-[140px]" />
+        <img src={brandIcon} alt="logo icon" className="w-[140px]" />
       </div>
       <form onSubmit={login} className="flex flex-col bg-zinc-600 justify-center">
         <div className="w-72 mt-8 mx-auto">

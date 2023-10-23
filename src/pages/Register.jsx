@@ -3,7 +3,7 @@ import { Button, Input } from '@material-tailwind/react'
 import { Link, useNavigate } from 'react-router-dom'
 import eyeOff from '../../src/assets/icons/visibility_off.svg'
 import eye from '../../src/assets/icons/visibility_on.svg'
-import logo from '../assets/icons/Logo.svg'
+import brandIcon from '../assets/icons/Logo.svg'
 import { registerFetch } from '../utils/fetches/registerFetch.js'
 
 function Register() {
@@ -32,7 +32,7 @@ function Register() {
         <h2 className="text-start w-72 mx-auto text-4xl">Account</h2>
       </article>
       <div className=" my-28">
-        <img src={logo} alt="logo icon" className="w-[140px]" />
+        <img src={brandIcon} alt="logo icon" className="w-[140px]" />
       </div>
       <form onSubmit={register} className="felx flex-col bg-zinc-600 justify-center">
         <div className="w-72 mt-8 mx-auto">
