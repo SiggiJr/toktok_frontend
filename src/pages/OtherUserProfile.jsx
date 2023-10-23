@@ -5,6 +5,7 @@ import brandIcon from '../assets/icons/Logo.svg'
 import { Avatar } from '@material-tailwind/react'
 import postIcon from '../assets/icons/posticon.svg'
 import SetFollow from '../components/SetFollow.jsx'
+import backIcon from '../assets/icons/back.svg'
 
 function OtherUserProfile() {
   const userId = useParams().id
@@ -19,7 +20,8 @@ function OtherUserProfile() {
     <section className="flex flex-col px-6 pt-6">
       <article className="flex gap-2 justify-between items-center">
         <div className="flex gap-2">
-          <img src={brandIcon} alt="logo img" className="w-[32px] h-[32px]" />
+          <img src={backIcon} alt="logo img" className="w-[17px] h-[32px]" />
+          <h2 className="text-2xl text-center ">{user.nickname}</h2>
         </div>
       </article>
       <div className="relative flex flex-col w-max items-end gap-4 w-[120px] h-[120px] mx-auto rounded-full my-6">
