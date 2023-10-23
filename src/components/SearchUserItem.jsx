@@ -1,4 +1,3 @@
-import { Button } from '@material-tailwind/react'
 import { Link } from 'react-router-dom'
 
 function SearchUserItem({ user }) {
@@ -14,9 +13,6 @@ function SearchUserItem({ user }) {
             <p className="text-xs text-center text-[#424242]">{user.profession}</p>
           </div>
         </div>
-        <Button className="h-fit bg-[#E98090] rounded-3xl" type="submit">
-          <p>Follow</p>
-        </Button>
       </article>
     </Link>
   )
