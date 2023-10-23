@@ -1,7 +1,6 @@
 import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { getUserProfile } from '../utils/fetches/getUserFetch.js'
-import brandIcon from '../assets/icons/Logo.svg'
 import { Avatar } from '@material-tailwind/react'
 import postIcon from '../assets/icons/posticon.svg'
 import SetFollow from '../components/SetFollow.jsx'
@@ -40,22 +39,21 @@ function OtherUserProfile() {
       <article>
         <ul className="flex justify-between mt-6 mx-7">
           <li className="flex flex-col items-center">
-            <span className="text-2xl">0</span>
+            <span className="text-2xl">{user.posts.length}</span>
             <p className="text-sm text-[#424242]">posts</p>
           </li>
-
           <li className="flex flex-col items-center">
-            <span className="text-2xl">0</span>
-            <p className="text-sm text-[#424242]">followers</p>
+            <span className="text-2xl">{user.follower.length}</span>
+            <p className="text-sm text-[#424242]">Followers</p>
           </li>
           <li className="flex flex-col items-center">
-            <span className="text-2xl">0</span>
-            <p className="text-sm text-[#424242]">following</p>
+            <span className="text-2xl">{user.following.length}</span>
+            <p className="text-sm text-[#424242]">Following</p>
           </li>
         </ul>
       </article>
       <div className="mt-4 flex w-[27]">
-        <SetFollow nickname={user.nickname} follower={user.follower || []}/>
+        <SetFollow nickname={user.nickname} follower={user.follower || []} />
       </div>
       <article>
         <div className="flex justify-center items-center gap-3 border-b-[3px] border-[#FF4D67] w-1/3 mt-8 pb-2">
