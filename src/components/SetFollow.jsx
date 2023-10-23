@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { updateFollower } from '../utils/fetches/followerFetch.js'
+import { Button } from '@material-tailwind/react'
 
 function SetFollow({ follower, nickname }) {
   const [follow, setFollow] = useState()
@@ -25,9 +26,9 @@ function SetFollow({ follower, nickname }) {
 
   return (
     <>
-      <button onClick={handleFollow} type="button">
+      <Button className="h-fit w-full bg-[#E98090] rounded-3xl" onClick={handleFollow} type="button">
         {follow ? 'Unfollow' : 'Follow'}
-      </button>
+      </Button>
     </>
   )
 }
