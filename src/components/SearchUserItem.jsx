@@ -3,6 +3,7 @@ import SetFollow from './SetFollow'
 
 function SearchUserItem({ user }) {
   return (
+    <>
     <Link to={`/user/${user._id}`}>
       <article className="flex justify-between items-center mt-2">
         <div className="flex gap-2">
@@ -14,13 +15,14 @@ function SearchUserItem({ user }) {
             <p className="text-xs text-center text-[#424242]">{user.profession}</p>
           </div>
         </div>
-
-        <div>
-          <SetFollow />
-        </div>
-
       </article>
     </Link>
+
+        <div>
+          <SetFollow nickname={user.nickname} follower={user.follower || []}/>
+        </div>
+
+    </>
   )
 }
 
