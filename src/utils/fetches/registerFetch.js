@@ -10,11 +10,13 @@ export const registerFetch = async (event, navigate) => {
     const dataJson = response.json()
     const data = JSON.parse(await dataJson)
     sessionStorage.setItem('userId', JSON.stringify(data.id))
+
     navigate(`/register/${data.id}`)
   }
 }
 
 export const createUser = async (event, params, navigate) => {
+  console.log(event.target)
   const form = new FormData(event.target)
   form.set('id', params)
   form.set('following', [])
@@ -24,6 +26,8 @@ export const createUser = async (event, params, navigate) => {
     body: form,
   })
   if (response) {
+    const data = await response.json()
+    sessionStorage.setItem('nickname', JSON.stringify(data))
     navigate('/profile')
   }
 }
@@ -37,6 +41,8 @@ export const updateUser = async (event, params, navigate) => {
     body: form,
   })
   if (response) {
+    const data = await response.json()
+    sessionStorage.setItem('nickname', JSON.stringify(data))
     navigate('/profile')
   }
 }

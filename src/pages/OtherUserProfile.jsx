@@ -49,7 +49,7 @@ function OtherUserProfile() {
         </ul>
       </article>
       <div>
-        <SetFollow />
+        <SetFollow follower={user.follower} nickname={user.nickname} />
       </div>
       <article>
         <div className="flex justify-center items-center gap-3 border-b-[3px] border-[#FF4D67] w-1/3 mt-8 pb-2">
