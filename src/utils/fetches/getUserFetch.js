@@ -27,5 +27,6 @@ export const getUserProfile = async (param, setState) => {
   if (response.ok) {
     const userData = await response.json()
     setState(userData)
+    console.log(userData)
   }
 }
