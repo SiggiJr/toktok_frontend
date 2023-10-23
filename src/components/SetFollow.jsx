@@ -22,6 +22,7 @@ function SetFollow({ follower, nickname }) {
   const handleFollow = () => {
     updateFollower(nickname)
     setFollow(!follow)
+    //   jojojo
   }
 
   return (
