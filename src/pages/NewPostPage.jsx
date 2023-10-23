@@ -10,6 +10,7 @@ import settingIcon from '../assets/icons/Setting.svg'
 function NewPostPage() {
   const navigate = useNavigate()
   const imageId = useParams().id
+  console.log(useParams())
   const [user, setUser] = useState([])
 
   const sendNewPost = event => {
@@ -35,25 +36,37 @@ function NewPostPage() {
               Post
             </Button>
           </div>
-          <div className=" w-48 mt-8 mx-auto">
-            <Input label=" Write a cation .." type="text" name="title" />
+          <div className="flex mt-8 items-center">
+            <div className="w-[56px] rounded-full overflow-hidden">
+              <img src={user.profile_image_url} alt=" profile image" />
+            </div>
+            <div className="mx-4">
+              <Input label="Write a caption..." type="text" name="title" />
+            </div>
+            <div className="w-[56px] rounded-2xl overflow-hidden">
+              <img src={user.profile_image_url} alt=" post image" />
+            </div>
           </div>
-          <div className="flex gap-2 w-72 mt-8 mx-auto">
-            <img src={locationIcon} alt=" map maker icon" />
-            <Input label="Add location" type="text" name="location" />
+          <div className="flex mt-8 items-center">
+            <div className=" w-[56px] ">
+              <img src={locationIcon} alt=" map maker icon" />
+            </div>
+            <div className="mx-4">
+              <Input label="Add location" type="text" name="location" />
+            </div>
           </div>
         </div>
-        <div className="my-6 flex flex-col text-[#424242]">
+        <div className="my-6 mt-8 flex flex-col text-[#424242]">
           <h2>Also post to</h2>
-          <div className="flex justify-between ">
+          <div className="flex justify-between mt-4">
             <label htmlFor="facebook">Facebook</label>
             <Switch name="facebook" />
           </div>
-          <div className="flex justify-between ">
+          <div className="flex justify-between mt-2">
             <label htmlFor="x">X</label>
             <Switch name="x" />
           </div>
-          <div className="flex justify-between ">
+          <div className="flex justify-between mt-2">
             <label htmlFor="tumblr">Tumblr</label>
             <Switch name="tumblr" />
           </div>
