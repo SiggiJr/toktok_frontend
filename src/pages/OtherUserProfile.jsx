@@ -39,7 +39,7 @@ function OtherUserProfile() {
       <article>
         <ul className="flex justify-between mt-6 mx-7">
           <li className="flex flex-col items-center">
-            <span className="text-2xl">{user.posts.length}</span>
+            <span className="text-2xl">0</span>
             <p className="text-sm text-[#424242]">posts</p>
           </li>
           <li className="flex flex-col items-center">

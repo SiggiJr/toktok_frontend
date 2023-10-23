@@ -43,7 +43,7 @@ function NavbarMobile() {
     setIsProfileActive(true)
   }
   return (
-    <ul className=" absolute bottom-0 left-0 right-0 flex w-sceen justify-evenly  h-12 text-[#9E9E9E] text-[10px] bg-white">
+    <ul className=" fixed bottom-0 left-0 right-0 flex w-sceen justify-evenly  h-12 text-[#9E9E9E] text-[10px] bg-white">
       <li className="flex flex-col justify-center items-center">
         <NavLink to="/feed" onClick={handleHomeClick}>
           <img src={isHomeActive ? homeIconRed : homeIcon} alt="home icon" className="h-[24px] mx-auto" />

@@ -6,7 +6,6 @@ import plusIcon from '../assets/icons/Plus2.svg'
 import edit from '../assets/icons/Edit.svg'
 import moreIcon from '../assets/icons/MoreCircle.svg'
 import postIcon from '../assets/icons/posticon.svg'
-import editIcon from '../assets/icons/Editsquare.svg'
 import { getUser } from '../utils/fetches/getUserFetch.js'
 
 function MyProfilePage({ loading, setLoading }) {
@@ -44,7 +43,6 @@ function MyProfilePage({ loading, setLoading }) {
         </article>
         <div className="relative flex flex-col w-max items-end gap-4 w-[120px] h-[120px] mx-auto rounded-full my-6">
           <Avatar src={user.profile_image_url} alt="avatar" size="xxl" />
-          <img className="absolute bottom-0 right-0" src={editIcon} alt="edit icon" />
         </div>
         <article>
           <h2 className="text-2xl text-center ">{user.nickname}</h2>
