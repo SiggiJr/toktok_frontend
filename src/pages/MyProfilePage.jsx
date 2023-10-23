@@ -24,6 +24,10 @@ function MyProfilePage({ loading, setLoading }) {
     setLoading(true)
   }, [loading])
 
+  if (!user) {
+    return
+  }
+
   return (
     <>
       <section className="flex flex-col px-6 pt-6">
@@ -52,16 +56,15 @@ function MyProfilePage({ loading, setLoading }) {
           <ul className="flex justify-between mt-6 mx-7">
             <li className="flex flex-col items-center">
               <span className="text-2xl">0</span>
-              <p className="text-sm text-[#424242]">posts</p>
-            </li>
-
-            <li className="flex flex-col items-center">
-              <span className="text-2xl">0</span>
-              <p className="text-sm text-[#424242]">followers</p>
+              <p className="text-sm text-[#424242]">Posts</p>
             </li>
             <li className="flex flex-col items-center">
-              <span className="text-2xl">0</span>
-              <p className="text-sm text-[#424242]">following</p>
+              <span className="text-2xl">{user.follower.length}</span>
+              <p className="text-sm text-[#424242]">Followers</p>
+            </li>
+            <li className="flex flex-col items-center">
+              <span className="text-2xl">{user.following.length}</span>
+              <p className="text-sm text-[#424242]">Following</p>
             </li>
           </ul>
         </article>
