@@ -1,5 +1,5 @@
-import like from '../assets/icons/Heart.svg'
 import { useState } from 'react'
+import like from '../assets/icons/Heart.svg'
 import { getLikes } from '../utils/fetches/getLikesFetch.js'
 
 function LikeButton({ nickname, likesAmount, postId }) {
@@ -19,7 +19,12 @@ function LikeButton({ nickname, likesAmount, postId }) {
     getLikes(nickname, postId)
   }
 
-  return <img onClick={handleLikes} src={like} alt="" />
+  return (
+    <>
+      <img onClick={handleLikes} src={like} alt="" />
+      <p>{likesAmount.length}</p>
+    </>
+  )
 }
 
 export default LikeButton
