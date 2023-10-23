@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
 import { searchFetch } from '../utils/fetches/SearchFetch.js'
-import { input } from '@material-tailwind/react'
 import SearchUserItem from '../components/SearchUserItem.jsx'
+import userPageIcon from '../assets/icons/userPageIcon.svg'
+import { Input } from '@material-tailwind/react'
 
 function SearchPage(props) {
   const [requestedUser, setRequestedUser] = useState([])
@@ -21,25 +22,27 @@ function SearchPage(props) {
 
   console.log(requestedUser)
   return (
-    <>
+    <div className="flex flex-col p-6">
       <form>
-        <input
+        <Input
+          label="search user"
           onChange={event => {
             setInputValue(event.target.value)
           }}
-          placeholder="search user"
-          className="border-4 border-black absolute top-0 w-screen"
           type="text"
           name="requested_user"
           value={inputValue}
         />
       </form>
       <section className="mt-8">
+        <div className="flex justify-center pb-2 border-b-[3px] border-[#FF4D67]">
+          <img src={userPageIcon} alt="" />
+        </div>
         {requestedUser.map(user => (
           <SearchUserItem key={user._id} user={user} />
         ))}
       </section>
-    </>
+    </div>
   )
 }
 
