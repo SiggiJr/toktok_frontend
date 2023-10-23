@@ -56,7 +56,7 @@ function OtherUserProfile() {
       </article>
       <div className="mt-4 flex w-[27]">
         {/* <SetFollow follower={user.follower} nickname={user.nickname} /> */}
-        <SetFollow user={user} nickname={user.nickname} />
+        <SetFollow user={user} nickname={user.nickname} follower={user.follower || []}/>
       </div>
       <article>
         <div className="flex justify-center items-center gap-3 border-b-[3px] border-[#FF4D67] w-1/3 mt-8 pb-2">
