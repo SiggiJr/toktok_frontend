@@ -9,12 +9,16 @@ import backIcon from '../assets/icons/back.svg'
 
 function OtherUserProfile() {
   const userId = useParams().id
-  const [user, setUser] = useState([])
+  const [user, setUser] = useState()
   const [follow, setFollow] = useState('Follow')
 
   useEffect(() => {
     getUserProfile(userId, setUser)
   }, [])
+
+  if (!user) {
+    return
+  }
 
   return (
     <section className="flex flex-col px-6 pt-6">
@@ -51,7 +55,8 @@ function OtherUserProfile() {
         </ul>
       </article>
       <div className="mt-4 flex w-[27]">
-        <SetFollow follower={user.follower} nickname={user.nickname} />
+        {/* <SetFollow follower={user.follower} nickname={user.nickname} /> */}
+        <SetFollow user={user} nickname={user.nickname} />
       </div>
       <article>
         <div className="flex justify-center items-center gap-3 border-b-[3px] border-[#FF4D67] w-1/3 mt-8 pb-2">

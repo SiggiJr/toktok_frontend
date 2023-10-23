@@ -2,27 +2,23 @@ import { useEffect, useState } from 'react'
 import { updateFollower } from '../utils/fetches/followerFetch.js'
 import { Button } from '@material-tailwind/react'
 
-function SetFollow({ follower, nickname }) {
-  const [follow, setFollow] = useState()
-
-  useEffect(() => {
-    const checkFollowStatus = () => {
-      if (follower) {
-        follower.forEach(followStatus => {
-          console.log(followStatus)
-          if (followStatus === JSON.parse(sessionStorage.getItem('nickname'))) {
-            setFollow(true)
-          }
-        })
-      }
-    }
-    checkFollowStatus()
-  }, [follow])
+function SetFollow({ user, nickname }) {
+  const [follow, setFollow] = useState(() => {
+    const result = user.follower.reduce((accumulator, followStatus) => {
+            if (followStatus === JSON.parse(sessionStorage.getItem('nickname'))) {
+              return true;
+            } else {
+              return accumulator; // Falls kein Übereinstimmung gefunden wird, gibt den bisherigen Wert des Akkumulators zurück
+            }
+          }, false);
+          
+          console.log(result);
+          return result
+  })
 
   const handleFollow = () => {
     updateFollower(nickname)
     setFollow(!follow)
-    //   jojojo
   }
 
   return (
