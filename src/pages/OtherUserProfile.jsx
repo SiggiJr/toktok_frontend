@@ -50,7 +50,7 @@ function OtherUserProfile() {
           </li>
         </ul>
       </article>
-      <div>
+      <div className="mt-4 flex w-[27]">
         <SetFollow follower={user.follower} nickname={user.nickname} />
       </div>
       <article>
