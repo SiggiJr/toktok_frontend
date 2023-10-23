@@ -8,7 +8,6 @@ import uploadIconRed from '../assets/icons/Plus_red.svg'
 import profileIcon from '../assets/icons/Profil.svg'
 import profileRed from '../assets/icons/Profil_red.svg'
 import { useState } from 'react'
-import Searchbar from '../components/Searchbar.jsx'
 
 function NavbarMobile() {
   const [toggleSearchBar, setToggleSearchBar] = useState(false)
@@ -24,7 +23,6 @@ function NavbarMobile() {
     setIsSearchActive(false)
     setIsUploadActive(false)
     setIsProfileActive(false)
-    setToggleSearchBar(false)
   }
   const handleSearchClick = () => {
     setIsHomeActive(false)
@@ -37,14 +35,12 @@ function NavbarMobile() {
     setIsSearchActive(false)
     setIsUploadActive(true)
     setIsProfileActive(false)
-    setToggleSearchBar(false)
   }
   const handleProfileClick = () => {
     setIsHomeActive(false)
     setIsSearchActive(false)
     setIsUploadActive(false)
     setIsProfileActive(true)
-    setToggleSearchBar(false)
   }
   return (
     <ul className=" absolute bottom-0 left-0 right-0 flex w-sceen justify-evenly  h-12 text-[#9E9E9E] text-[10px]">
@@ -56,7 +52,7 @@ function NavbarMobile() {
       </li>
       <li className="flex flex-col justify-center">
         <NavLink
-          to="/feed"
+          to="/search"
           onClick={() => {
             handleSearchClick()
             setToggleSearchBar(!toggleSearchBar)
@@ -64,7 +60,6 @@ function NavbarMobile() {
           <img src={isSearchActive ? searchIconRed : searchIcon} alt="search icon" className="h-[24px] mx-auto" />
           <p style={isSearchActive ? { color: 'red' } : { color: ' ' }}>Search</p>
         </NavLink>
-        {toggleSearchBar && <Searchbar />}
       </li>
       <li className="flex flex-col justify-center">
         <NavLink to="/upload" onClick={handleUploadeClick}>

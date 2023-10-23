@@ -19,3 +19,13 @@ export const getFeedFetch = async setState => {
     console.log(userData)
   }
 }
+
+export const getUserProfile = async (param, setState) => {
+  const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/user/${param}`, {
+    credentials: 'include',
+  })
+  if (response.ok) {
+    const userData = await response.json()
+    setState(userData)
+  }
+}

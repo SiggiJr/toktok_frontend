@@ -1,12 +1,16 @@
 import { useEffect, useState } from 'react'
-import { input } from '@material-tailwind/react'
 import { searchFetch } from '../utils/fetches/SearchFetch.js'
+import { input } from '@material-tailwind/react'
+import SearchUserItem from '../components/SearchUserItem.jsx'
 
-function Searchbar() {
+function SearchPage(props) {
   const [requestedUser, setRequestedUser] = useState([])
   const [inputValue, setInputValue] = useState()
 
   useEffect(() => {
+    if (inputValue === '') {
+      return
+    }
     const searchTimeout = setTimeout(() => {
       searchFetch(inputValue, setRequestedUser)
     }, 700)
@@ -16,7 +20,6 @@ function Searchbar() {
   }, [inputValue])
 
   console.log(requestedUser)
-
   return (
     <>
       <form>
@@ -25,14 +28,19 @@ function Searchbar() {
             setInputValue(event.target.value)
           }}
           placeholder="search user"
-          className="border-4 border-black absolute bottom-20 w-screen"
+          className="border-4 border-black absolute top-0 w-screen"
           type="text"
           name="requested_user"
           value={inputValue}
         />
       </form>
+      <section className="mt-8">
+        {requestedUser.map(user => (
+          <SearchUserItem key={user._id} user={user} />
+        ))}
+      </section>
     </>
   )
 }
 
-export default Searchbar
+export default SearchPage

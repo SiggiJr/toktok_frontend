@@ -18,6 +18,7 @@ import CreateUserProfile from './pages/CreateUserProfile.jsx'
 import UpdateUserProfile from './pages/UpdateUserProfile.jsx'
 import NewPostPage from './pages/NewPostPage.jsx'
 import { useState } from 'react'
+import SearchPage from './pages/SearchPage.jsx'
 
 function App() {
   const [navbarLoading, setNavbarLoading] = useState(false)
@@ -31,16 +32,18 @@ function App() {
           <Route path="/register/:id" element={<CreateUserProfile />} />
           <Route path="/feed" element={<Feeds />} />
           <Route path="/profile" element={<MyProfilePage loading={navbarLoading} setLoading={setNavbarLoading} />} />
-          <Route path="/user/:user" element={<OtherUserProfile />} />
+          <Route path="/user/:id" element={<OtherUserProfile />} />
           <Route path="/closefriends" element={<CloseFriends />} />
           <Route path="/details" element={<Details />} />
           <Route path="/details/:postId" element={<CommentDetails />} />
           <Route path="/favorites" element={<FavPage />} />
           <Route path="/feed/:hashtag" element={<HashtagPage />} />
           <Route path="/saved" element={<SavedPosts />} />
+
           <Route path="/upload" element={<Upload />} />
           <Route path="/upload/:id" element={<NewPostPage />} />
           <Route path="/update/:id" element={<UpdateUserProfile />} />
+          <Route path="/search" element={<SearchPage />} />
         </Route>
       </Routes>
       {location.pathname === '/' || location.pathname === '/login' || location.pathname === '/register' ? null : (
