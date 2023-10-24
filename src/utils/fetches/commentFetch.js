@@ -8,3 +8,12 @@ export const getPost = async (postId, setState) => {
     console.log(data)
   }
 }
+
+export const writeComment = async (event, postId) => {
+  const form = new FormData(event.target)
+  const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/post/postdetail/${postId}`, {
+    credentials: 'include',
+    method: 'POST',
+    body: form,
+  })
+}

@@ -1,25 +1,32 @@
 import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import { getPost } from '../utils/fetches/commentFetch.js'
-import { Textarea } from '@material-tailwind/react'
+import { Input } from '@material-tailwind/react'
+import { getPost, writeComment } from '../utils/fetches/commentFetch.js'
 
 function CommentDetails() {
   const postId = useParams().postId
   const [post, setPost] = useState([])
-  console.log(postId)
 
   useEffect(() => {
     getPost(postId, setPost)
   }, [])
+
+  const sendComment = event => {
+    event.preventDefault()
+    writeComment(event, postId)
+  }
 
   return (
     <section>
       <article>
         <h1>comment map</h1>
       </article>
-      <div>
-        <Textarea name="" id="" cols="30" rows="10"></Textarea>
-      </div>
+      <form onSubmit={sendComment}>
+        <Input label="Comment" type="text" name="comment" />
+        <button className="border-2 border-black" type="submit">
+          Comment
+        </button>
+      </form>
     </section>
   )
 }
