@@ -14,6 +14,7 @@ export const getFeedFetch = async setState => {
   })
   if (response.ok) {
     const userData = await response.json()
+    console.log(userData)
     setState(userData)
   }
 }
