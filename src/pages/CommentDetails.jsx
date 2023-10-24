@@ -4,11 +4,12 @@ import { getPost } from '../utils/fetches/commentFetch.js'
 import { Textarea } from '@material-tailwind/react'
 
 function CommentDetails() {
-  const postID = useParams().id
+  const postId = useParams().postId
   const [post, setPost] = useState([])
+  console.log(postId)
 
   useEffect(() => {
-    getPost(setPost())
+    getPost(postId, setPost)
   }, [])
 
   return (
