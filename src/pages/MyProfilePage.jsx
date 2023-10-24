@@ -1,5 +1,6 @@
 import { Avatar } from '@material-tailwind/react'
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import ProfileSettings from '../components/ProfileSettings'
 import brandIcon from '../assets/icons/Logo.svg'
 import plusIcon from '../assets/icons/Plus2.svg'
@@ -7,14 +8,20 @@ import edit from '../assets/icons/Edit.svg'
 import moreIcon from '../assets/icons/MoreCircle.svg'
 import postIcon from '../assets/icons/posticon.svg'
 import { getUser } from '../utils/fetches/getUserFetch.js'
+import { myPostsFetch } from '../utils/fetches/getFeedFetch.js'
+import MyProfilePosts from '../components/MyProfilePosts.jsx'
 
 function MyProfilePage({ loading, setLoading }) {
   const [user, setUser] = useState(false)
   const [isExpanded, setIsExpanded] = useState(false)
-
+  const [myPosts, setMyPosts] = useState([])
   const handleMoreCycleClick = () => {
     setIsExpanded(prevState => !prevState)
   }
+
+  useEffect(() => {
+    myPostsFetch(setMyPosts)
+  }, [])
 
   const handleEditClick = () => {}
 
@@ -37,8 +44,12 @@ function MyProfilePage({ loading, setLoading }) {
             <h2 className="text-2xl">my profile</h2>
           </div>
           <div className="flex gap-2">
-            <img src={plusIcon} alt=" plus icon" />
-            <img src={edit} alt="edit icon" onClick={handleEditClick} />
+            <Link to="/upload">
+              <img src={plusIcon} alt=" plus icon" />
+            </Link>
+            <Link to={`/update/${user._id}`}>
+              <img src={edit} alt="edit icon" onClick={handleEditClick} />
+            </Link>
             <img src={moreIcon} alt="more icon" onClick={handleMoreCycleClick} />
           </div>
         </article>
@@ -54,7 +65,7 @@ function MyProfilePage({ loading, setLoading }) {
         <article>
           <ul className="flex justify-evenly mt-6 ">
             <li className="flex flex-col w-16 items-center">
-              <span className="text-2xl">0</span>
+              <span className="text-2xl">{user.posts?.length}</span>
               <p className="text-sm text-[#424242]">Posts</p>
             </li>
             <li className="flex flex-col w-16 items-center">
@@ -73,24 +84,9 @@ function MyProfilePage({ loading, setLoading }) {
             <h2 className="text-[#FF4D67]">Posts</h2>
           </div>
           <ul className="flex flex-wrap my-6 overflow-hidden">
-            <li className="w-1/3 overflow-hidden px-1 py-1">
-              <img src="../img/IMG_0820.JPG" alt="post image" className="rounded-2xl" />
-            </li>
-            <li className="w-1/3 overflow-hidden px-1 py-1">
-              <img src="../img/IMG_0820.JPG" alt="post image" className="rounded-2xl" />
-            </li>
-            <li className="w-1/3 overflow-hidden px-1 py-1">
-              <img src="../img/IMG_0820.JPG" alt="post image" className="rounded-2xl" />
-            </li>{' '}
-            <li className="w-1/3 overflow-hidden px-1 py-1">
-              <img src="../img/IMG_0820.JPG" alt="post image" className="rounded-2xl" />
-            </li>{' '}
-            <li className="w-1/3 overflow-hidden px-1 py-1">
-              <img src="../img/IMG_0820.JPG" alt="post image" className="rounded-2xl" />
-            </li>
-            <li className="w-1/3 overflow-hidden px-1 py-1">
-              <img src="../img/IMG_0820.JPG" alt="post image" className="rounded-2xl" />
-            </li>
+            {myPosts.map(post => (
+              <MyProfilePosts key={post._id} post={post} />
+            ))}
           </ul>
         </article>
       </section>

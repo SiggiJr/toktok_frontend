@@ -1,4 +1,5 @@
 import { Route, Routes } from 'react-router-dom'
+import { useState } from 'react'
 import Register from './pages/Register.jsx'
 import Brandscreen from './pages/Brandscreen.jsx'
 import Login from './pages/Login.jsx'
@@ -17,7 +18,6 @@ import CommentDetails from './shared/CommentDetails.jsx'
 import CreateUserProfile from './pages/CreateUserProfile.jsx'
 import UpdateUserProfile from './pages/UpdateUserProfile.jsx'
 import NewPostPage from './pages/NewPostPage.jsx'
-import { useState } from 'react'
 import SearchPage from './pages/SearchPage.jsx'
 
 function App() {
@@ -32,7 +32,10 @@ function App() {
           <Route path="/register/:id" element={<CreateUserProfile />} />
           <Route path="/feed" element={<Feeds />} />
           <Route path="/profile" element={<MyProfilePage loading={navbarLoading} setLoading={setNavbarLoading} />} />
-          <Route path="/user/:id" element={<OtherUserProfile />} />
+          <Route
+            path="/user/:id"
+            element={<OtherUserProfile loading={navbarLoading} setLoading={setNavbarLoading} />}
+          />
           <Route path="/closefriends" element={<CloseFriends />} />
           <Route path="/details" element={<Details />} />
           <Route path="/details/:postId" element={<CommentDetails />} />

@@ -1,19 +1,20 @@
 import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import { getUserProfile } from '../utils/fetches/getUserFetch.js'
 import { Avatar } from '@material-tailwind/react'
+import { getUserProfile } from '../utils/fetches/getUserFetch.js'
 import postIcon from '../assets/icons/posticon.svg'
 import SetFollow from '../components/SetFollow.jsx'
 import backIcon from '../assets/icons/back.svg'
+import OtherUserProfilePosts from '../components/OtherUserProfilePosts.jsx'
 
-function OtherUserProfile() {
+function OtherUserProfile({ loading, setLoading }) {
   const userId = useParams().id
   const [user, setUser] = useState()
-  const [follow, setFollow] = useState('Follow')
+  const [posts, setPosts] = useState([])
 
   useEffect(() => {
-    getUserProfile(userId, setUser)
-  }, [])
+    getUserProfile(userId, setUser, setPosts)
+  }, [loading])
 
   if (!user) {
     return
@@ -53,7 +54,7 @@ function OtherUserProfile() {
         </ul>
       </article>
       <div className="mt-4 flex w-[27]">
-        <SetFollow nickname={user.nickname} follower={user.follower || []} />
+        <SetFollow setLoading={setLoading} nickname={user.nickname} follower={user.follower || []} />
       </div>
       <article>
         <div className="flex justify-center items-center gap-3 border-b-[3px] border-[#FF4D67] w-1/3 mt-8 pb-2">
@@ -61,24 +62,9 @@ function OtherUserProfile() {
           <h2 className="text-[#FF4D67]">Posts</h2>
         </div>
         <ul className="flex flex-wrap my-6 overflow-hidden">
-          <li className="w-1/3 overflow-hidden px-1 py-1">
-            <img src="../img/IMG_0820.JPG" alt="post image" className="rounded-2xl" />
-          </li>
-          <li className="w-1/3 overflow-hidden px-1 py-1">
-            <img src="../img/IMG_0820.JPG" alt="post image" className="rounded-2xl" />
-          </li>
-          <li className="w-1/3 overflow-hidden px-1 py-1">
-            <img src="../img/IMG_0820.JPG" alt="post image" className="rounded-2xl" />
-          </li>{' '}
-          <li className="w-1/3 overflow-hidden px-1 py-1">
-            <img src="../img/IMG_0820.JPG" alt="post image" className="rounded-2xl" />
-          </li>{' '}
-          <li className="w-1/3 overflow-hidden px-1 py-1">
-            <img src="../img/IMG_0820.JPG" alt="post image" className="rounded-2xl" />
-          </li>
-          <li className="w-1/3 overflow-hidden px-1 py-1">
-            <img src="../img/IMG_0820.JPG" alt="post image" className="rounded-2xl" />
-          </li>
+          {posts.map(post => (
+            <OtherUserProfilePosts key={post._id} post={post} />
+          ))}
         </ul>
       </article>
     </section>
