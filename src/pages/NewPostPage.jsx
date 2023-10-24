@@ -41,7 +41,7 @@ function NewPostPage() {
           <div className="flex mt-8 items-center">
             <div className=" overflow-hidden">
               <img
-                className="w-[54x] h-[54px] rounded-full object-cover"
+                className="w-[54px] h-[54px] rounded-full object-cover"
                 src={user.profile_image_url}
                 alt=" profile image"
               />
@@ -55,7 +55,7 @@ function NewPostPage() {
             </div>
           </div>
           <div className="flex mt-8 items-center ">
-            <div className="flex w-[54x] h-[54px] p-[10px] overflow-hidden">
+            <div className="flex w-[54px] h-[54px] p-[10px] overflow-hidden">
               <img
                 className="w-[34px] h-[34px] object-center justify-around"
                 src={locationIcon}
@@ -65,7 +65,7 @@ function NewPostPage() {
             <div className="mx-4">
               <Input label="Add location" type="text" name="location" />
             </div>
-            <div className="flex w-[54x] h-[54px]"> </div>
+            <div className="flex w-[54px] h-[54px]"> </div>
           </div>
         </div>
         <div className="my-6 mt-8 flex flex-col text-[#424242]">
