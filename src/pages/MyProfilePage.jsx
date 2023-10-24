@@ -57,11 +57,11 @@ function MyProfilePage({ loading, setLoading }) {
               <p className="text-sm text-[#424242]">Posts</p>
             </li>
             <li className="flex flex-col items-center">
-              <span className="text-2xl">{user.follower.length}</span>
+              <span className="text-2xl">{user.follower?.length}</span>
               <p className="text-sm text-[#424242]">Followers</p>
             </li>
             <li className="flex flex-col items-center">
-              <span className="text-2xl">{user.following.length}</span>
+              <span className="text-2xl">{user.following?.length}</span>
               <p className="text-sm text-[#424242]">Following</p>
             </li>
           </ul>

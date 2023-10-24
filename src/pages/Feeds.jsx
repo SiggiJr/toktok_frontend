@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { getFeedFetch } from '../utils/fetches/getUserFetch.js'
+import { getFeedFetch } from '../utils/fetches/getFeedFetch.js'
 import FeedsItem from '../components/FeedsItem.jsx'
 
 function Feeds() {
