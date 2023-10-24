@@ -1,6 +1,6 @@
 import { useNavigate, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import { Button, Input, Switch } from '@material-tailwind/react'
+import { Button, Input, Switch, Textarea } from '@material-tailwind/react'
 import { getUser } from '../utils/fetches/getUserFetch.js'
 import backIcon from '../assets/icons/back.svg'
 import { getUploadImageUrl, newPost } from '../utils/fetches/uploadFetch.js'
@@ -47,7 +47,7 @@ function NewPostPage() {
               />
             </div>
             <div className="mx-4">
-              <Input label="Write a caption..." type="text" name="title" />
+              <Textarea label="Write a caption..." name="caption" />
             </div>
 
             <div className="overflow-hidden">
@@ -65,7 +65,7 @@ function NewPostPage() {
             <div className="mx-4">
               <Input label="Add location" type="text" name="location" />
             </div>
-            <div className="flex w-[54px] h-[54px]"> </div>
+            <div className="flex w-[54px] h-[54px]"></div>
           </div>
         </div>
         <div className="my-6 mt-8 flex flex-col text-[#424242]">
