@@ -1,7 +1,7 @@
 function OtherUserProfilePosts({ post }) {
   return (
-    <li className="w-1/3 overflow-hidden px-1 py-1">
-      <img className="rounded-2xl" src={post.image_url} alt="" />
+    <li className=" overflow-hidden">
+      <img className="w-[114px] h-[114px] object-cover rounded-2xl p-1" src={post.image_url} alt="" />
     </li>
   )
 }
