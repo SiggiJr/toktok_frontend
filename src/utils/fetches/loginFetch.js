@@ -12,3 +12,7 @@ export const loginFetch = async (event, navigate) => {
     navigate('/profile')
   }
 }
+
+export const logoutFetch = () => {
+  fetch(`${import.meta.env.VITE_BACKEND_URL}/user/logout`)
+}
