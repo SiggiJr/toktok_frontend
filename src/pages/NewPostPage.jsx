@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from 'react-router-dom'
+import { Link, NavLink, useNavigate, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { Button, Input, Switch, Textarea } from '@material-tailwind/react'
 import { getUser } from '../utils/fetches/getUserFetch.js'
@@ -47,11 +47,17 @@ function NewPostPage() {
               />
             </div>
             <div className="mx-4">
+
               <Textarea label="Write a caption..." name="caption" />
+
             </div>
 
             <div className="overflow-hidden">
-              <img className="w-[54x] h-[54px] rounded-2xl object-cover" src={imageUrl?.imageUrl} alt=" post image" />
+              <img
+                className="w-[54x] h-[54px] aspect-square rounded-2xl object-cover"
+                src={imageUrl?.imageUrl}
+                alt=" post image"
+              />
             </div>
           </div>
           <div className="flex mt-8 items-center ">

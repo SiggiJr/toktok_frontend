@@ -61,7 +61,7 @@ function OtherUserProfile({ loading, setLoading }) {
           <img src={postIcon} alt=" post icon" />
           <h2 className="text-[#FF4D67]">Posts</h2>
         </div>
-        <ul className="flex flex-wrap my-6 overflow-hidden">
+        <ul className="flex flex-wrap mt-2 overflow-hidden">
           {posts.map(post => (
             <OtherUserProfilePosts key={post._id} post={post} />
           ))}
