@@ -20,7 +20,7 @@ function OtherUserProfile() {
   }
 
   return (
-    <section className="flex flex-col px-6 pt-6">
+    <section className="flex flex-col p-6 h-screen">
       <article className="flex gap-2 justify-between items-center">
         <div className="flex gap-2">
           <img src={backIcon} alt="logo img" className="w-[17px] h-[32px]" />
@@ -37,16 +37,16 @@ function OtherUserProfile() {
         <p className="text-xs text-center text-[#246BFD] pt-2">{user.website}</p>
       </article>
       <article>
-        <ul className="flex justify-between mt-6 mx-7">
-          <li className="flex flex-col items-center">
+        <ul className="flex justify-evenly mt-6">
+          <li className="flex flex-col w-16 items-center">
             <span className="text-2xl">0</span>
             <p className="text-sm text-[#424242]">posts</p>
           </li>
-          <li className="flex flex-col items-center">
+          <li className="flex flex-col w-16 items-center">
             <span className="text-2xl">{user.follower.length}</span>
             <p className="text-sm text-[#424242]">Followers</p>
           </li>
-          <li className="flex flex-col items-center">
+          <li className="flex flex-col w-16 items-center">
             <span className="text-2xl">{user.following.length}</span>
             <p className="text-sm text-[#424242]">Following</p>
           </li>
@@ -61,22 +61,22 @@ function OtherUserProfile() {
           <h2 className="text-[#FF4D67]">Posts</h2>
         </div>
         <ul className="flex flex-wrap my-6 overflow-hidden">
-          <li className="w-1/3 overflow-hidden px-1">
+          <li className="w-1/3 overflow-hidden px-1 py-1">
             <img src="../img/IMG_0820.JPG" alt="post image" className="rounded-2xl" />
           </li>
-          <li className="w-1/3 overflow-hidden px-1">
+          <li className="w-1/3 overflow-hidden px-1 py-1">
             <img src="../img/IMG_0820.JPG" alt="post image" className="rounded-2xl" />
           </li>
-          <li className="w-1/3 overflow-hidden px-1">
+          <li className="w-1/3 overflow-hidden px-1 py-1">
             <img src="../img/IMG_0820.JPG" alt="post image" className="rounded-2xl" />
           </li>{' '}
-          <li className="w-1/3 overflow-hidden px-1">
+          <li className="w-1/3 overflow-hidden px-1 py-1">
             <img src="../img/IMG_0820.JPG" alt="post image" className="rounded-2xl" />
           </li>{' '}
-          <li className="w-1/3 overflow-hidden px-1">
+          <li className="w-1/3 overflow-hidden px-1 py-1">
             <img src="../img/IMG_0820.JPG" alt="post image" className="rounded-2xl" />
           </li>
-          <li className="w-1/3 overflow-hidden px-1">
+          <li className="w-1/3 overflow-hidden px-1 py-1">
             <img src="../img/IMG_0820.JPG" alt="post image" className="rounded-2xl" />
           </li>
         </ul>
