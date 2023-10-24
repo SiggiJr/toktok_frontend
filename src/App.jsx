@@ -14,7 +14,7 @@ import HashtagPage from './pages/HashtagPage.jsx'
 import SavedPosts from './pages/SavedPosts.jsx'
 import Upload from './pages/Upload.jsx'
 import NavbarMobile from './shared/NavbarMobile.jsx'
-import CommentDetails from './shared/CommentDetails.jsx'
+import CommentDetails from './pages/CommentDetails.jsx'
 import CreateUserProfile from './pages/CreateUserProfile.jsx'
 import UpdateUserProfile from './pages/UpdateUserProfile.jsx'
 import NewPostPage from './pages/NewPostPage.jsx'
@@ -47,6 +47,7 @@ function App() {
           <Route path="/upload/:id" element={<NewPostPage />} />
           <Route path="/update/:id" element={<UpdateUserProfile />} />
           <Route path="/search" element={<SearchPage />} />
+          <Route path="/comment/:postId" element={<CommentDetails />} />
         </Route>
       </Routes>
       {location.pathname === '/' || location.pathname === '/login' || location.pathname === '/register' ? null : (

@@ -47,7 +47,9 @@ function NewPostPage() {
               />
             </div>
             <div className="mx-4">
-              <Textarea className="" label="Write a caption..." type="text" name="title" />
+
+              <Textarea label="Write a caption..." name="caption" />
+
             </div>
 
             <div className="overflow-hidden">
@@ -69,7 +71,7 @@ function NewPostPage() {
             <div className="mx-4">
               <Input label="Add location" type="text" name="location" />
             </div>
-            <div className="flex w-[54px] h-[54px]"> </div>
+            <div className="flex w-[54px] h-[54px]"></div>
           </div>
         </div>
         <div className="my-6 mt-8 flex flex-col text-[#424242]">
