@@ -21,6 +21,7 @@ function MyProfilePage({ loading, setLoading }) {
   useEffect(() => {
     getUser(setUser)
     setLoading(true)
+    console.log(loading)
   }, [loading])
 
   if (!user) {
