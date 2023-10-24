@@ -7,7 +7,7 @@ function Protected() {
 
   useEffect(() => {
     const checkToken = async () => {
-      const response = await fetch(import.meta.env.VITE_BACKEND_URL + '/auth/check', {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/auth/check`, {
         credentials: 'include',
       })
       if (!response.ok) {
