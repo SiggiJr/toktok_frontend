@@ -39,23 +39,35 @@ function NewPostPage() {
             </Button>
           </div>
           <div className="flex mt-8 items-center">
-            <div className="w-[56px] rounded-full overflow-hidden">
-              <img src={user.profile_image_url} alt=" profile image" />
+            <div className=" overflow-hidden">
+              <img
+                className="w-[54x] h-[54px] rounded-full object-cover"
+                src={user.profile_image_url}
+                alt=" profile image"
+              />
             </div>
             <div className="mx-4">
               <Input label="Write a caption..." type="text" name="title" />
             </div>
-            <div className="w-[56px] rounded-2xl overflow-hidden">
-              <img src={imageUrl?.imageUrl} alt=" post image" />
+
+            <div className="overflow-hidden">
+              <img className="w-[54x] h-[54px] rounded-2xl object-cover"
+              src={imageUrl?.imageUrl} alt=" post image" />
+
             </div>
           </div>
-          <div className="flex mt-8 items-center">
-            <div className=" w-[56px] ">
-              <img src={locationIcon} alt=" map maker icon" />
+          <div className="flex mt-8 items-center justify-between">
+            <div className="flex w-[54x] h-[54px] overflow-hidden">
+              <img
+                className="w-[34px] h-[34px] object-center justify-around"
+                src={locationIcon}
+                alt=" map maker icon"
+              />
             </div>
             <div className="mx-4">
               <Input label="Add location" type="text" name="location" />
             </div>
+            <div className="flex w-[54x] h-[54px]"> </div>
           </div>
         </div>
         <div className="my-6 mt-8 flex flex-col text-[#424242]">
