@@ -3,12 +3,16 @@ import SetFollow from './SetFollow'
 
 function SearchUserItem({ user }) {
   return (
-    <section>
+    <section className="flex justify-between items-center ">
       <Link to={`/user/${user._id}`}>
-        <article className="flex justify-between items-center mt-2">
+        <article className="flex justify-between mt-4">
           <div className="flex gap-2">
-            <div className="w-[60px] h-[60px] rounded-full overflow-hidden flex justify-center items-center object-cover">
-              <img src={user.profile_image_url} alt="" />
+            <div className="  flex justify-center items-center">
+              <img
+                className="w-[60px] h-[60px] rounded-full object-cover"
+                src={user.profile_image_url}
+                alt=" profile image"
+              />
             </div>
 
             <div>
@@ -19,7 +23,7 @@ function SearchUserItem({ user }) {
         </article>
       </Link>
 
-      <div>
+      <div className="flex">
         <SetFollow nickname={user.nickname} follower={user.follower || []} />
       </div>
     </section>
