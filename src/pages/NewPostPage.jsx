@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { Button, Input, Switch } from '@material-tailwind/react'
 import { getUser } from '../utils/fetches/getUserFetch.js'
 import backIcon from '../assets/icons/back.svg'
-import { newPost } from '../utils/fetches/uploadFetch.js'
+import { getUploadImageUrl, newPost } from '../utils/fetches/uploadFetch.js'
 import locationIcon from '../assets/icons/mapmarker.svg'
 import settingIcon from '../assets/icons/Setting.svg'
 
@@ -12,6 +12,7 @@ function NewPostPage() {
   const imageId = useParams().id
   console.log(useParams())
   const [user, setUser] = useState([])
+  const [imageUrl, setImageUrl] = useState()
 
   const sendNewPost = event => {
     event.preventDefault()
@@ -20,6 +21,7 @@ function NewPostPage() {
 
   useEffect(() => {
     getUser(setUser)
+    getUploadImageUrl(imageId, setImageUrl)
   }, [])
 
   return (
@@ -47,12 +49,11 @@ function NewPostPage() {
             <div className="mx-4">
               <Input label="Write a caption..." type="text" name="title" />
             </div>
+
             <div className="overflow-hidden">
-              <img
-                className="w-[54x] h-[54px] rounded-2xl object-cover"
-                src={user.profile_image_url}
-                alt=" post image"
-              />
+              <img className="w-[54x] h-[54px] rounded-2xl object-cover"
+              src={imageUrl?.imageUrl} alt=" post image" />
+
             </div>
           </div>
           <div className="flex mt-8 items-center justify-between">

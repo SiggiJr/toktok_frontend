@@ -14,9 +14,20 @@ export const uploadFetch = async (event, navigate) => {
   }
 }
 
+export const getUploadImageUrl = async (imageId, setState) => {
+  const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/post/imageurl/${imageId}`, {
+    credentials: 'include',
+  })
+  if (response.ok) {
+    const data = await response.json()
+    setState(data)
+    console.log(data)
+  }
+}
+
 export const newPost = async (event, params, navigate, user) => {
   const form = new FormData(event.target)
-  form.set('imageId', params)
+  form.set('image_id', params)
   form.set('nickname', user.nickname)
   const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/post/upload`, {
     credentials: 'include',
