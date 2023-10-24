@@ -12,7 +12,7 @@ function Feeds() {
   }, [reload])
 
   return (
-    <section className="flex flex-col p-6">
+    <section className="flex flex-col p-6 h-screen">
       {followerPost.map(post => (
         <FeedsItem key={post._id} post={post} setReload={setReload} />
       ))}

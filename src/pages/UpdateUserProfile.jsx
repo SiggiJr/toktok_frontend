@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import uploadIcon from '../assets/icons/Editsquare.svg'
-import { Button, Input } from '@material-tailwind/react'
+import { Button, Input, Textarea } from '@material-tailwind/react'
 import { updateUser } from '../utils/fetches/registerFetch.js'
 import { useNavigate } from 'react-router-dom'
 import { getUser } from '../utils/fetches/getUserFetch'
@@ -62,7 +62,7 @@ function UpdateUserProfile() {
           <Input label="profession" type="text" name="profession" defaultValue={user.profession} />
         </div>
         <div className="w-72 mt-3 mx-auto">
-          <textarea label="bio" name="bio" defaultValue={user?.bio} placeholder="About me" rows="3" />
+          <Textarea label="bio" name="bio" defaultValue={user?.bio} rows="3" />
         </div>
         <div className="w-72 mt-3 mx-auto">
           <Input label="date of birth" type="date" name="date_of_birth" defaultValue={user.date_of_birth} required />

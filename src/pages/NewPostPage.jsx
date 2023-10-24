@@ -25,7 +25,7 @@ function NewPostPage() {
   }, [])
 
   return (
-    <section className=" p-6 flex flex-col border-black">
+    <section className=" p-6 flex flex-col h-screen">
       <form onSubmit={sendNewPost}>
         <div className=" flex flex-col">
           <div className="flex justify-between ">
@@ -51,13 +51,11 @@ function NewPostPage() {
             </div>
 
             <div className="overflow-hidden">
-              <img className="w-[54x] h-[54px] rounded-2xl object-cover"
-              src={imageUrl?.imageUrl} alt=" post image" />
-
+              <img className="w-[54x] h-[54px] rounded-2xl object-cover" src={imageUrl?.imageUrl} alt=" post image" />
             </div>
           </div>
-          <div className="flex mt-8 items-center justify-between">
-            <div className="flex w-[54x] h-[54px] overflow-hidden">
+          <div className="flex mt-8 items-center ">
+            <div className="flex w-[54x] h-[54px] p-[10px] overflow-hidden">
               <img
                 className="w-[34px] h-[34px] object-center justify-around"
                 src={locationIcon}

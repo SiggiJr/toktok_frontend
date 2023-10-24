@@ -22,7 +22,7 @@ function SearchPage(props) {
 
   console.log(requestedUser)
   return (
-    <div className="flex flex-col p-6">
+    <div className="flex flex-col h-screen p-6">
       <form>
         <Input
           label="search user"
