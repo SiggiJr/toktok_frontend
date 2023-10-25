@@ -23,26 +23,28 @@ function FeedsItem({ post, setReload }) {
       <div role="presentation" onClick={() => navigate(`/comment/${post._id}`)}>
         <img className="w-[380px] h-[380px] object-cover rounded-2xl mt-2" src={post.image_url} alt="posted_image" />
       </div>
-      <div className="flex justify-between mt-2">
-        <div className="flex gap-2 items-center">
+      <div className="flex justify-between mt-1">
+        <div className="flex gap-1 items-center ">
           <LikeButton
             nickname={JSON.parse(sessionStorage.getItem('nickname'))}
             likesAmount={post.likes || []}
             postId={post._id}
             setReload={setReload}
           />
-          <div className="flex items-center">
-            <img className="w-[23px] h-[23px]" role="presentation" src={commentIcon} alt=" comment icon" />
-            <p>{post.comments.length}</p>
-          </div>
+
+          <img className="ml-2 h-5 w-5 cursor-pointer" role="presentation" src={commentIcon} alt=" comment icon" />
+          <p>{post.comments.length}</p>
         </div>
-        <img
-          className="w-[23px] h-[23px]"
-          onClick={() => navigate(`/comment/${post._id}`)}
-          role="presentation"
-          src={bookmark}
-          alt=" bookmark icon"
-        />
+        <div className="flex items-center">
+          <img
+            className=" h-5 w-5 cursor-pointer"
+            onClick={() => navigate(`/comment/${post._id}`)}
+            role="presentation"
+            src={bookmark}
+            alt=" bookmark icon"
+          />
+
+        </div>
       </div>
       <div className="flex gap-2 mt-2">
         <p className=" font-bold">{post.nickname}</p>

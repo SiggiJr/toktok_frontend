@@ -29,7 +29,7 @@ export default function CommentItem({ comment, setReload, postId, replyToggle, s
         </div>
       </div>
       <div className="flex justify-between" role="presentation" onClick={() => navigate(`reply/${comment.comment_id}`)}>
-        <p className="text-[14px]text-[#212121] py-3">{comment.comment}</p>
+        <p className="text-[14px] text-[#212121] py-3">{comment.comment}</p>
         <LikeComments
           nickname={JSON.parse(sessionStorage.getItem('nickname'))}
           likesAmount={comment.likes || []}
