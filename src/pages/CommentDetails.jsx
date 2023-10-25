@@ -21,6 +21,7 @@ function CommentDetails({ reload, setReload }) {
     return <p>is Loading...</p>
   }
 
+  console.log(post)
   return (
     <section className="flex flex-col p-6">
       <h1>{post.nickname}</h1>

@@ -8,7 +8,7 @@ function FeedsItem({ post, setReload }) {
 
   return (
     <div className="flex flex-col mt-2">
-      <section onClick={() => navigate(`/user/${post.owner}`)}>
+      <section role="presentation" onClick={() => navigate(`/user/${post.owner}`)}>
         <div className="flex gap-2">
           <img className="w-[54px] h-[54px] object-cover rounded-full " src={post.owner_image} alt="owner_image" />
           <div>
@@ -17,7 +17,7 @@ function FeedsItem({ post, setReload }) {
           </div>
         </div>
       </section>
-      <div onClick={() => navigate(`/comment/${post._id}`)}>
+      <div role="presentation" onClick={() => navigate(`/comment/${post._id}`)}>
         <img className="rounded-2xl mt-2" src={post.image_url} alt="posted_image" />
       </div>
       <p>{post.caption}</p>
