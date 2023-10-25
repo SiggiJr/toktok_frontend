@@ -16,11 +16,15 @@ export default function CommentItem({ comment }) {
   }
 
   return (
-    <div>
-      <img className="w-[54px] h-[54px] object-cover rounded-full " src={user.profile_image_url} alt="" />
-      <h2>{user.nickname}</h2>
-      <h3>{user.profession}</h3>
-      <h4>{comment.comment}</h4>
+    <div className="flex flex-col my-6">
+      <div className="flex gap-4">
+        <img className="w-[54px] h-[54px] object-cover rounded-full " src={user.profile_image_url} alt="" />
+        <div className="flex flex-col">
+          <h2 className="text-xl">{user.nickname}</h2>
+          <p className="text-[12px] text-[#616161]">{user.profession}</p>
+        </div>
+      </div>
+      <p className="text-[14px]text-[#212121] py-3">{comment.comment}</p>
       {/* <p>{new Date(comment.timestamp)}</p> */}
       {/* <LikeButton nickname={JSON.parse(sessionStorage.getItem('nickname'))} /> */}
     </div>

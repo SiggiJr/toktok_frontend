@@ -17,13 +17,15 @@ function FeedsItem({ post, setReload }) {
         </div>
       </section>
       <img className="rounded-2xl mt-2" src={post.image_url} alt="posted_image" />
-      <LikeButton
-        nickname={JSON.parse(sessionStorage.getItem('nickname'))}
-        likesAmount={post.likes || []}
-        postId={post._id}
-        setReload={setReload}
-      />
-      <CommentButton post={post} />
+      <div className="flex gap-2">
+        <LikeButton
+          nickname={JSON.parse(sessionStorage.getItem('nickname'))}
+          likesAmount={post.likes || []}
+          postId={post._id}
+          setReload={setReload}
+        />
+        <CommentButton post={post} />
+      </div>
     </div>
   )
 }
