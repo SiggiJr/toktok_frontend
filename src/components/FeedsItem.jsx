@@ -1,10 +1,11 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import LikeButton from './LikeButton.jsx'
 import CommentButton from './CommentButton.jsx'
 
 function FeedsItem({ post, setReload }) {
   const navigate = useNavigate()
+
   return (
     <div className="flex flex-col mt-2">
       <section onClick={() => navigate(`/user/${post.owner}`)}>
@@ -16,7 +17,10 @@ function FeedsItem({ post, setReload }) {
           </div>
         </div>
       </section>
-      <img className="rounded-2xl mt-2" src={post.image_url} alt="posted_image" />
+      <div onClick={() => navigate(`/comment/${post._id}`)}>
+        <img className="rounded-2xl mt-2" src={post.image_url} alt="posted_image" />
+      </div>
+      <p>{post.caption}</p>
       <LikeButton
         nickname={JSON.parse(sessionStorage.getItem('nickname'))}
         likesAmount={post.likes || []}
