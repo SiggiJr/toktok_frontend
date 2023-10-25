@@ -11,8 +11,6 @@ function Feeds() {
     getFeedFetch(setFollowerPosts)
   }, [reload])
 
-  console.log(followerPost)
-
   return (
     <section className="flex flex-col p-6 mb-4">
       {followerPost.map(post => (

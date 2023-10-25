@@ -14,5 +14,13 @@ module.exports = {
     'react/jsx-uses-react': 'off',
     'import/extensions': 'off',
     'import/prefer-default-export': 'off',
+    'no-underscore-dangle': ['error', { allow: ['_id'] }],
+    'jsx-a11y/click-events-have-key-events': 'off',
+    'jsx-a11y/no-noninteractive-element-interactions': [
+      'error',
+      {
+        handlers: ['onClick', 'onMouseDown', 'onMouseUp', 'onKeyPress', 'onKeyDown', 'onKeyUp'],
+      },
+    ],
   },
 }

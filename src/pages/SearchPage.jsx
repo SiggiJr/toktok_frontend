@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
+import { Input } from '@material-tailwind/react'
 import { searchFetch } from '../utils/fetches/SearchFetch.js'
 import SearchUserItem from '../components/SearchUserItem.jsx'
 import userPageIcon from '../assets/icons/userPageIcon.svg'
-import { Input } from '@material-tailwind/react'
 
 function SearchPage(props) {
   const [requestedUser, setRequestedUser] = useState([])
@@ -20,7 +20,6 @@ function SearchPage(props) {
     }
   }, [inputValue])
 
-  console.log(requestedUser)
   return (
     <div className="flex flex-col h-screen p-6">
       <form>
