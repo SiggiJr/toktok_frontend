@@ -20,7 +20,7 @@ function CommentDetails({ reload, setReload }) {
   if (!post.comments) {
     return <p>is Loading...</p>
   }
-  console.log(post)
+
   return (
     <section className="flex flex-col p-6 mb-6">
       <article className="flex gap-2 border-gray-200 border-b-[1px] pb-1 mb-1">

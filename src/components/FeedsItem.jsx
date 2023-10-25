@@ -1,13 +1,14 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import LikeButton from './LikeButton.jsx'
 import CommentButton from './CommentButton.jsx'
 
 function FeedsItem({ post, setReload }) {
   const navigate = useNavigate()
+
   return (
     <div className="flex flex-col mt-2">
-      <section onClick={() => navigate(`/user/${post.owner}`)}>
+      <section role="presentation" onClick={() => navigate(`/user/${post.owner}`)}>
         <div className="flex gap-2">
           <img className="w-[54px] h-[54px] object-cover rounded-full " src={post.owner_image} alt="owner_image" />
           <div>
@@ -16,16 +17,21 @@ function FeedsItem({ post, setReload }) {
           </div>
         </div>
       </section>
-      <img className="rounded-2xl mt-2" src={post.image_url} alt="posted_image" />
-      <div className="flex gap-2">
-        <LikeButton
-          nickname={JSON.parse(sessionStorage.getItem('nickname'))}
-          likesAmount={post.likes || []}
-          postId={post._id}
-          setReload={setReload}
-        />
-        <CommentButton post={post} />
+
+      <div role="presentation" onClick={() => navigate(`/comment/${post._id}`)}>
+        <img className="rounded-2xl mt-2" src={post.image_url} alt="posted_image" />
       </div>
+<div className="flex gap-2">
+      <p>{post.caption}</p>
+      <LikeButton
+        nickname={JSON.parse(sessionStorage.getItem('nickname'))}
+        likesAmount={post.likes || []}
+        postId={post._id}
+        setReload={setReload}
+      />
+      <CommentButton post={post} />
+        </div>
+
     </div>
   )
 }
