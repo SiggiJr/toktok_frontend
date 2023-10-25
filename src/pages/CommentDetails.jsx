@@ -1,14 +1,16 @@
 import { useNavigate, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { Input } from '@material-tailwind/react'
-import { getPost, writeComment } from '../utils/fetches/commentFetch.js'
+import { getPost, replyComment, writeComment } from '../utils/fetches/commentFetch.js'
 import CommentItem from '../components/CommentItem.jsx'
 import backIcon from '../assets/icons/back.svg'
-import paperPlanesIcon from '../assets/icons/paperPlanes.svg'
+import sendIcon from '../assets/icons/paperPlanes.svg'
 
 function CommentDetails({ reload, setReload }) {
   const { postId } = useParams()
   const [post, setPost] = useState([])
+  const [replyToggle, setReplyToggle] = useState('comment')
+  const [commentId, setCommentId] = useState()
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -17,12 +19,17 @@ function CommentDetails({ reload, setReload }) {
 
   const sendComment = event => {
     event.preventDefault()
-    writeComment(event, postId, setReload)
+    if (replyToggle) {
+      writeComment(event, postId, setReload)
+    } else {
+      replyComment(event, postId, setReload, commentId)
+    }
   }
 
   if (!post.comments) {
     return <p>is Loading...</p>
   }
+  console.log('toggle', replyToggle)
 
   return (
     <section className="flex flex-col p-6 mb-6">
@@ -37,7 +44,7 @@ function CommentDetails({ reload, setReload }) {
           />
           <h2 className="text-2xl">Comments</h2>
         </div>
-        <img src={paperPlanesIcon} alt=" paper planes icon" />
+        <img src={sendIcon} alt="sendIcon" />
       </div>
       <article
         onClick={() => navigate(`/user/${post.owner}`)}
@@ -53,15 +60,22 @@ function CommentDetails({ reload, setReload }) {
         <img className="rounded-2xl my-2" src={post.image_url} alt="" />
         <p className=" text-[14px]">{post.caption}</p>
       </article>
-
       <article>
         {post.comments.map(comment => (
-          <CommentItem key={comment.comment_id} comment={comment} postId={postId} setReload={setReload} />
+          <CommentItem
+            key={comment.comment_id}
+            comment={comment}
+            postId={postId}
+            setReload={setReload}
+            replyToggle={setReplyToggle}
+            setCommentId={setCommentId}
+            commentId={commentId}
+          />
         ))}
       </article>
       <form onSubmit={sendComment}>
         <div className="flex gap-2">
-          <Input label="Your Comment" type="text" name="comment" />
+          <Input label="Your Comment" type="text" name={replyToggle} />
           <button className="text-[#E98090]" type="submit">
             post
           </button>

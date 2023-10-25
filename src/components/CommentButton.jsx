@@ -3,6 +3,7 @@ import commentIcon from '../assets/icons/comment.svg'
 
 function CommentButton({ post, user, commentsAmount, nickname, postId }) {
   const navigate = useNavigate()
+
   const showComment = () => {
     navigate(`/comment/${post._id}`)
   }

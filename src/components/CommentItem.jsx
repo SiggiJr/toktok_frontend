@@ -1,22 +1,38 @@
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { getUserProfile } from '../utils/fetches/getUserFetch'
 import LikeComments from './LikeComments'
-import { useNavigate } from 'react-router-dom'
+import CommentButton from './CommentButton'
 
-export default function CommentItem({ comment, setReload, postId }) {
+export default function CommentItem({ comment, setReload, postId, replyToggle, setCommentId, commentId }) {
   const userId = comment.owner
   const [user, setUser] = useState([])
   const [post, setPost] = useState([])
+  const [reply, setReply] = useState(false)
+
   const navigate = useNavigate()
 
   useEffect(() => {
     getUserProfile(userId, setUser, setPost)
-  }, [])
+    if (commentId === comment.comment_id) {
+      setReply('reply')
+    } else {
+      setReply('comment')
+    }
+  }, [commentId])
 
-  if (!user._id && !post._id) {
+  useEffect(() => {
+    replyToggle(reply)
+  }, [reply])
+
+  const toggleReply = () => {
+    setReply(!reply)
+    setCommentId(comment.comment_id)
+  }
+
+  if (!user._id && !post._id && !comment.comment_id) {
     return <p>is Loading...</p>
   }
-  console.log(user)
 
   return (
     <div className="flex flex-col my-6">
@@ -29,12 +45,22 @@ export default function CommentItem({ comment, setReload, postId }) {
       </div>
       <p className="text-[14px]text-[#212121] py-3">{comment.comment}</p>
       {/* <p>{new Date(comment.timestamp)}</p> */}
+      <p role="presentation" onClick={toggleReply} className={reply === 'reply' ? 'text-red-500' : ''}>
+        Reply
+      </p>
       <LikeComments
         nickname={JSON.parse(sessionStorage.getItem('nickname'))}
         likesAmount={comment.likes || []}
         postId={postId}
         setReload={setReload}
         commentId={comment.comment_id}
+      />
+      <CommentButton
+        nickname={JSON.parse(sessionStorage.getItem('nickname'))}
+        post={post}
+        setReload={setReload}
+        commentsAmount={comment.length || []}
+        postId={postId}
       />
     </div>
   )

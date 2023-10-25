@@ -26,6 +26,7 @@ function OtherUserProfile({ loading, setLoading }) {
       <article className="flex gap-2 justify-between items-center">
         <div className="flex gap-2">
           <img
+            role="presentation"
             onClick={() => navigate(-1)}
             src={backIcon}
             alt="logo img"
