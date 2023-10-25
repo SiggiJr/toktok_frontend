@@ -12,11 +12,13 @@ export default function ReplyPage({ setReload }) {
   }
   // jojo
   return (
-    <form onSubmit={sendReply}>
-      <Input type="text" name="reply" />
-      <button className="text-[#E98090]" type="submit">
-        Reply
-      </button>
+    <form className="p-6" onSubmit={sendReply}>
+      <div className="flex gap-2">
+        <Input label="write a Reply" type="text" name="reply" />
+        <button className="text-[#E98090]" type="submit">
+          Reply
+        </button>
+      </div>
     </form>
   )
 }

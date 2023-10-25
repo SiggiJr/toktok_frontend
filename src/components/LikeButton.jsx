@@ -23,10 +23,10 @@ function LikeButton({ nickname, likesAmount, postId, setReload }) {
   }
 
   return (
-    <div className="flex items-center gap-2 mt-1">
+    <div className="flex gap-1 items-center">
       <img
+        className="h-6 w-6 cursor-pointer"
         role="presentation"
-        className="w-[23px] h-[23px]"
         onClick={handleLikes}
         src={isLiked ? likeActive : like}
         alt=" like icon"

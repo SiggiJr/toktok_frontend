@@ -23,15 +23,15 @@ function LikeButton({ nickname, likesAmount, postId, setReload, commentId }) {
   }
 
   return (
-    <div className="flex items-center gap-2 mt-1">
+    <div className="flex items-center gap-1">
       <img
         role="presentation"
-        className="w-[23px]"
+        className=" h-5 w-5 cursor-pointer"
         onClick={handleLikes}
         src={isLiked ? likeActive : like}
         alt=" like icon"
       />
-      <p>{likesAmount.length}</p>
+      <p className="text-[14px]">{likesAmount.length}</p>
     </div>
   )
 }
