@@ -17,15 +17,17 @@ function CommentDetails() {
   }
 
   return (
-    <section>
+    <section className="flex flex-col p-6">
       <article>
         <h1>comment map</h1>
       </article>
       <form onSubmit={sendComment}>
-        <Input label="Comment" type="text" name="comment" />
-        <button className="border-2 border-black" type="submit">
-          Comment
-        </button>
+        <div className="flex gap-2">
+          <Input label="Your Comment" type="text" name="comment" />
+          <button className="text-[#E98090]" type="submit">
+            post
+          </button>
+        </div>
       </form>
     </section>
   )
