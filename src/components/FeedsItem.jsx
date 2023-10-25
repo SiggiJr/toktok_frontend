@@ -14,7 +14,7 @@ function FeedsItem({ post, setReload }) {
             <h2 className="text-xl">{post.nickname}</h2>
             <h3 className="text-sm font-thin">{post.profession}</h3>
           </div>
-        </div>
+</div>
       </section>
       <img className="rounded-2xl mt-2" src={post.image_url} alt="posted_image" />
       <LikeButton
@@ -25,6 +25,9 @@ function FeedsItem({ post, setReload }) {
       />
       <CommentButton post={post} />
     </div>
+
+    </>
+
   )
 }
 
