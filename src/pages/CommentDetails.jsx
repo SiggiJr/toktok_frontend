@@ -52,7 +52,7 @@ function CommentDetails({ reload, setReload }) {
         </div>
       </article>
       <article className="flex flex-col border-gray-200 border-b-[1px] pb-1 mb-1">
-        <img className="rounded-2xl my-2" src={post.image_url} alt="" />
+        <img className="w-[380px] h-[380px] object-cover rounded-2xl my-2" src={post.image_url} alt="" />
         <p className=" text-[14px]">{post.caption}</p>
       </article>
       <article>
