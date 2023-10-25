@@ -18,11 +18,8 @@ function CommentDetails({ reload, setReload }) {
 
   const sendComment = event => {
     event.preventDefault()
-    if (replyToggle) {
-      writeComment(event, postId, setReload)
-    } else {
-      replyComment(event, postId, setReload, commentId)
-    }
+
+    writeComment(event, postId, setReload)
   }
 
   if (!post.comments) {
