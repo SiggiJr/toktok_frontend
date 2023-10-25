@@ -9,7 +9,6 @@ import sendIcon from '../assets/icons/paperPlanes.svg'
 function CommentDetails({ reload, setReload }) {
   const { postId } = useParams()
   const [post, setPost] = useState([])
-  const [replyToggle, setReplyToggle] = useState('comment')
   const [commentId, setCommentId] = useState()
   const navigate = useNavigate()
 
@@ -29,7 +28,6 @@ function CommentDetails({ reload, setReload }) {
   if (!post.comments) {
     return <p>is Loading...</p>
   }
-  console.log('toggle', replyToggle)
 
   return (
     <section className="flex flex-col p-6 mb-6">
@@ -67,7 +65,6 @@ function CommentDetails({ reload, setReload }) {
             comment={comment}
             postId={postId}
             setReload={setReload}
-            replyToggle={setReplyToggle}
             setCommentId={setCommentId}
             commentId={commentId}
           />
@@ -75,9 +72,9 @@ function CommentDetails({ reload, setReload }) {
       </article>
       <form onSubmit={sendComment}>
         <div className="flex gap-2">
-          <Input label="Your Comment" type="text" name={replyToggle} />
+          <Input label="Your Comment" type="text" name="comment" />
           <button className="text-[#E98090]" type="submit">
-            post
+            Comment
           </button>
         </div>
       </form>

@@ -19,6 +19,7 @@ import CreateUserProfile from './pages/CreateUserProfile.jsx'
 import UpdateUserProfile from './pages/UpdateUserProfile.jsx'
 import NewPostPage from './pages/NewPostPage.jsx'
 import SearchPage from './pages/SearchPage.jsx'
+import ReplyPage from './pages/ReplyPage.jsx'
 
 function App() {
   const [navbarLoading, setNavbarLoading] = useState(false)
@@ -51,6 +52,7 @@ function App() {
             path="/comment/:postId"
             element={<CommentDetails setReload={setNavbarLoading} reload={navbarLoading} />}
           />
+          <Route path="/comment/:postId/reply/:id" element={<ReplyPage setReload={setNavbarLoading} />} />
         </Route>
       </Routes>
       {location.pathname === '/' || location.pathname === '/login' || location.pathname === '/register' ? null : (

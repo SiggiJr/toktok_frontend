@@ -19,10 +19,12 @@ export const writeComment = async (event, postId, setReload) => {
     setReload(prev => !prev)
   }
 }
+
 export const replyComment = async (event, postId, setReload, commentId) => {
   const form = new FormData(event.target)
   form.set('commentId', commentId)
   form.set('postId', postId)
+  form.set('nickname', JSON.parse(sessionStorage.getItem('nickname')))
   const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/post/comment/reply`, {
     credentials: 'include',
     method: 'POST',

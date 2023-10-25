@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import LikeButton from './LikeButton.jsx'
 import CommentButton from './CommentButton.jsx'
 import bookmark from '../assets/icons/Bookmark.svg'
+import commentIcon from '../assets/icons/comment.svg'
 
 function FeedsItem({ post, setReload }) {
   const navigate = useNavigate()
@@ -30,15 +31,11 @@ function FeedsItem({ post, setReload }) {
             postId={post._id}
             setReload={setReload}
           />
-          <CommentButton
-            nickname={JSON.parse(sessionStorage.getItem('nickname'))}
-            post={post}
-            setReload={setReload}
-            commentsAmount={post.comments.length || []}
-            postId={post._id}
-          />
+          <div>
+            <img src={commentIcon} alt="" />
+          </div>
         </div>
-        <img src={bookmark} alt=" bookmark icon" />
+        <img onClick={() => navigate(`/comment/${post._id}`)} role="presentation" src={bookmark} alt=" bookmark icon" />
       </div>
       <div className="flex gap-2">
         <p className=" font-bold">{post.nickname}</p>

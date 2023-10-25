@@ -14,21 +14,7 @@ export default function CommentItem({ comment, setReload, postId, replyToggle, s
 
   useEffect(() => {
     getUserProfile(userId, setUser, setPost)
-    if (commentId === comment.comment_id) {
-      setReply('reply')
-    } else {
-      setReply('comment')
-    }
-  }, [commentId])
-
-  useEffect(() => {
-    replyToggle(reply)
-  }, [reply])
-
-  const toggleReply = () => {
-    setReply(!reply)
-    setCommentId(comment.comment_id)
-  }
+  }, [])
 
   if (!user._id && !post._id && !comment.comment_id) {
     return <p>is Loading...</p>
@@ -43,11 +29,11 @@ export default function CommentItem({ comment, setReload, postId, replyToggle, s
           <p className="text-[12px] text-[#616161]">{user.profession}</p>
         </div>
       </div>
-      <p className="text-[14px]text-[#212121] py-3">{comment.comment}</p>
+      <div role="presentation" onClick={() => navigate(`reply/${comment.comment_id}`)}>
+        <p className="text-[14px]text-[#212121] py-3">{comment.comment}</p>
+        <p role="presentation">Reply</p>
+      </div>
       {/* <p>{new Date(comment.timestamp)}</p> */}
-      <p role="presentation" onClick={toggleReply} className={reply === 'reply' ? 'text-red-500' : ''}>
-        Reply
-      </p>
       <LikeComments
         nickname={JSON.parse(sessionStorage.getItem('nickname'))}
         likesAmount={comment.likes || []}
