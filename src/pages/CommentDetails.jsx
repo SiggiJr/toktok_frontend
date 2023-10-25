@@ -37,7 +37,7 @@ function CommentDetails({ reload, setReload }) {
 
       <article>
         {post.comments.map(comment => (
-          <CommentItem key={comment._id} comment={comment} />
+          <CommentItem key={comment.comment_id} comment={comment} postId={postId} setReload={setReload}/>
         ))}
       </article>
       <form onSubmit={sendComment}>

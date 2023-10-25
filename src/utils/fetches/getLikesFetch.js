@@ -14,6 +14,7 @@ export const getLikes = async (nickname, postId, setReload) => {
 }
 
 export const likeComments = async (nickname, postId, setReload, commentId) => {
+  console.log(postId)
   const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/post/comments/like`, {
     credentials: 'include',
     method: 'POST',
