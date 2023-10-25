@@ -21,7 +21,7 @@ function OtherUserProfile({ loading, setLoading }) {
   }
 
   return (
-    <section className="flex flex-col p-6 h-screen">
+    <section className="flex flex-col p-6 mb-6">
       <article className="flex gap-2 justify-between items-center">
         <div className="flex gap-2">
           <img src={backIcon} alt="logo img" className="w-[17px] h-[32px]" />

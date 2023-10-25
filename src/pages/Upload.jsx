@@ -21,7 +21,7 @@ function Upload() {
   }
 
   return (
-    <section className="p-6 flex flex-col h-screen">
+    <section className="p-6 flex flex-col">
       <article className="flex mt-6 gap-2 items-center">
         <img src={closeIcon} alt=" plus icon" />
         <h2 className="text-xl">New Post</h2>

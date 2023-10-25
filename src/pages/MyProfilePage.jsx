@@ -36,7 +36,7 @@ function MyProfilePage({ loading, setLoading }) {
 
   return (
     <>
-      <section className="flex flex-col px-6 pt-6 h-screen">
+      <section className="flex flex-col px-6 pt-6 mb-6">
         <article className="flex gap-2 justify-between items-center">
           <div className="flex gap-2">
             <img src={brandIcon} alt="logo img" className="w-[32px] h-[32px]" />
