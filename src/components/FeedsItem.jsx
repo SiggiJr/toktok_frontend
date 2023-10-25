@@ -8,7 +8,7 @@ function FeedsItem({ post, setReload }) {
   const navigate = useNavigate()
 
   return (
-    <div className="flex flex-col mt-2">
+    <div className="flex flex-col my-3">
       <section role="presentation" onClick={() => navigate(`/user/${post.owner}`)}>
         <div className="flex gap-2">
           <img className="w-[54px] h-[54px] object-cover rounded-full " src={post.owner_image} alt="owner_image" />
@@ -24,25 +24,25 @@ function FeedsItem({ post, setReload }) {
       </div>
       <div className="flex justify-between mt-2">
         <div className="flex gap-2">
-          <p className=" font-bold">{post.nickname}</p>
-          <p>{post.caption}</p>
+          <LikeButton
+            nickname={JSON.parse(sessionStorage.getItem('nickname'))}
+            likesAmount={post.likes || []}
+            postId={post._id}
+            setReload={setReload}
+          />
+          <CommentButton
+            nickname={JSON.parse(sessionStorage.getItem('nickname'))}
+            post={post}
+            setReload={setReload}
+            commentsAmount={post.comments.length || []}
+            postId={post._id}
+          />
         </div>
         <img src={bookmark} alt=" bookmark icon" />
       </div>
       <div className="flex gap-2">
-        <LikeButton
-          nickname={JSON.parse(sessionStorage.getItem('nickname'))}
-          likesAmount={post.likes || []}
-          postId={post._id}
-          setReload={setReload}
-        />
-        <CommentButton
-          nickname={JSON.parse(sessionStorage.getItem('nickname'))}
-          post={post}
-          setReload={setReload}
-          commentsAmount={post.comments.length || []}
-          postId={post._id}
-        />
+        <p className=" font-bold">{post.nickname}</p>
+        <p>{post.caption}</p>
       </div>
     </div>
   )
