@@ -18,7 +18,7 @@ export default function CommentItem({ comment }) {
   return (
     <div className="flex flex-col my-6">
       <div className="flex gap-4">
-        <img className="w-[54px] h-[54px] object-cover rounded-full " src={user.profile_image_url} alt="" />
+        <img className="w-[48px] h-[48px] object-cover rounded-full " src={user.profile_image_url} alt="" />
         <div className="flex flex-col">
           <h2 className="text-xl">{user.nickname}</h2>
           <p className="text-[12px] text-[#616161]">{user.profession}</p>

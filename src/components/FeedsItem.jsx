@@ -2,6 +2,7 @@ import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import LikeButton from './LikeButton.jsx'
 import CommentButton from './CommentButton.jsx'
+import bookmark from '../assets/icons/Bookmark.svg'
 
 function FeedsItem({ post, setReload }) {
   const navigate = useNavigate()
@@ -21,9 +22,14 @@ function FeedsItem({ post, setReload }) {
       <div role="presentation" onClick={() => navigate(`/comment/${post._id}`)}>
         <img className="rounded-2xl mt-2" src={post.image_url} alt="posted_image" />
       </div>
+      <div className="flex justify-between mt-2">
+        <div className="flex gap-2">
+          <p className=" font-bold">{post.nickname}</p>
+          <p>{post.caption}</p>
+        </div>
+        <img src={bookmark} alt=" bookmark icon" />
+      </div>
       <div className="flex gap-2">
-        <p className=" font-bold">{post.nickname}</p>
-        <p>{post.caption}</p>
         <LikeButton
           nickname={JSON.parse(sessionStorage.getItem('nickname'))}
           likesAmount={post.likes || []}
