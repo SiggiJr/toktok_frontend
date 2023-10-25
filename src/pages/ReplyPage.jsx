@@ -2,21 +2,27 @@ import { useParams } from 'react-router-dom'
 import { Input } from '@material-tailwind/react'
 import { useEffect, useState } from 'react'
 import { getComment, replyComment } from '../utils/fetches/commentFetch'
+import { getUserProfile } from '../utils/fetches/getUserFetch'
+import ReplyItem from '../components/ReplyItem'
 
 export default function ReplyPage({ setReload, reload }) {
   const commentId = useParams().id
-  const [comment, setComment] = useState([])
   const { postId } = useParams()
+  const [comment, setComment] = useState([])
+  const [user, setUser] = useState([])
+  const [post, setPost] = useState([])
+
+  // useEffect(() => {
+  //   getUserProfile(userId, setUser, setPost)
+  // }, [])
 
   useEffect(() => {
     getComment(postId, commentId, setComment, setReload)
-  }, [])
+  }, [reload])
 
   if (!comment) {
     return <p>is Loading...</p>
   }
-
-  console.log(comment)
 
   const sendReply = event => {
     event.preventDefault()
@@ -26,18 +32,19 @@ export default function ReplyPage({ setReload, reload }) {
   return (
     <section>
       <article>
-        <div>
-          {comment.replies &&
+        {/* {comment.replies &&
             comment.replies.map(reply => {
               return (
                 <div>
+
                   <h1>{reply.nickname}</h1>
                   <p>{reply.reply}</p>
                   <p>{reply.timestamp}</p>
                 </div>
               )
-            })}
-        </div>
+            })} */}
+        {comment.replies &&
+          comment.replies.map(reply => <ReplyItem reply={reply} userId={reply.owner} setReload={setReload} />)}
       </article>
 
       <form onSubmit={sendReply}>
