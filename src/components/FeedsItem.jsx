@@ -33,6 +33,7 @@ function FeedsItem({ post, setReload }) {
           />
           <div className="flex items-center">
             <img className="w-[23px] h-[23px]" role="presentation" src={commentIcon} alt=" comment icon" />
+            <p>{post.comments.length}</p>
           </div>
         </div>
         <img

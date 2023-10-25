@@ -52,7 +52,10 @@ function App() {
             path="/comment/:postId"
             element={<CommentDetails setReload={setNavbarLoading} reload={navbarLoading} />}
           />
-          <Route path="/comment/:postId/reply/:id" element={<ReplyPage setReload={setNavbarLoading} />} />
+          <Route
+            path="/comment/:postId/reply/:id"
+            element={<ReplyPage setReload={setNavbarLoading} reload={navbarLoading} />}
+          />
         </Route>
       </Routes>
       {location.pathname === '/' || location.pathname === '/login' || location.pathname === '/register' ? null : (

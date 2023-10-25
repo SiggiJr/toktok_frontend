@@ -1,21 +1,22 @@
 import { useParams } from 'react-router-dom'
 import { Input } from '@material-tailwind/react'
-import { getPost, replyComment } from '../utils/fetches/commentFetch'
 import { useEffect, useState } from 'react'
+import { getComment, replyComment } from '../utils/fetches/commentFetch'
 
-export default function ReplyPage({ setReload }) {
+export default function ReplyPage({ setReload, reload }) {
   const commentId = useParams().id
-  const [post, setPost] = useState()
+  const [comment, setComment] = useState([])
   const { postId } = useParams()
 
   useEffect(() => {
-    getPost(postId, setPost)
+    getComment(postId, commentId, setComment, setReload)
   }, [])
 
-  if (!post) {
+  if (!comment) {
     return <p>is Loading...</p>
   }
-  console.log(post.comments)
+
+  console.log(comment)
 
   const sendReply = event => {
     event.preventDefault()
@@ -23,11 +24,28 @@ export default function ReplyPage({ setReload }) {
   }
 
   return (
-    <form onSubmit={sendReply}>
-      <Input type="text" name="reply" />
-      <button className="text-[#E98090]" type="submit">
-        Reply
-      </button>
-    </form>
+    <section>
+      <article>
+        <div>
+          {comment.replies &&
+            comment.replies.map(reply => {
+              return (
+                <div>
+                  <h1>{reply.nickname}</h1>
+                  <p>{reply.reply}</p>
+                  <p>{reply.timestamp}</p>
+                </div>
+              )
+            })}
+        </div>
+      </article>
+
+      <form onSubmit={sendReply}>
+        <Input type="text" name="reply" />
+        <button className="text-[#E98090]" type="submit">
+          Reply
+        </button>
+      </form>
+    </section>
   )
 }
