@@ -29,25 +29,25 @@ export default function CommentItem({ comment, setReload, postId, replyToggle, s
           <p className="text-[12px] text-[#616161]">{user.profession}</p>
         </div>
       </div>
-      <div role="presentation" onClick={() => navigate(`reply/${comment.comment_id}`)}>
+      <div className="flex justify-between" role="presentation" onClick={() => navigate(`reply/${comment.comment_id}`)}>
         <p className="text-[14px]text-[#212121] py-3">{comment.comment}</p>
-        <p role="presentation">Reply</p>
+        <LikeComments
+          nickname={JSON.parse(sessionStorage.getItem('nickname'))}
+          likesAmount={comment.likes || []}
+          postId={postId}
+          setReload={setReload}
+          commentId={comment.comment_id}
+        />
       </div>
+      <p role="presentation">Reply</p>
       {/* <p>{new Date(comment.timestamp)}</p> */}
-      <LikeComments
-        nickname={JSON.parse(sessionStorage.getItem('nickname'))}
-        likesAmount={comment.likes || []}
-        postId={postId}
-        setReload={setReload}
-        commentId={comment.comment_id}
-      />
-      <CommentButton
+      {/* <CommentButton
         nickname={JSON.parse(sessionStorage.getItem('nickname'))}
         post={post}
         setReload={setReload}
         commentsAmount={comment.length || []}
         postId={postId}
-      />
+      /> */}
     </div>
   )
 }

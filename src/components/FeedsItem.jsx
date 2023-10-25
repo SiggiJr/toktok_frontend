@@ -21,23 +21,29 @@ function FeedsItem({ post, setReload }) {
       </section>
 
       <div role="presentation" onClick={() => navigate(`/comment/${post._id}`)}>
-        <img className="rounded-2xl mt-2" src={post.image_url} alt="posted_image" />
+        <img className="w-[380px] h-[380px] object-cover rounded-2xl mt-2" src={post.image_url} alt="posted_image" />
       </div>
       <div className="flex justify-between mt-2">
-        <div className="flex gap-2">
+        <div className="flex gap-2 items-center">
           <LikeButton
             nickname={JSON.parse(sessionStorage.getItem('nickname'))}
             likesAmount={post.likes || []}
             postId={post._id}
             setReload={setReload}
           />
-          <div>
-            <img src={commentIcon} alt="" />
+          <div className="flex items-center">
+            <img className="w-[23px] h-[23px]" role="presentation" src={commentIcon} alt=" comment icon" />
           </div>
         </div>
-        <img onClick={() => navigate(`/comment/${post._id}`)} role="presentation" src={bookmark} alt=" bookmark icon" />
+        <img
+          className="w-[23px] h-[23px]"
+          onClick={() => navigate(`/comment/${post._id}`)}
+          role="presentation"
+          src={bookmark}
+          alt=" bookmark icon"
+        />
       </div>
-      <div className="flex gap-2">
+      <div className="flex gap-2 mt-2">
         <p className=" font-bold">{post.nickname}</p>
         <p>{post.caption}</p>
       </div>
