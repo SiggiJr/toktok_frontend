@@ -8,7 +8,7 @@ function CommentButton({ post, user }) {
   }
 
   return (
-    <div>
+    <div className="flex items-center gap-2 mt-1">
       <img className="w-[23px]" onClick={showComment} alt="comment" src={commentIcon} />
       <p>{post.comments.length}</p>
     </div>

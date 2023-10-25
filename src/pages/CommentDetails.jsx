@@ -21,13 +21,19 @@ function CommentDetails({ reload, setReload }) {
     return <p>is Loading...</p>
   }
 
-  console.log(post)
   return (
-    <section className="flex flex-col p-6">
-      <h1>{post.nickname}</h1>
-      <img className="w-[54px] h-[54px] object-cover rounded-full " src={post.owner_image} alt="" />
-      <img src={post.image_url} alt="" />
-      <p>{post.caption}</p>
+    <section className="flex flex-col p-6 mb-6">
+      <article className="flex gap-2 border-gray-200 border-b-[1px] pb-1 mb-1">
+        <img className="w-[54px] h-[54px] object-cover rounded-full " src={post.owner_image} alt="" />
+        <div>
+          <h2 className="text-xl">{post.nickname}</h2>
+          <p>{post.profession}</p>
+        </div>
+      </article>
+      <article className="flex flex-col border-gray-200 border-b-[1px] pb-1 mb-1">
+        <img className="rounded-2xl my-2" src={post.image_url} alt="" />
+        <p className="my-2 text-xs">{post.caption}</p>
+      </article>
 
       <article>
         {post.comments.map(comment => (
