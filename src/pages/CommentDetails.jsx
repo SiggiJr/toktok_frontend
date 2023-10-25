@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { Input } from '@material-tailwind/react'
 import { getPost, writeComment } from '../utils/fetches/commentFetch.js'
@@ -9,6 +9,7 @@ import paperPlanesIcon from '../assets/icons/paperPlanes.svg'
 function CommentDetails({ reload, setReload }) {
   const { postId } = useParams()
   const [post, setPost] = useState([])
+  const navigate = useNavigate()
 
   useEffect(() => {
     getPost(postId, setPost)
@@ -27,12 +28,21 @@ function CommentDetails({ reload, setReload }) {
     <section className="flex flex-col p-6 mb-6">
       <div className="flex justify-between">
         <div className="flex gap-2 my-6">
-          <img className="w-[20px]" src={backIcon} alt="" />
+          <img
+            role="presentation"
+            onClick={() => navigate(-1)}
+            className="w-[20px] cursor-pointer"
+            src={backIcon}
+            alt=""
+          />
           <h2 className="text-2xl">Comments</h2>
         </div>
         <img src={paperPlanesIcon} alt=" paper planes icon" />
       </div>
-      <article className="flex gap-2 border-gray-200 border-b-[1px] pb-1 mb-1">
+      <article
+        onClick={() => navigate(`/user/${post.owner}`)}
+        role="presentation"
+        className="flex gap-2 border-gray-200 border-b-[1px] pb-1 mb-1">
         <img className="w-[54px] h-[54px] object-cover rounded-full " src={post.owner_image} alt="" />
         <div>
           <h2 className="text-xl">{post.nickname}</h2>
@@ -46,7 +56,7 @@ function CommentDetails({ reload, setReload }) {
 
       <article>
         {post.comments.map(comment => (
-          <CommentItem key={comment.comment_id} comment={comment} postId={postId} setReload={setReload}/>
+          <CommentItem key={comment.comment_id} comment={comment} postId={postId} setReload={setReload} />
         ))}
       </article>
       <form onSubmit={sendComment}>

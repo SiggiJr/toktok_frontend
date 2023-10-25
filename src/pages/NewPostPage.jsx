@@ -29,7 +29,13 @@ function NewPostPage() {
         <div className=" flex flex-col">
           <div className="flex justify-between ">
             <div className="flex gap-2 items-center">
-              <img className="w-[17px]" src={backIcon} alt=" back icon " />
+              <img
+                role="presentation"
+                onClick={() => navigate(-1)}
+                className="w-[17px] cursor-pointer"
+                src={backIcon}
+                alt=" back icon "
+              />
               <h1>New Post</h1>
             </div>
             {/* post button only available when title is set */}

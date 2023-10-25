@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { Avatar } from '@material-tailwind/react'
 import { getUserProfile } from '../utils/fetches/getUserFetch.js'
@@ -11,20 +11,26 @@ function OtherUserProfile({ loading, setLoading }) {
   const userId = useParams().id
   const [user, setUser] = useState()
   const [posts, setPosts] = useState([])
+  const navigate = useNavigate()
 
   useEffect(() => {
     getUserProfile(userId, setUser, setPosts)
   }, [loading])
 
   if (!user) {
-    return
+    return <p>is Loading...</p>
   }
 
   return (
     <section className="flex flex-col p-6 mb-6">
       <article className="flex gap-2 justify-between items-center">
         <div className="flex gap-2">
-          <img src={backIcon} alt="logo img" className="w-[17px] h-[32px]" />
+          <img
+            onClick={() => navigate(-1)}
+            src={backIcon}
+            alt="logo img"
+            className="w-[17px] h-[32px] cursor-pointer"
+          />
           <h2 className="text-2xl text-center ">{user.nickname}</h2>
         </div>
       </article>

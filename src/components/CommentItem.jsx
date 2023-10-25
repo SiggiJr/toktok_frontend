@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { getUserProfile } from '../utils/fetches/getUserFetch'
 import LikeComments from './LikeComments'
+import { useNavigate } from 'react-router-dom'
 
 export default function CommentItem({ comment, setReload, postId }) {
   const userId = comment.owner
   const [user, setUser] = useState([])
   const [post, setPost] = useState([])
+  const navigate = useNavigate()
 
   useEffect(() => {
     getUserProfile(userId, setUser, setPost)
@@ -14,9 +16,11 @@ export default function CommentItem({ comment, setReload, postId }) {
   if (!user._id && !post._id) {
     return <p>is Loading...</p>
   }
+  console.log(user)
+
   return (
     <div className="flex flex-col my-6">
-      <div className="flex gap-4">
+      <div onClick={() => navigate(`/user/${user._id}`)} role="presentation" className="flex gap-2 cursor-pointer">
         <img className="w-[48px] h-[48px] object-cover rounded-full " src={user.profile_image_url} alt="" />
         <div className="flex flex-col">
           <h2 className="text-xl">{user.nickname}</h2>
