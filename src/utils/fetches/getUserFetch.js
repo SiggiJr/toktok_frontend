@@ -21,6 +21,5 @@ export const getUserProfile = async (param, setUser, setPosts) => {
   if (postResponse.ok) {
     const userPosts = await postResponse.json()
     setPosts(userPosts)
-    console.log(userPosts)
   }
 }

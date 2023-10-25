@@ -5,7 +5,6 @@ export const getPost = async (postId, setState) => {
   if (response.ok) {
     const data = await response.json()
     setState(data)
-    console.log(data)
   }
 }
 
