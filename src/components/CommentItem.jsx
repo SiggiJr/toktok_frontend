@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { getUserProfile } from '../utils/fetches/getUserFetch'
-import LikeButton from './LikeButton'
+import LikeComments from './LikeComments'
 
-export default function CommentItem({ comment }) {
+export default function CommentItem({ comment, setReload }) {
   const userId = comment.owner
   const [user, setUser] = useState([])
   const [post, setPost] = useState([])
@@ -26,7 +26,13 @@ export default function CommentItem({ comment }) {
       </div>
       <p className="text-[14px]text-[#212121] py-3">{comment.comment}</p>
       {/* <p>{new Date(comment.timestamp)}</p> */}
-      {/* <LikeButton nickname={JSON.parse(sessionStorage.getItem('nickname'))} /> */}
+      <LikeComments
+        nickname={JSON.parse(sessionStorage.getItem('nickname'))}
+        likesAmount={comment.likes || []}
+        postId={post._id}
+        setReload={setReload}
+        commentId={comment.comment_id}
+      />
     </div>
   )
 }

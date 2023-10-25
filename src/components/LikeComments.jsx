@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
-import { getLikes } from '../utils/fetches/getLikesFetch.js'
+import { getLikes, likeComments } from '../utils/fetches/getLikesFetch.js'
 import like from '../assets/icons/Heart.svg'
 import likeActive from '../assets/icons/HeartRed.svg'
 
-function LikeButton({ nickname, likesAmount, postId, setReload }) {
+function LikeButton({ nickname, likesAmount, postId, setReload, commentId }) {
   const [isLiked, setIsLiked] = useState(false)
   const [likes, setLikes] = useState(() => {
     const result = likesAmount.reduce((accumulator, likeStatus) => {
@@ -18,7 +18,7 @@ function LikeButton({ nickname, likesAmount, postId, setReload }) {
   })
 
   const handleLikes = () => {
-    getLikes(nickname, postId, setReload)
+    likeComments(nickname, postId, setReload, commentId)
     setIsLiked(!isLiked)
   }
 

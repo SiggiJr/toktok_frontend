@@ -30,7 +30,13 @@ function FeedsItem({ post, setReload }) {
           postId={post._id}
           setReload={setReload}
         />
-        <CommentButton post={post} />
+        <CommentButton
+          nickname={JSON.parse(sessionStorage.getItem('nickname'))}
+          post={post}
+          setReload={setReload}
+          commentsAmount={post.comments.length || []}
+          postId={post._id}
+        />
       </div>
     </div>
   )
