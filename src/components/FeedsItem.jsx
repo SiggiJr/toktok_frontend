@@ -21,17 +21,17 @@ function FeedsItem({ post, setReload }) {
       <div role="presentation" onClick={() => navigate(`/comment/${post._id}`)}>
         <img className="rounded-2xl mt-2" src={post.image_url} alt="posted_image" />
       </div>
-<div className="flex gap-2">
-      <p>{post.caption}</p>
-      <LikeButton
-        nickname={JSON.parse(sessionStorage.getItem('nickname'))}
-        likesAmount={post.likes || []}
-        postId={post._id}
-        setReload={setReload}
-      />
-      <CommentButton post={post} />
-        </div>
-
+      <div className="flex gap-2">
+        <p className=" font-bold">{post.nickname}</p>
+        <p>{post.caption}</p>
+        <LikeButton
+          nickname={JSON.parse(sessionStorage.getItem('nickname'))}
+          likesAmount={post.likes || []}
+          postId={post._id}
+          setReload={setReload}
+        />
+        <CommentButton post={post} />
+      </div>
     </div>
   )
 }
