@@ -21,6 +21,5 @@ export const myPostsFetch = async setState => {
   if (response.ok) {
     const userData = await response.json()
     setState(userData)
-    console.log(userData)
   }
 }

@@ -10,7 +10,6 @@ import settingIcon from '../assets/icons/Setting.svg'
 function NewPostPage() {
   const navigate = useNavigate()
   const imageId = useParams().id
-  console.log(useParams())
   const [user, setUser] = useState([])
   const [imageUrl, setImageUrl] = useState()
 
@@ -43,20 +42,18 @@ function NewPostPage() {
               <img
                 className="w-[54px] h-[54px] rounded-full object-cover"
                 src={user.profile_image_url}
-                alt=" profile image"
+                alt=" profile_img"
               />
             </div>
             <div className="mx-4">
-
               <Textarea label="Write a caption..." name="caption" />
-
             </div>
 
             <div className="overflow-hidden">
               <img
                 className="w-[54x] h-[54px] aspect-square rounded-2xl object-cover"
                 src={imageUrl?.imageUrl}
-                alt=" post image"
+                alt=" post_image"
               />
             </div>
           </div>

@@ -8,8 +8,8 @@ function CommentButton({ post, user }) {
   }
   return (
     <div>
-      <img className="w-[23px]" onClick={showComment} src={commentIcon} />
-      {/*<p>{commentsAmount.length}</p>*/}
+      <img className="w-[23px]" onClick={showComment} alt="comment" src={commentIcon} />
+      <p>{post.comment.length}</p>
     </div>
   )
 }
