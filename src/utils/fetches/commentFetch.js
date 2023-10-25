@@ -25,6 +25,7 @@ export const replyComment = async (event, postId, setReload, commentId) => {
   form.set('commentId', commentId)
   form.set('postId', postId)
   form.set('nickname', JSON.parse(sessionStorage.getItem('nickname')))
+  form.set('userId', JSON.parse(sessionStorage.getItem('userId')))
   const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/post/comment/reply`, {
     credentials: 'include',
     method: 'POST',
@@ -36,7 +37,6 @@ export const replyComment = async (event, postId, setReload, commentId) => {
 }
 
 export const getComment = async (postId, commentId, setComment, setReload) => {
-  const userId = JSON.parse(sessionStorage.getItem('userId'))
   const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/post/comment/getcomment`, {
     credentials: 'include',
     method: 'POST',
@@ -46,7 +46,6 @@ export const getComment = async (postId, commentId, setComment, setReload) => {
     body: JSON.stringify({
       postId: postId,
       commentId: commentId,
-      userId: userId,
     }),
   })
   if (response.ok) {
