@@ -8,7 +8,6 @@ export default function CommentItem({ comment, setReload, postId, replyToggle, s
   const userId = comment.owner
   const [user, setUser] = useState([])
   const [post, setPost] = useState([])
-  const [reply, setReply] = useState(false)
 
   const navigate = useNavigate()
 
