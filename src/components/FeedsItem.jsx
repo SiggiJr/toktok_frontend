@@ -31,6 +31,7 @@ function FeedsItem({ post, setReload }) {
             postId={post._id}
             setReload={setReload}
           />
+
           <img className="ml-2 h-5 w-5 cursor-pointer" role="presentation" src={commentIcon} alt=" comment icon" />
           <p>{post.comments.length}</p>
         </div>
@@ -42,6 +43,7 @@ function FeedsItem({ post, setReload }) {
             src={bookmark}
             alt=" bookmark icon"
           />
+
         </div>
       </div>
       <div className="flex gap-2 mt-2">

@@ -7,7 +7,6 @@ import Feeds from './pages/Feeds.jsx'
 import Protected from './components/Protected.jsx'
 import MyProfilePage from './pages/MyProfilePage.jsx'
 import OtherUserProfile from './pages/OtherUserProfile.jsx'
-import CloseFriends from './pages/CloseFriends.jsx'
 import Details from './pages/Details.jsx'
 import FavPage from './pages/FavPage.jsx'
 import HashtagPage from './pages/HashtagPage.jsx'
@@ -37,7 +36,6 @@ function App() {
             path="/user/:id"
             element={<OtherUserProfile loading={navbarLoading} setLoading={setNavbarLoading} />}
           />
-          <Route path="/closefriends" element={<CloseFriends />} />
           <Route path="/details" element={<Details />} />
           <Route path="/details/:postId" element={<CommentDetails />} />
           <Route path="/favorites" element={<FavPage />} />
@@ -52,7 +50,10 @@ function App() {
             path="/comment/:postId"
             element={<CommentDetails setReload={setNavbarLoading} reload={navbarLoading} />}
           />
-          <Route path="/comment/:postId/reply/:id" element={<ReplyPage setReload={setNavbarLoading} />} />
+          <Route
+            path="/comment/:postId/reply/:id"
+            element={<ReplyPage setReload={setNavbarLoading} reload={navbarLoading} />}
+          />
         </Route>
       </Routes>
       {location.pathname === '/' || location.pathname === '/login' || location.pathname === '/register' ? null : (
