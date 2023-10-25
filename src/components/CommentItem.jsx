@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { getUserProfile } from '../utils/fetches/getUserFetch'
 import LikeComments from './LikeComments'
 
-export default function CommentItem({ comment, setReload }) {
+export default function CommentItem({ comment, setReload, postId }) {
   const userId = comment.owner
   const [user, setUser] = useState([])
   const [post, setPost] = useState([])
@@ -11,10 +11,9 @@ export default function CommentItem({ comment, setReload }) {
     getUserProfile(userId, setUser, setPost)
   }, [])
 
-  if (!user._id) {
+  if (!user._id && !post._id) {
     return <p>is Loading...</p>
   }
-
   return (
     <div className="flex flex-col my-6">
       <div className="flex gap-4">
@@ -29,7 +28,7 @@ export default function CommentItem({ comment, setReload }) {
       <LikeComments
         nickname={JSON.parse(sessionStorage.getItem('nickname'))}
         likesAmount={comment.likes || []}
-        postId={post._id}
+        postId={postId}
         setReload={setReload}
         commentId={comment.comment_id}
       />
