@@ -8,11 +8,14 @@ export const getPost = async (postId, setState) => {
   }
 }
 
-export const writeComment = async (event, postId) => {
+export const writeComment = async (event, postId, setReload) => {
   const form = new FormData(event.target)
   const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/post/comments/addcomment/${postId}`, {
     credentials: 'include',
     method: 'POST',
     body: form,
   })
+  if (response.ok) {
+    setReload(prev => !prev)
+  }
 }

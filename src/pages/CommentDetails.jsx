@@ -4,17 +4,17 @@ import { Input } from '@material-tailwind/react'
 import { getPost, writeComment } from '../utils/fetches/commentFetch.js'
 import CommentItem from '../components/CommentItem.jsx'
 
-function CommentDetails() {
+function CommentDetails({ reload, setReload }) {
   const { postId } = useParams()
   const [post, setPost] = useState([])
 
   useEffect(() => {
     getPost(postId, setPost)
-  }, [])
+  }, [reload])
 
   const sendComment = event => {
     event.preventDefault()
-    writeComment(event, postId)
+    writeComment(event, postId, setReload)
   }
 
   if (!post.comments) {
@@ -22,9 +22,7 @@ function CommentDetails() {
   }
 
   return (
-
     <section className="flex flex-col p-6">
-
       <h1>{post.nickname}</h1>
       <img className="w-[54px] h-[54px] object-cover rounded-full " src={post.owner_image} alt="" />
       <img src={post.image_url} alt="" />

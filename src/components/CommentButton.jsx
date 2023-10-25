@@ -6,10 +6,11 @@ function CommentButton({ post, user }) {
   const showComment = () => {
     navigate(`/comment/${post._id}`)
   }
+
   return (
     <div>
       <img className="w-[23px]" onClick={showComment} alt="comment" src={commentIcon} />
-      <p>{post.comment.length}</p>
+      <p>{post.comments.length}</p>
     </div>
   )
 }

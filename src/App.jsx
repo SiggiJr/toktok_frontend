@@ -47,7 +47,10 @@ function App() {
           <Route path="/upload/:id" element={<NewPostPage />} />
           <Route path="/update/:id" element={<UpdateUserProfile />} />
           <Route path="/search" element={<SearchPage />} />
-          <Route path="/comment/:postId" element={<CommentDetails />} />
+          <Route
+            path="/comment/:postId"
+            element={<CommentDetails setReload={setNavbarLoading} reload={navbarLoading} />}
+          />
         </Route>
       </Routes>
       {location.pathname === '/' || location.pathname === '/login' || location.pathname === '/register' ? null : (
