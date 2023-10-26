@@ -14,24 +14,22 @@ function FeedsItem({ post, setReload, darkMode }) {
   const myDate = new Date()
 
   useEffect(() => {
-    if (post.timestamp) {
-      const postDate = new Date(post.timestamp)
-      const timeDifference = myDate.getTime() - postDate.getTime()
-      const hourDifference = Math.floor(timeDifference / (1000 * 60 * 60))
-      const minutesDifference = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60))
-      const dayDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24))
+    const postDate = new Date(post.timestamp)
+    const timeDifference = myDate.getTime() - postDate.getTime()
+    const hourDifference = Math.floor(timeDifference / (1000 * 60 * 60))
+    const minutesDifference = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60))
+    const dayDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24))
 
-      if (minutesDifference < 60 && minutesDifference <= 0) {
-        setTime(`${minutesDifference}mins`)
-      }
-      if (minutesDifference > 60) {
-        setTime(`${hourDifference}h`)
-      }
-      if (minutesDifference > 60 && hourDifference > 24) {
-        setTime(`${dayDifference}days`)
-      }
-      console.log(time)
+    if (minutesDifference < 60 && minutesDifference <= 0) {
+      setTime(`${minutesDifference}mins`)
     }
+    if (minutesDifference > 60) {
+      setTime(`${hourDifference}h`)
+    }
+    if (minutesDifference > 60 && hourDifference > 24) {
+      setTime(`${dayDifference}days`)
+    }
+    console.log(time)
   }, [])
 
   return (
