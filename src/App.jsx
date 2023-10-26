@@ -70,7 +70,7 @@ function App() {
             element={<OtherUserProfile loading={navbarLoading} setLoading={setNavbarLoading} darkMode={darkMode} />}
           />
           <Route path="/details" element={<Details />} />
-          <Route path="/details/:postId" element={<CommentDetails />} />
+          <Route path="/details/:postId" element={<CommentDetails darkMode={darkMode} />} />
           <Route path="/favorites" element={<FavPage />} />
           <Route path="/saved" element={<SavedPosts />} />
           <Route path="/upload" element={<Upload darkMode={darkMode} />} />

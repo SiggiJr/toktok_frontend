@@ -53,6 +53,7 @@ function MyProfilePage({ loading, setLoading, toggleTheme, darkMode }) {
             onClick={toggleTheme}
             alt="darkmode"
           />
+          {/* dwasd */}
           <Link to="/upload">
             <img src={darkMode ? plusIconWhite : plusIcon} alt=" plus icon" />
           </Link>
@@ -111,7 +112,7 @@ function MyProfilePage({ loading, setLoading, toggleTheme, darkMode }) {
           ))}
         </ul>
       </article>
-      {isExpanded && <ProfileSettings />}
+      {isExpanded && <ProfileSettings darkMode={darkMode} />}
     </section>
   )
 }

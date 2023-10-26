@@ -7,10 +7,10 @@ import commentIcon from '../assets/icons/comment.svg'
 import commentIconWhite from '../assets/icons/commentWhite.svg'
 import { pushToFavorites } from '../utils/fetches/getFavPostsFetch.js'
 
-function FeedsItem({ post, setReload, darkMode }) {
+function FeedsItem({ post, setReload, darkMode, currentTime }) {
   const navigate = useNavigate()
   const postId = post._id
-  const [time, setTime] = useState('0 mins')
+  const [time, setTime] = useState(0)
   const myDate = new Date()
 
   useEffect(() => {
@@ -20,8 +20,15 @@ function FeedsItem({ post, setReload, darkMode }) {
     const minutesDifference = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60))
     const dayDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24))
 
-    if (minutesDifference < 60 && minutesDifference <= 0) {
+
+    if (minutesDifference < 60) {
       setTime(`${minutesDifference}mins`)
+    }
+    if (minutesDifference > 60) {
+      setTime(`${hourDifference}h`)
+    }
+    if (minutesDifference > 60 && hourDifference > 24) {
+      setTime(`${dayDifference}days`)
     }
     if (minutesDifference > 60) {
       setTime(`${hourDifference}h`)
@@ -84,8 +91,8 @@ function FeedsItem({ post, setReload, darkMode }) {
           {post.nickname}
           <span className="text-xs font-light"> {time} ago</span>
         </p>
-        <p>{post.caption}</p>
       </div>
+      <p>{post.caption}</p>
     </div>
   )
 }
