@@ -1,5 +1,5 @@
-import { Avatar } from '@material-tailwind/react'
-import { useEffect, useState } from 'react'
+import { Avatar, Radio, Switch } from '@material-tailwind/react'
+import { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import ProfileSettings from '../components/ProfileSettings'
 import brandIcon from '../assets/icons/Logo.svg'
@@ -11,10 +11,11 @@ import { getUser } from '../utils/fetches/getUserFetch.js'
 import { myPostsFetch } from '../utils/fetches/getFeedFetch.js'
 import MyProfilePosts from '../components/MyProfilePosts.jsx'
 
-function MyProfilePage({ loading, setLoading }) {
+function MyProfilePage({ loading, setLoading, toggleDarkmode, setToggleDarkmode }) {
   const [user, setUser] = useState(false)
   const [isExpanded, setIsExpanded] = useState(false)
   const [myPosts, setMyPosts] = useState([])
+
   const handleMoreCycleClick = () => {
     setIsExpanded(prevState => !prevState)
   }
@@ -47,9 +48,9 @@ function MyProfilePage({ loading, setLoading }) {
               <img src={plusIcon} alt=" plus icon" />
             </Link>
             <Link to={`/update/${user._id}`}>
-              <img src={edit} alt="edit icon" onClick={handleEditClick} />
+              <img role="presentation" src={edit} alt="edit icon" onClick={handleEditClick} />
             </Link>
-            <img src={moreIcon} alt="more icon" onClick={handleMoreCycleClick} />
+            <img role="presentation" src={moreIcon} alt="more icon" onClick={handleMoreCycleClick} />
           </div>
         </article>
         <div className="relative flex flex-col w-max items-end gap-4 w-[120px] h-[120px] mx-auto rounded-full my-6">

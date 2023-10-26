@@ -1,5 +1,7 @@
+import { ThemeProvider, createTheme } from '@mui/material/styles'
+import CssBaseline from '@mui/material/CssBaseline'
 import { Route, Routes } from 'react-router-dom'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Register from './pages/Register.jsx'
 import Brandscreen from './pages/Brandscreen.jsx'
 import Login from './pages/Login.jsx'
@@ -19,11 +21,18 @@ import UpdateUserProfile from './pages/UpdateUserProfile.jsx'
 import NewPostPage from './pages/NewPostPage.jsx'
 import SearchPage from './pages/SearchPage.jsx'
 import ReplyPage from './pages/ReplyPage.jsx'
-
 function App() {
   const [navbarLoading, setNavbarLoading] = useState(false)
+
+  const darkTheme = createTheme({
+    palette: {
+      mode: 'light',
+    },
+  })
+
   return (
-    <>
+    <ThemeProvider theme={darkTheme}>
+      <CssBaseline />
       <Routes>
         <Route path="/" element={<Brandscreen />} />
         <Route path="/register" element={<Register />} />
@@ -60,7 +69,7 @@ function App() {
       {location.pathname === '/' || location.pathname === '/login' || location.pathname === '/register' ? null : (
         <NavbarMobile />
       )}
-    </>
+    </ThemeProvider>
   )
 }
 

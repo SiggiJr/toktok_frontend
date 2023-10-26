@@ -3,8 +3,7 @@ import closeFriendIcon from '../assets/icons/3User.svg'
 import arrowDownIcon from '../assets/icons/ArrowDownSquare.svg'
 import bookmarkIcon from '../assets/icons/Bookmark.svg'
 import favoritesIcon from '../assets/icons/Heart.svg'
-import infoIcon from '../assets/icons/InfoSquare.svg'
-import qrIcon from '../assets/icons/Scan.svg'
+import logoutIcon from '../assets/icons/logout.svg'
 import settingIcon from '../assets/icons/Setting.svg'
 import activityIcon from '../assets/icons/TimeSquare.svg'
 
@@ -23,7 +22,7 @@ function ProfileSettings() {
 
   return (
     <div>
-      <ul className="flex flex-col gap-6 px-6 rounded-t-3xl border-2 border-zinc-600 absolute bottom-0 w-screen z-10 bg-white">
+      <ul className="flex flex-col gap-6 px-6 rounded-t-3xl border-2 border-zinc-600 absolute fixed bottom-0 w-screen z-10  bg-white pb-4">
         <div className="flex mx-auto pt-2">
           <img src={line} alt="" />
         </div>
@@ -43,15 +42,10 @@ function ProfileSettings() {
         <li>
           <Link to="/" className="flex gap-5">
             <img src={activityIcon} alt="Time Icon" className="w-[28px] h-[28px]" />
-            <p>Your Activity</p>
+            <p>Toggle Theme</p>
           </Link>
         </li>
-        <li>
-          <Link to="/" className="flex gap-5">
-            <img src={qrIcon} alt="Scan Icon" className="w-[28px] h-[28px]" />
-            <p>QR Code</p>
-          </Link>
-        </li>
+
         <li>
           <Link to="/" className="flex gap-5">
             <img src={bookmarkIcon} alt="Bookmark Icon" className="w-[28px] h-[28px]" />
@@ -70,9 +64,9 @@ function ProfileSettings() {
             <p>Favorites</p>
           </Link>
         </li>
-        <li onClick={logout} className="flex gap-5">
-          <img src={infoIcon} alt="Info Icon" className="w-[28px] h-[28px]" />
-          <p>Logout</p>
+        <li role="presentation" onClick={logout} className="flex gap-5">
+          <img src={logoutIcon} alt="Info Icon" className="w-[26px] h-[26px]" />
+          <p className="text-red-600">Logout</p>
         </li>
       </ul>
     </div>
