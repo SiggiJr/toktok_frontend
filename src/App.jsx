@@ -67,17 +67,20 @@ function App() {
           />
           <Route
             path="/user/:id"
-            element={<OtherUserProfile loading={navbarLoading} setLoading={setNavbarLoading} />}
+            element={<OtherUserProfile loading={navbarLoading} setLoading={setNavbarLoading} darkMode={darkMode} />}
           />
           <Route path="/details" element={<Details />} />
           <Route path="/details/:postId" element={<CommentDetails />} />
           <Route path="/favorites" element={<FavPage />} />
-          <Route path="/feed/:hashtag" element={<HashtagPage />} />
+          <Route path="/feed/:hashtag" element={<HashtagPage likedPosts />} />
           <Route path="/saved" element={<SavedPosts />} />
           <Route path="/upload" element={<Upload />} />
           <Route path="/upload/:id" element={<NewPostPage darkMode={darkMode} />} />
           <Route path="/update/:id" element={<UpdateUserProfile darkMode={darkMode} />} />
-          <Route path="/search" element={<SearchPage setReload={setNavbarLoading} reload={navbarLoading} />} />
+          <Route
+            path="/search"
+            element={<SearchPage setReload={setNavbarLoading} reload={navbarLoading} darkMode={darkMode} />}
+          />
           <Route
             path="/comment/:postId"
             element={<CommentDetails darkMode={darkMode} setReload={setNavbarLoading} reload={navbarLoading} />}

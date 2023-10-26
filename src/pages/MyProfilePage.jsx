@@ -69,15 +69,19 @@ function MyProfilePage({ loading, setLoading, toggleTheme, darkMode }) {
       <article>
         <ul className="flex justify-evenly mt-6 ">
           <li className="flex flex-col w-16 items-center">
-            <span className="text-2xl text-[#424242]">{user.posts?.length}</span>
+            <span className={darkMode ? 'text-2xl text-white' : 'text-2xl text-[#424242]'}>{user.posts?.length}</span>
             <p className={darkMode ? 'text-white text-sm' : 'text-[#424242] text-sm'}>Posts</p>
           </li>
           <li className="flex flex-col w-16 items-center">
-            <span className="text-2xl text-[#424242]">{user.follower?.length}</span>
+            <span className={darkMode ? 'text-2xl text-white' : 'text-2xl text-[#424242]'}>
+              {user.follower?.length}
+            </span>
             <p className={darkMode ? 'text-white text-sm' : 'text-[#424242] text-sm'}>Followers</p>
           </li>
           <li className="flex flex-col w-16 items-center">
-            <span className="text-2xl text-[#424242]">{user.following?.length}</span>
+            <span className={darkMode ? 'text-2xl text-white' : 'text-2xl text-[#424242]'}>
+              {user.following?.length}
+            </span>
             <p className={darkMode ? 'text-white text-sm' : 'text-[#424242] text-sm'}>Following</p>
           </li>
         </ul>

@@ -31,6 +31,7 @@ function FeedsItem({ post, setReload }) {
             likesAmount={post.likes || []}
             postId={post._id}
             setReload={setReload}
+            post={post}
           />
 
           <img

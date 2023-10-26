@@ -3,7 +3,8 @@ import { getLikes } from '../utils/fetches/getLikesFetch.js'
 import like from '../assets/icons/Heart.svg'
 import likeActive from '../assets/icons/HeartRed.svg'
 
-function LikeButton({ nickname, likesAmount, postId, setReload }) {
+function LikeButton({ nickname, likesAmount, postId, setReload, post }) {
+  const myNickname = JSON.parse(sessionStorage.getItem('nickname'))
   const [isLiked, setIsLiked] = useState(false)
   const [likes, setLikes] = useState(() => {
     const result = likesAmount.reduce((accumulator, likeStatus) => {
@@ -19,7 +20,6 @@ function LikeButton({ nickname, likesAmount, postId, setReload }) {
 
   const handleLikes = () => {
     getLikes(nickname, postId, setReload)
-    setIsLiked(!isLiked)
   }
 
   return (
@@ -28,7 +28,7 @@ function LikeButton({ nickname, likesAmount, postId, setReload }) {
         className="h-6 w-6 cursor-pointer"
         role="presentation"
         onClick={handleLikes}
-        src={isLiked ? likeActive : like}
+        src={post.likes?.includes(myNickname) ? likeActive : like}
         alt=" like icon"
       />
       <p>{likesAmount.length}</p>

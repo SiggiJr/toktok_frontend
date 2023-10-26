@@ -7,7 +7,7 @@ import SetFollow from '../components/SetFollow.jsx'
 import backIcon from '../assets/icons/back.svg'
 import OtherUserProfilePosts from '../components/OtherUserProfilePosts.jsx'
 
-function OtherUserProfile({ loading, setLoading }) {
+function OtherUserProfile({ loading, setLoading, darkMode }) {
   const userId = useParams().id
   const [user, setUser] = useState()
   const [posts, setPosts] = useState([])
@@ -39,24 +39,30 @@ function OtherUserProfile({ loading, setLoading }) {
         <Avatar src={user.profile_image_url} alt="avatar" size="xxl" />
       </div>
       <article>
-        <h2 className="text-2xl text-center ">{user.nickname}</h2>
-        <h3 className="text-l text-center py-2">{user.profession}</h3>
-        <p className=" text-xs text-center text-[#424242]">{user.bio}</p>
+        <h2 className={darkMode ? 'text-white text-2xl text-center' : 'text-2xl text-center text-[#424242]'}>
+          {user.nickname}
+        </h2>
+        <h3 className={darkMode ? 'text-white text-l text-center py-2' : 'text-l text-center py-2 text-[#424242]'}>
+          {user.profession}
+        </h3>
+        <p className={darkMode ? 'text-white text-xs text-center' : 'text-xs text-center text-[#424242]'}>{user.bio}</p>
         <p className="text-xs text-center text-[#246BFD] pt-2">{user.website}</p>
       </article>
       <article>
         <ul className="flex justify-evenly mt-6">
           <li className="flex flex-col w-16 items-center">
-            <span className="text-2xl">0</span>
-            <p className="text-sm text-[#424242]">posts</p>
+            <span className={darkMode ? 'text-2xl text-white' : 'text-2xl text-[#424242]'}>{user.posts?.length}</span>
+            <p className={darkMode ? 'text-white text-sm' : 'text-[#424242] text-sm'}>Posts</p>
           </li>
           <li className="flex flex-col w-16 items-center">
-            <span className="text-2xl">{user.follower.length}</span>
-            <p className="text-sm text-[#424242]">Followers</p>
+            <span className={darkMode ? 'text-2xl text-white' : 'text-2xl text-[#424242]'}>{user.follower.length}</span>
+            <p className={darkMode ? 'text-white text-sm' : 'text-[#424242] text-sm'}>Followers</p>
           </li>
           <li className="flex flex-col w-16 items-center">
-            <span className="text-2xl">{user.following.length}</span>
-            <p className="text-sm text-[#424242]">Following</p>
+            <span className={darkMode ? 'text-2xl text-white' : 'text-2xl text-[#424242]'}>
+              {user.following.length}
+            </span>
+            <p className={darkMode ? 'text-white text-sm' : 'text-[#424242] text-sm'}>Following</p>
           </li>
         </ul>
       </article>

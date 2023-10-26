@@ -40,10 +40,11 @@ export default function CommentItem({ comment, setReload, postId, darkMode }) {
           postId={postId}
           setReload={setReload}
           commentId={comment.comment_id}
+          comment={comment}
         />
       </div>
       <div className="flex flex-start mt-1">
-        <p className="text-[12px] ml-14">{comment.likes.length}</p>
+        <p className="text-[12px] ml-14">{comment.likes?.length}</p>
         <p className="text-[12px] ml-3" onClick={() => navigate(`reply/${comment.comment_id}`)} role="presentation">
           Reply
         </p>

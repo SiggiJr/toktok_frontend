@@ -4,7 +4,7 @@ import { searchFetch } from '../utils/fetches/SearchFetch.js'
 import SearchUserItem from '../components/SearchUserItem.jsx'
 import userPageIcon from '../assets/icons/userPageIcon.svg'
 
-function SearchPage({ setReload, reload }) {
+function SearchPage({ setReload, reload, darkMode }) {
   const [requestedUser, setRequestedUser] = useState([])
   const [inputValue, setInputValue] = useState()
 
@@ -24,6 +24,7 @@ function SearchPage({ setReload, reload }) {
     <div className="flex flex-col h-screen p-6">
       <form>
         <Input
+          color={darkMode ? 'white' : 'gray'}
           label="search user"
           onChange={event => {
             setInputValue(event.target.value)
@@ -38,7 +39,7 @@ function SearchPage({ setReload, reload }) {
           <img src={userPageIcon} alt="" />
         </div>
         {requestedUser.map(user => (
-          <SearchUserItem key={user._id} user={user} setReload={setReload} reload={reload} />
+          <SearchUserItem key={user._id} user={user} setReload={setReload} reload={reload} darkMode={darkMode} />
         ))}
       </section>
     </div>
