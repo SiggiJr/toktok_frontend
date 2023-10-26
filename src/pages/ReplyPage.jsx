@@ -40,7 +40,7 @@ export default function ReplyPage({ setReload, reload, darkMode }) {
           comment.replies.map(reply => <ReplyItem reply={reply} userId={reply.owner} setReload={setReload} />)}
       </article>
       <form className="p-6" onSubmit={sendReply}>
-        <div className="flex gap-2">
+        <div className="fixed bottom-[70px] flex gap-2">
           <Input label="write a Reply" type="text" name="reply" />
           <button className="text-[#E98090]" type="submit">
             Reply
