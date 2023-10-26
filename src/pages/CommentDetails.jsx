@@ -52,16 +52,18 @@ function CommentDetails({ reload, setReload }) {
       </article>
       <article className="flex flex-col border-gray-200 border-b-[1px] pb-1 mb-1">
         <img className="w-[380px] h-[380px] object-cover rounded-2xl my-2" src={post.image_url} alt="" />
-        <p className=" text-[14px]">{post.caption}</p>
-        <img
-          className=" h-5 w-5 cursor-pointer"
-          onClick={() => {
-            pushToFavorites(postId)
-          }}
-          role="presentation"
-          src={bookmark}
-          alt=" bookmark icon"
-        />
+        <div className="flex justify-between">
+          <p className=" text-[14px]">{post.caption}</p>
+          <img
+            className=" h-5 w-5 cursor-pointer"
+            onClick={() => {
+              pushToFavorites(postId)
+            }}
+            role="presentation"
+            src={bookmark}
+            alt=" bookmark icon"
+          />
+        </div>
       </article>
       <article>
         {post.comments.map(comment => (

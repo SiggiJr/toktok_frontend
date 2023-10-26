@@ -31,7 +31,7 @@ function UpdateUserProfile() {
   }
 
   return (
-    <section className="flex flex-col items-center">
+    <section className="flex flex-col items-center mb-12">
       <article className="mt-6 flex gap-2">
         <img
           className=" cursor-pointer w-[17px]"
@@ -42,7 +42,7 @@ function UpdateUserProfile() {
         />
         <h2 className="text-start mx-auto text-3xl">Update your profile</h2>
       </article>
-      <form onSubmit={updateUserProfile} className="flex flex-col ">
+      <form onSubmit={updateUserProfile} className="flex flex-col">
         <div className=" relative w-[140px] h-[140px] mt-4 mx-auto flex">
           <img
             className="object-cover rounded-full p-1 items-center mx-auto"
@@ -58,28 +58,28 @@ function UpdateUserProfile() {
           />
           <input type="file" name="profile_image" id="uploadInput" onChange={previewImage} className="hidden" />
         </div>
-        <div className="w-72 mt-8 mx-auto">
+        <div className=" mt-8">
           <Input label="first name" type="text" name="first_name" defaultValue={user.first_name} required />
         </div>
-        <div className="w-72 mt-3 mx-auto">
+        <div className=" mt-3">
           <Input label="last name" type="text" name="last_name" defaultValue={user.last_name} required />
         </div>
-        <div className="w-72 mt-3 mx-auto">
+        <div className=" mt-3">
           <Input label="nickname" type="text" name="nickname" defaultValue={user.nickname} required />
         </div>
-        <div className="w-72 mt-3 mx-auto">
+        <div className=" mt-3">
           <Input label="profession" type="text" name="profession" defaultValue={user.profession} />
         </div>
-        <div className="w-72 mt-3 mx-auto">
+        <div className=" mt-3">
           <Textarea label="bio" name="bio" defaultValue={user?.bio} rows="3" />
         </div>
-        <div className="w-72 mt-3 mx-auto">
+        <div className=" mt-3">
           <Input label="date of birth" type="date" name="date_of_birth" defaultValue={user.date_of_birth} required />
         </div>
-        <div className="w-72 mt-3 mx-auto">
+        <div className=" mt-3">
           <Input label="Email" type="email" name="email" defaultValue={user.email} required />
         </div>
-        <div className="w-72 mt-3 mx-auto">
+        <div className=" mt-3">
           <Input label="Mobile" type="number" name="mobile_number" defaultValue={user.mobile_number} />
         </div>
         <div className="flex w-72 mt-3 mx-auto gap-8 justify-around text-blue-gray-400">
@@ -102,10 +102,10 @@ function UpdateUserProfile() {
             <input type="radio" name="gender" id="diverse" value="diverse" />
           </div>
         </div>
-        <div className="w-72 mt-3 mx-auto">
+        <div className=" mt-3 ">
           <Input label="Website" type="text" name="website" defaultValue={user.website} />
         </div>
-        <Button className="w-72 mt-8 mx-auto bg-[#E98090] rounded-3xl" type="submit">
+        <Button className=" mt-8 bg-[#E98090] rounded-3xl" type="submit">
           Update
         </Button>
       </form>
