@@ -95,66 +95,58 @@ function Upload({ darkMode }) {
         <ul className="flex flex-wrap my-6 overflow-hidden">
           <li>
             <img
-              src="../public/img/Bild1.jpeg"
+              src="../img/Bild1.jpeg"
               alt="post image"
               className="w-[114px] h-[114px] object-cover rounded-2xl p-1"
             />
           </li>
           <li>
-            <img
-              src="../public/img/Bild2.jpg"
-              alt="post image"
-              className="w-[114px] h-[114px] object-cover rounded-2xl p-1"
-            />
+            <img src="../img/Bild2.jpg" alt="post image" className="w-[114px] h-[114px] object-cover rounded-2xl p-1" />
           </li>
           <li>
             <img
-              src="../public/img/Bild3.jpeg"
+              src="../img/Bild3.jpeg"
               alt="post image"
               className="w-[114px] h-[114px] object-cover rounded-2xl p-1"
             />
           </li>{' '}
           <li>
             <img
-              src="../public/img/Bild4.jpeg"
+              src="../img/Bild4.jpeg"
               alt="post image"
               className="w-[114px] h-[114px] object-cover rounded-2xl p-1"
             />
           </li>{' '}
           <li className="w-1/3 overflow-hidden px-1 py-1">
             <img
-              src="../public/img/Bild5.jpeg"
+              src="../img/Bild5.jpeg"
               alt="post image"
               className="w-[114px] h-[114px] object-cover rounded-2xl p-1"
             />
           </li>
           <li>
             <img
-              src="../public/img/Bild6.jpeg"
+              src="../img/Bild6.jpeg"
               alt="post image"
               className="w-[114px] h-[114px] object-cover rounded-2xl p-1"
             />
           </li>
           <li>
             <img
-              src="../public/img/Bild7.jpeg"
+              src="../img/Bild7.jpeg"
               alt="post image"
               className="w-[114px] h-[114px] object-cover rounded-2xl p-1"
             />
           </li>
           <li>
             <img
-              src="../public/img/Bild8.jpeg"
+              src="../img/Bild8.jpeg"
               alt="post image"
               className="w-[114px] h-[114px] object-cover rounded-2xl p-1"
             />
           </li>
           <li>
-            <img
-              src="../public/img/Bild9.jpg"
-              alt="post image"
-              className="w-[114px] h-[114px] object-cover rounded-2xl p-1"
-            />
+            <img src="../img/Bild9.jpg" alt="post image" className="w-[114px] h-[114px] object-cover rounded-2xl p-1" />
           </li>
         </ul>
       </article>
