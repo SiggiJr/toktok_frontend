@@ -14,10 +14,11 @@ export default function ReplyItem({ reply, userId, setReload }) {
       <div className="flex gap-2 items-center ">
         <img className="w-[48px] h-[48px] object-cover rounded-full " src={user.profile_image_url} alt="" />
         <div className="flex gap-2 items-baseline">
-
-          <h2 className="text-xl absolute top-0">{user.nickname}</h2>
-          <p className="text-l text-[#616161] absolute top-0.5 right-44"> {reply.timestamp.substring(0, 10)}</p>
-
+          <h2 className="text-xl absolute top-0">
+            {user.nickname}
+            <span className="ml-4 text-xs">{reply.timestamp.substring(0, 10)}</span>
+          </h2>
+          {/* <p className="text-l text-[#616161] absolute top-0.5 right-14"> {reply.timestamp.substring(0, 10)}</p> */}
         </div>
       </div>
       <div>

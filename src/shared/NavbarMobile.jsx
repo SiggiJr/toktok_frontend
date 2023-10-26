@@ -12,7 +12,7 @@ import profileIcon from '../assets/icons/Profil.svg'
 import profileIconWhite from '../assets/icons/ProfilWhite.svg'
 import profileRed from '../assets/icons/Profil_red.svg'
 import { useState } from 'react'
-import DarkMode from '../components/DarkMode'
+import { DarkMode } from '@mui/icons-material'
 
 function NavbarMobile({ darkMode }) {
   const [toggleSearchBar, setToggleSearchBar] = useState(false)
@@ -28,12 +28,20 @@ function NavbarMobile({ darkMode }) {
       <li className="flex flex-col justify-center items-center">
         <NavLink to="/feed">
           <img
-            src={location.pathname === '/feed' ? homeIconRed : DarkMode ? homeIconWhite : homeIcon}
+            src={
+              darkMode
+                ? location.pathname === '/feed'
+                  ? homeIconRed
+                  : homeIconWhite
+                : location.pathname === '/feed'
+                ? homeIconRed
+                : homeIcon
+            }
             alt="home icon"
             className="h-[24px] mx-auto"
           />
           <p
-            className={DarkMode ? 'text-white' : ''}
+            className={darkMode ? 'text-white' : ''}
             style={location.pathname === '/feed' ? { color: 'red' } : { color: ' ' }}>
             Home
           </p>
@@ -46,12 +54,20 @@ function NavbarMobile({ darkMode }) {
             setToggleSearchBar(!toggleSearchBar)
           }}>
           <img
-            src={location.pathname === '/search' ? searchIconRed : DarkMode ? searchIconWhite : searchIcon}
+            src={
+              darkMode
+                ? location.pathname === '/search'
+                  ? searchIconRed
+                  : searchIconWhite
+                : location.pathname === '/search'
+                ? searchIconRed
+                : searchIcon
+            }
             alt="search icon"
             className="h-[24px] mx-auto"
           />
           <p
-            className={DarkMode ? 'text-white' : ''}
+            className={darkMode ? 'text-white' : ''}
             style={location.pathname === '/search' ? { color: 'red' } : { color: ' ' }}>
             Search
           </p>
@@ -60,12 +76,20 @@ function NavbarMobile({ darkMode }) {
       <li className="flex flex-col justify-center">
         <NavLink to="/upload">
           <img
-            src={location.pathname.includes('/upload') ? uploadIconRed : DarkMode ? uploadIconWhite : uploadIcon}
+            src={
+              darkMode
+                ? location.pathname === '/upload'
+                  ? uploadIconRed
+                  : uploadIconWhite
+                : location.pathname === '/upload'
+                ? uploadIconRed
+                : uploadIcon
+            }
             alt="upload icon"
             className="h-[24px] mx-auto"
           />
           <p
-            className={DarkMode ? 'text-white' : ''}
+            className={darkMode ? 'text-white' : ''}
             style={location.pathname.includes('/upload') ? { color: 'red' } : { color: ' ' }}>
             Upload
           </p>
@@ -74,12 +98,21 @@ function NavbarMobile({ darkMode }) {
       <li className="flex flex-col justify-center">
         <NavLink to="/profile" style={location.pathname === '/profile' ? { color: 'red' } : { color: ' ' }}>
           <img
-            src={location.pathname === '/profile' ? profileRed : darkMode ? profileIconWhite : profileIcon}
+            // src={location.pathname === '/profile' ? profileRed : darkMode ? profileIconWhite : profileIcon}
+            src={
+              darkMode
+                ? location.pathname === '/profile'
+                  ? profileRed
+                  : profileIconWhite
+                : location.pathname === '/profile'
+                ? profileRed
+                : profileIcon
+            }
             alt="profile icon"
             className="h-[24px] mx-auto"
           />
           <p
-            className={DarkMode ? 'text-white' : ''}
+            className={darkMode ? 'text-white' : ''}
             style={location.pathname === '/profile' ? { color: 'red' } : { color: ' ' }}>
             Profile
           </p>

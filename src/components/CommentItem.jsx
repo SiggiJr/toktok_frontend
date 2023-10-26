@@ -7,11 +7,29 @@ export default function CommentItem({ comment, setReload, postId, darkMode }) {
   const userId = comment.owner
   const [user, setUser] = useState([])
   const [post, setPost] = useState([])
+  const [time, setTime] = useState(0)
 
+  const myDate = new Date()
   const navigate = useNavigate()
 
   useEffect(() => {
     getUserProfile(userId, setUser, setPost)
+    const commentDate = new Date(comment.timestamp)
+    const timeDifference = myDate.getTime() - commentDate.getTime()
+    const hourDifference = Math.floor(timeDifference / (1000 * 60 * 60))
+    const minutesDifference = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60))
+    const dayDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24))
+
+    if (minutesDifference < 60) {
+      setTime(`${minutesDifference}mins`)
+    }
+    if (minutesDifference > 60) {
+      setTime(`${hourDifference}h`)
+    }
+    if (minutesDifference > 60 && hourDifference > 24) {
+      setTime(`${dayDifference}days`)
+    }
+    console.log(commentDate)
   }, [])
 
   if (!user._id && !post._id && !comment.comment_id) {
@@ -23,13 +41,15 @@ export default function CommentItem({ comment, setReload, postId, darkMode }) {
       <div onClick={() => navigate(`/user/${user._id}`)} role="presentation" className="flex gap-2 cursor-pointer">
         <img className="w-[48px] h-[48px] object-cover rounded-full " src={user.profile_image_url} alt="" />
         <div className="flex flex-col">
-          <h2 className="text-xl">{user.nickname}</h2>
-          {/* <p className="text-[12px] text-[#616161]">{user.profession}</p> */}
+          <h2 className="text-xl">
+            {user.nickname}
+            <span className="ml-4 text-xs">{time} ago</span>
+          </h2>
         </div>
       </div>
 
       <div className="flex justify-between absolute top-6 " role="presentation">
-        <p className={darkMode ? 'text-[16px]  ml-14 text-white' : 'text-[16px] text-[#212121] py-3'}>
+        <p className={darkMode ? 'text-[16px]  ml-14 text-white' : 'text-[16px] text-[#212121] ml-14'}>
           {comment.comment}
         </p>
       </div>
