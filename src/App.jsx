@@ -54,6 +54,7 @@ function App() {
             path="/comment/:postId/reply/:id"
             element={<ReplyPage setReload={setNavbarLoading} reload={navbarLoading} />}
           />
+          <Route path="/favorite/:id" element={<FavPage setReload={setNavbarLoading} reload={navbarLoading} />} />
         </Route>
       </Routes>
       {location.pathname === '/' || location.pathname === '/login' || location.pathname === '/register' ? null : (

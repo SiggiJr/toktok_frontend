@@ -16,6 +16,7 @@ module.exports = {
     'import/prefer-default-export': 'off',
     'no-underscore-dangle': ['error', { allow: ['_id'] }],
     'jsx-a11y/click-events-have-key-events': 'off',
+    'no-restricted-globals': ['error', 'event', 'fdescribe'],
     'jsx-a11y/no-noninteractive-element-interactions': [
       'error',
       {
