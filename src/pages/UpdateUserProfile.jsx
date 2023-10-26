@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import uploadIcon from '../assets/icons/Editsquare.svg'
-import { Button, Input, Textarea } from '@material-tailwind/react'
-import { updateUser } from '../utils/fetches/registerFetch.js'
 import { useNavigate } from 'react-router-dom'
+import { Button, Input, Textarea } from '@material-tailwind/react'
+import uploadIcon from '../assets/icons/Editsquare.svg'
+import { updateUser } from '../utils/fetches/registerFetch.js'
 import { getUser } from '../utils/fetches/getUserFetch'
 import backIcon from '../assets/icons/back.svg'
 
