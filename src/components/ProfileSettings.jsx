@@ -47,7 +47,7 @@ function ProfileSettings({ darkMode }) {
         <li>
           <Link to="/" className="flex gap-5">
             <img src={activityIcon} alt="Time Icon" className="w-[28px] h-[28px]" />
-            <p className={darkMode ? 'text-gray-900' : ''}>Toggle Theme</p>
+            <p className={darkMode ? 'text-gray-900' : ''}>Your activity</p>
           </Link>
         </li>
 
