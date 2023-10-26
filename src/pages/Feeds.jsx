@@ -10,6 +10,7 @@ function Feeds({ darkMode }) {
   const [followerPost, setFollowerPosts] = useState([])
   const navigate = useNavigate()
   const userId = JSON.parse(sessionStorage.getItem('userId'))
+  const myDate = new Date()
 
   useEffect(() => {
     getFeedFetch(setFollowerPosts)
@@ -27,7 +28,7 @@ function Feeds({ darkMode }) {
         />
       </div>
       {followerPost.map(post => (
-        <FeedsItem key={post._id} post={post} setReload={setReload} darkMode={darkMode} />
+        <FeedsItem key={post._id} post={post} setReload={setReload} darkMode={darkMode} myDate={myDate} />
       ))}
     </section>
   )

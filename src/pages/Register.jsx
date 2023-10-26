@@ -2,7 +2,9 @@ import { useState } from 'react'
 import { Button, Input } from '@material-tailwind/react'
 import { Link, useNavigate } from 'react-router-dom'
 import eyeOff from '../../src/assets/icons/visibility_off.svg'
+import eyeOffWhite from '../../src/assets/icons/visibility_offWhite.svg'
 import eye from '../../src/assets/icons/visibility_on.svg'
+import eyeWhite from '../../src/assets/icons/visibility_onWhite.svg'
 import brandIcon from '../assets/icons/Logo.svg'
 import { registerFetch } from '../utils/fetches/registerFetch.js'
 
@@ -43,9 +45,10 @@ function Register({ darkMode }) {
           <Input color={darkMode ? 'white' : 'gray'} label="Password" type={type} name="password" id="password" />
           <img
             role="presentation"
-            className="cursor-pointer absolute top-2 right-2"
+            className="cursor-pointer absolute top-2 right-2 w-[23] h-[23]"
             onClick={handleToggle}
-            src={icon ? eye : eyeOff}
+            // src={icon ? eye : eyeOff}
+            src={darkMode ? (icon ? eyeWhite : eyeOffWhite) : icon ? eye : eyeOff}
             alt="pw_visibility"
           />
         </div>

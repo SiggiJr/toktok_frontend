@@ -10,7 +10,7 @@ import activityIcon from '../assets/icons/TimeSquare.svg'
 import line from '../assets/icons/Line.svg'
 import { logoutFetch } from '../utils/fetches/loginFetch.js'
 
-function ProfileSettings() {
+function ProfileSettings({ darkMode }) {
   const userId = JSON.parse(sessionStorage.getItem('userId'))
   const navigate = useNavigate()
 
@@ -22,7 +22,12 @@ function ProfileSettings() {
 
   return (
     <div className="fixed bottom-12 left-0">
-      <ul className="flex flex-col gap-6 px-6 rounded-t-3xl border-2 border-zinc-600 w-screen  bg-white">
+      <ul
+        className={
+          darkMode
+            ? 'flex flex-col gap-6 px-6 rounded-t-3xl border-2 border-zinc-600 w-screen  bg-gray-600  pb-4'
+            : 'flex flex-col gap-6 px-6 rounded-t-3xl border-2 border-zinc-600 w-screen  bg-white pb-4'
+        }>
         <div className="flex mx-auto pt-2">
           <img src={line} alt="line icon" />
         </div>
@@ -30,38 +35,38 @@ function ProfileSettings() {
         <li>
           <Link to={`/update/${userId}`} className="flex gap-5">
             <img src={settingIcon} alt="Setting Icon" className="w-[28px] h-[28px]" />
-            <p>Settings</p>
+            <p className={darkMode ? 'text-gray-900' : ''}>Settings</p>
           </Link>
         </li>
         <li>
           <Link to="/" className="flex gap-5">
             <img src={arrowDownIcon} alt="Arrow Down Icon" className="w-[28px] h-[28px]" />
-            <p>Archive</p>
+            <p className={darkMode ? 'text-gray-900' : ''}>Archive</p>
           </Link>
         </li>
         <li>
           <Link to="/" className="flex gap-5">
             <img src={activityIcon} alt="Time Icon" className="w-[28px] h-[28px]" />
-            <p>Toggle Theme</p>
+            <p className={darkMode ? 'text-gray-900' : ''}>Toggle Theme</p>
           </Link>
         </li>
 
         <li>
           <Link to="/" className="flex gap-5">
             <img src={bookmarkIcon} alt="Bookmark Icon" className="w-[28px] h-[28px]" />
-            <p>Saved</p>
+            <p className={darkMode ? 'text-gray-900' : ''}>Saved</p>
           </Link>
         </li>
         <li>
           <Link to="/" className="flex gap-5">
             <img src={closeFriendIcon} alt="User Icon" className="w-[28px] h-[28px]" />
-            <p>Close Friends</p>
+            <p className={darkMode ? 'text-gray-900' : ''}>Close Friends</p>
           </Link>
         </li>
         <li>
           <Link to="/" className="flex gap-5">
             <img src={favoritesIcon} alt="Heart Icon" className="w-[28px] h-[28px]" />
-            <p>Favorites</p>
+            <p className={darkMode ? 'text-gray-900' : ''}>Favorites</p>
           </Link>
         </li>
         <li role="presentation" onClick={logout} className="flex gap-5">
