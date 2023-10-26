@@ -8,6 +8,7 @@ import { pushToFavorites } from '../utils/fetches/getFavPostsFetch.js'
 function FeedsItem({ post, setReload }) {
   const navigate = useNavigate()
   const postId = post._id
+
   return (
     <div className="flex flex-col my-3">
       <section role="presentation" onClick={() => navigate(`/user/${post.owner}`)}>

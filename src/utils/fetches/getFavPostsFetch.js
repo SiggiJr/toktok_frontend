@@ -13,3 +13,9 @@ export const getFavPosts = async setPosts => {
     setPosts(data)
   }
 }
+
+export const deleteFavPos = async postId => {
+  const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/post/deletefav?${postId}`, {
+    credentials: 'include',
+  })
+}

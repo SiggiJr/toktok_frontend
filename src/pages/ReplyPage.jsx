@@ -10,7 +10,7 @@ export default function ReplyPage({ setReload, reload }) {
   const [comment, setComment] = useState([])
 
   useEffect(() => {
-    getComment(postId, commentId, setComment, setReload)
+    getComment(postId, commentId, setComment)
   }, [reload])
 
   if (!comment) {

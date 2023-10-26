@@ -36,7 +36,7 @@ export const replyComment = async (event, postId, setReload, commentId) => {
   }
 }
 
-export const getComment = async (postId, commentId, setComment, setReload) => {
+export const getComment = async (postId, commentId, setComment) => {
   const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/post/comment/getcomment`, {
     credentials: 'include',
     method: 'POST',
@@ -51,6 +51,5 @@ export const getComment = async (postId, commentId, setComment, setReload) => {
   if (response.ok) {
     const data = await response.json()
     setComment(data)
-    setReload(prev => !prev)
   }
 }
