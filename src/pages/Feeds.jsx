@@ -16,8 +16,8 @@ function Feeds() {
 
   return (
     <section className="flex flex-col p-6 my-6 mt-0">
-      <div>
-        <h1>For you</h1>
+      <div className="flex justify-between">
+        <h1 className="text-xl ">For you</h1>
         <img role="presentation" onClick={() => navigate(`/favorite/${userId}`)} src={like} alt="" />
       </div>
       {followerPost.map(post => (
