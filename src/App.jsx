@@ -45,7 +45,7 @@ function App() {
           <Route path="/upload" element={<Upload />} />
           <Route path="/upload/:id" element={<NewPostPage />} />
           <Route path="/update/:id" element={<UpdateUserProfile />} />
-          <Route path="/search" element={<SearchPage />} />
+          <Route path="/search" element={<SearchPage setReload={setNavbarLoading} reload={navbarLoading} />} />
           <Route
             path="/comment/:postId"
             element={<CommentDetails setReload={setNavbarLoading} reload={navbarLoading} />}

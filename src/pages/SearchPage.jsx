@@ -4,7 +4,7 @@ import { searchFetch } from '../utils/fetches/SearchFetch.js'
 import SearchUserItem from '../components/SearchUserItem.jsx'
 import userPageIcon from '../assets/icons/userPageIcon.svg'
 
-function SearchPage(props) {
+function SearchPage({ setReload, reload }) {
   const [requestedUser, setRequestedUser] = useState([])
   const [inputValue, setInputValue] = useState()
 
@@ -38,7 +38,7 @@ function SearchPage(props) {
           <img src={userPageIcon} alt="" />
         </div>
         {requestedUser.map(user => (
-          <SearchUserItem key={user._id} user={user} />
+          <SearchUserItem key={user._id} user={user} setReload={setReload} reload={reload} />
         ))}
       </section>
     </div>

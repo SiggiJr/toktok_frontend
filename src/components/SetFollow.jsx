@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Button } from '@material-tailwind/react'
 import { updateFollower } from '../utils/fetches/followerFetch.js'
 
-function SetFollow({ nickname, follower, setLoading }) {
+function SetFollow({ nickname, follower, setReload }) {
   const [follow, setFollow] = useState(() => {
     const result = follower.reduce((accumulator, followStatus) => {
       if (followStatus === JSON.parse(sessionStorage.getItem('nickname'))) {
@@ -15,7 +15,7 @@ function SetFollow({ nickname, follower, setLoading }) {
   })
 
   const handleFollow = () => {
-    updateFollower(nickname, setLoading)
+    updateFollower(nickname, setReload)
     setFollow(!follow)
   }
 

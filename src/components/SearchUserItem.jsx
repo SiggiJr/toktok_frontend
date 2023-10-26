@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import SetFollow from './SetFollow'
 
-function SearchUserItem({ user }) {
+function SearchUserItem({ user, reload, setReload }) {
   return (
     <section className="flex justify-between items-center border-gray-200 border-b-[1px] pb-2 ">
       <Link to={`/user/${user._id}`}>
@@ -9,9 +9,10 @@ function SearchUserItem({ user }) {
           <div className="flex gap-2">
             <div className="  flex justify-center items-center">
               <img
+                role="presentation"
                 className="w-[60px] h-[60px] rounded-full object-cover"
                 src={user.profile_image_url}
-                alt=" profile image"
+                alt=" profile_image"
               />
             </div>
 
@@ -23,8 +24,10 @@ function SearchUserItem({ user }) {
         </article>
       </Link>
 
+
       <div className="flex w-[117px]">
-        <SetFollow nickname={user.nickname} follower={user.follower || []} />
+        <SetFollow nickname={user.nickname} follower={user.follower || []} setReload={setReload} reload={reload} />
+
       </div>
     </section>
   )
