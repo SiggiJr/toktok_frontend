@@ -53,7 +53,10 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route element={<Protected />}>
           <Route path="/register/:id" element={<CreateUserProfile darkMode={darkMode} />} />
-          <Route path="/feed" element={<Feeds darkMode={darkMode} />} />
+          <Route
+            path="/feed"
+            element={<Feeds darkMode={darkMode} reload={navbarLoading} setReload={setNavbarLoading} />}
+          />
           <Route
             path="/profile"
             element={

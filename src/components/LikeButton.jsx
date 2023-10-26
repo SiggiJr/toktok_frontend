@@ -30,7 +30,6 @@ function LikeButton({ nickname, likesAmount, postId, setReload, post, darkMode }
         className="h-6 w-6 cursor-pointer"
         role="presentation"
         onClick={handleLikes}
-        // src={post.likes?.includes(myNickname) ? likeActive : like}
         src={
           darkMode
             ? post.likes?.includes(myNickname)

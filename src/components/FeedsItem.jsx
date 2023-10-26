@@ -3,11 +3,13 @@ import { Link, useNavigate } from 'react-router-dom'
 import LikeButton from './LikeButton.jsx'
 import bookmark from '../assets/icons/Bookmark.svg'
 import bookmarkWhite from '../assets/icons/BookmarkWhite.svg'
+import bookmarkRed from '../assets/icons/BookmarkRed.svg'
 import commentIcon from '../assets/icons/comment.svg'
 import commentIconWhite from '../assets/icons/commentWhite.svg'
 import { pushToFavorites } from '../utils/fetches/getFavPostsFetch.js'
+import { getUser } from '../utils/fetches/getUserFetch'
 
-function FeedsItem({ post, setReload, darkMode, currentTime }) {
+function FeedsItem({ post, setReload, darkMode, userFavorites }) {
   const navigate = useNavigate()
   const postId = post._id
   const [time, setTime] = useState(0)
@@ -20,23 +22,21 @@ function FeedsItem({ post, setReload, darkMode, currentTime }) {
     const minutesDifference = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60))
     const dayDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24))
 
-
-    if (minutesDifference < 60) {
+    // if (minutesDifference < 60 && minutesDifference > 0) {
+    //   setTime(`${minutesDifference}mins`)
+    // } else if (hourDifference >= 1) {
+    //   setTime(`${hourDifference}h`)
+    // } else if (hourDifference > 24) {
+    //   setTime(`${dayDifference}days`)
+    // }
+    if (minutesDifference < 60 && minutesDifference > 0) {
       setTime(`${minutesDifference}mins`)
-    }
-    if (minutesDifference > 60) {
+    } else if (minutesDifference >= 60 && hourDifference < 24) {
       setTime(`${hourDifference}h`)
-    }
-    if (minutesDifference > 60 && hourDifference > 24) {
+    } else if (hourDifference >= 24) {
       setTime(`${dayDifference}days`)
     }
-    if (minutesDifference > 60) {
-      setTime(`${hourDifference}h`)
-    }
-    if (minutesDifference > 60 && hourDifference > 24) {
-      setTime(`${dayDifference}days`)
-    }
-    console.log(time)
+    console.log('hour', hourDifference, 'minutes', minutesDifference)
   }, [])
 
   return (
@@ -78,10 +78,20 @@ function FeedsItem({ post, setReload, darkMode, currentTime }) {
           <img
             className=" h-5 w-5 cursor-pointer"
             onClick={() => {
+              setReload(prev => !prev)
               pushToFavorites(postId)
             }}
             role="presentation"
             src={darkMode ? bookmarkWhite : bookmark}
+            src={
+              darkMode
+                ? userFavorites?.includes(postId)
+                  ? bookmarkRed
+                  : bookmarkWhite
+                : userFavorites?.includes(postId)
+                ? bookmarkRed
+                : bookmark
+            }
             alt="bookmark_icon"
           />
         </div>
