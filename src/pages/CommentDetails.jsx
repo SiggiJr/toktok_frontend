@@ -35,16 +35,13 @@ function CommentDetails({ reload, setReload }) {
             onClick={() => navigate(-1)}
             className="w-[20px] cursor-pointer"
             src={backIcon}
-            alt=""
+            alt=" back icon"
           />
           <h2 className="text-2xl">Comments</h2>
         </div>
         <img src={sendIcon} alt="sendIcon" />
       </div>
-      <article
-        onClick={() => navigate(`/user/${post.owner}`)}
-        role="presentation"
-        className="flex gap-2 border-gray-200 border-b-[1px] pb-1 mb-1">
+      <article onClick={() => navigate(`/user/${post.owner}`)} role="presentation" className="flex gap-2 pb-1 mb-1">
         <img className="w-[54px] h-[54px] object-cover rounded-full " src={post.owner_image} alt="" />
         <div>
           <h2 className="text-xl">{post.nickname}</h2>
