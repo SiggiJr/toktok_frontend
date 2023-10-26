@@ -8,16 +8,18 @@ import { getUser } from '../utils/fetches/getUserFetch.js'
 
 function Feeds({ darkMode, setReload, reload }) {
   const [followerPost, setFollowerPosts] = useState([])
+  const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
   const userId = JSON.parse(sessionStorage.getItem('userId'))
   const [user, setUser] = useState([])
   const currentTime = new Date()
 
+  console.log(followerPost)
   useEffect(() => {
     getFeedFetch(setFollowerPosts)
     getUser(setUser)
-  }, [reload])
-  console.log(user)
+  }, [loading])
+
   return (
     <section className="flex flex-col p-6 my-6 mt-0">
       <div className="flex justify-between">
@@ -33,7 +35,7 @@ function Feeds({ darkMode, setReload, reload }) {
         <FeedsItem
           key={post._id}
           post={post}
-          setReload={setReload}
+          setReload={setLoading}
           reload={reload}
           darkMode={darkMode}
           currentTime={currentTime}

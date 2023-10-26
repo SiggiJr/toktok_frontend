@@ -1,7 +1,10 @@
-export const pushToFavorites = async postId => {
+export const pushToFavorites = async (postId, setReload) => {
   const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/post/setfavposts/${postId}`, {
     credentials: 'include',
   })
+  if (response.ok) {
+    setReload(prev => !prev)
+  }
 }
 
 export const getFavPosts = async setPosts => {

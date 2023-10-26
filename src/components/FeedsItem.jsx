@@ -22,21 +22,13 @@ function FeedsItem({ post, setReload, darkMode, userFavorites }) {
     const minutesDifference = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60))
     const dayDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24))
 
-    // if (minutesDifference < 60 && minutesDifference > 0) {
-    //   setTime(`${minutesDifference}mins`)
-    // } else if (hourDifference >= 1) {
-    //   setTime(`${hourDifference}h`)
-    // } else if (hourDifference > 24) {
-    //   setTime(`${dayDifference}days`)
-    // }
-    if (minutesDifference < 60 && minutesDifference > 0) {
-      setTime(`${minutesDifference}mins`)
+    if (hourDifference >= 24) {
+      setTime(`${dayDifference}days`)
     } else if (minutesDifference >= 60 && hourDifference < 24) {
       setTime(`${hourDifference}h`)
-    } else if (hourDifference >= 24) {
-      setTime(`${dayDifference}days`)
+    } else if (minutesDifference < 60 && minutesDifference > 0) {
+      setTime(`${minutesDifference}mins`)
     }
-    console.log('hour', hourDifference, 'minutes', minutesDifference)
   }, [])
 
   return (
@@ -64,7 +56,6 @@ function FeedsItem({ post, setReload, darkMode, userFavorites }) {
             post={post}
             darkMode={darkMode}
           />
-
           <img
             className="ml-2 h-5 w-5 cursor-pointer"
             role="presentation"
@@ -78,8 +69,7 @@ function FeedsItem({ post, setReload, darkMode, userFavorites }) {
           <img
             className=" h-5 w-5 cursor-pointer"
             onClick={() => {
-              setReload(prev => !prev)
-              pushToFavorites(postId)
+              pushToFavorites(postId, setReload)
             }}
             role="presentation"
             src={darkMode ? bookmarkWhite : bookmark}
