@@ -20,6 +20,7 @@ function FeedsItem({ post, setReload, darkMode, currentTime }) {
     const minutesDifference = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60))
     const dayDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24))
 
+
     if (minutesDifference < 60) {
       setTime(`${minutesDifference}mins`)
     }
@@ -29,6 +30,13 @@ function FeedsItem({ post, setReload, darkMode, currentTime }) {
     if (minutesDifference > 60 && hourDifference > 24) {
       setTime(`${dayDifference}days`)
     }
+    if (minutesDifference > 60) {
+      setTime(`${hourDifference}h`)
+    }
+    if (minutesDifference > 60 && hourDifference > 24) {
+      setTime(`${dayDifference}days`)
+    }
+    console.log(time)
   }, [])
 
   return (
