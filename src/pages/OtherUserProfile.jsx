@@ -5,6 +5,7 @@ import { getUserProfile } from '../utils/fetches/getUserFetch.js'
 import postIcon from '../assets/icons/posticon.svg'
 import SetFollow from '../components/SetFollow.jsx'
 import backIcon from '../assets/icons/back.svg'
+import backIconWhite from '../assets/icons/backWhite.svg'
 import OtherUserProfilePosts from '../components/OtherUserProfilePosts.jsx'
 
 function OtherUserProfile({ loading, setLoading, darkMode }) {
@@ -28,7 +29,7 @@ function OtherUserProfile({ loading, setLoading, darkMode }) {
           <img
             role="presentation"
             onClick={() => navigate(-1)}
-            src={backIcon}
+            src={darkMode ? backIconWhite : backIcon}
             alt="logo img"
             className="w-[17px] h-[32px] cursor-pointer"
           />

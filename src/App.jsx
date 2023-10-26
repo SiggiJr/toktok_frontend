@@ -53,7 +53,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route element={<Protected />}>
           <Route path="/register/:id" element={<CreateUserProfile darkMode={darkMode} />} />
-          <Route path="/feed" element={<Feeds />} />
+          <Route path="/feed" element={<Feeds darkMode={darkMode} />} />
           <Route
             path="/profile"
             element={
@@ -72,7 +72,6 @@ function App() {
           <Route path="/details" element={<Details />} />
           <Route path="/details/:postId" element={<CommentDetails />} />
           <Route path="/favorites" element={<FavPage />} />
-          <Route path="/feed/:hashtag" element={<HashtagPage likedPosts />} />
           <Route path="/saved" element={<SavedPosts />} />
           <Route path="/upload" element={<Upload />} />
           <Route path="/upload/:id" element={<NewPostPage darkMode={darkMode} />} />
@@ -89,7 +88,10 @@ function App() {
             path="/comment/:postId/reply/:id"
             element={<ReplyPage darkMode={darkMode} setReload={setNavbarLoading} reload={navbarLoading} />}
           />
-          <Route path="/favorite/:id" element={<FavPage setReload={setNavbarLoading} reload={navbarLoading} />} />
+          <Route
+            path="/favorite/:id"
+            element={<FavPage setReload={setNavbarLoading} reload={navbarLoading} darkMode={darkMode} />}
+          />
         </Route>
       </Routes>
       {location.pathname === '/' || location.pathname === '/login' || location.pathname === '/register' ? null : (

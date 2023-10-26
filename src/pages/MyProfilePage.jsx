@@ -4,8 +4,11 @@ import { Link } from 'react-router-dom'
 import ProfileSettings from '../components/ProfileSettings'
 import brandIcon from '../assets/icons/Logo.svg'
 import plusIcon from '../assets/icons/Plus2.svg'
+import plusIconWhite from '../assets/icons/Plus2White.svg'
 import edit from '../assets/icons/Edit.svg'
+import editWhite from '../assets/icons/EditWhite.svg'
 import moreIcon from '../assets/icons/MoreCircle.svg'
+import moreIconWhite from '../assets/icons/MoreCircleWhite.svg'
 import postIcon from '../assets/icons/posticon.svg'
 import { getUser } from '../utils/fetches/getUserFetch.js'
 import { myPostsFetch } from '../utils/fetches/getFeedFetch.js'
@@ -45,12 +48,17 @@ function MyProfilePage({ loading, setLoading, toggleTheme, darkMode }) {
             XX
           </div>
           <Link to="/upload">
-            <img src={plusIcon} alt=" plus icon" />
+            <img src={darkMode ? plusIconWhite : plusIcon} alt=" plus icon" />
           </Link>
           <Link to={`/update/${user._id}`}>
-            <img role="presentation" src={edit} alt="edit icon" />
+            <img role="presentation" src={darkMode ? editWhite : edit} alt="edit icon" />
           </Link>
-          <img role="presentation" src={moreIcon} alt="more icon" onClick={handleMoreCycleClick} />
+          <img
+            role="presentation"
+            src={darkMode ? moreIconWhite : moreIcon}
+            alt="more icon"
+            onClick={handleMoreCycleClick}
+          />
         </div>
       </article>
       <div className="relative flex flex-col w-max items-end gap-4 w-[120px] h-[120px] mx-auto rounded-full my-6">

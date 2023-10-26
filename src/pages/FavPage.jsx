@@ -3,8 +3,9 @@ import { getFavPosts } from '../utils/fetches/getFavPostsFetch'
 import { useNavigate } from 'react-router-dom'
 import heartRed from '../assets/icons/HeartRed.svg'
 import backIcon from '../assets/icons/back.svg'
+import backIconWhite from '../assets/icons/backWhite.svg'
 
-function FavPage() {
+function FavPage({ darkMode }) {
   const [posts, setPosts] = useState([])
   const navigate = useNavigate()
 
@@ -15,7 +16,6 @@ function FavPage() {
   if (!posts.length > 0) {
     return <p>is Loading...</p>
   }
-  console.log(posts)
 
   return (
     <section className="flex flex-col p-6">
@@ -25,7 +25,7 @@ function FavPage() {
             className="cursor-pointer w-[17px]"
             role="presentation"
             onClick={() => navigate(-1)}
-            src={backIcon}
+            src={darkMode ? backIconWhite : backIcon}
             alt=" back icon"
           />
         </div>

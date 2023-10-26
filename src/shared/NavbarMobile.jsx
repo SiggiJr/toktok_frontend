@@ -1,13 +1,18 @@
 import { NavLink, useLocation } from 'react-router-dom'
 import homeIcon from '../assets/icons/Home.svg'
+import homeIconWhite from '../assets/icons/HomeWhite.svg'
 import homeIconRed from '../assets/icons/Home_red.svg'
 import searchIcon from '../assets/icons/Search.svg'
+import searchIconWhite from '../assets/icons/SearchWhite.svg'
 import searchIconRed from '../assets/icons/Search_red.svg'
 import uploadIcon from '../assets/icons/Plus.svg'
+import uploadIconWhite from '../assets/icons/PlusWhite.svg'
 import uploadIconRed from '../assets/icons/Plus_red.svg'
 import profileIcon from '../assets/icons/Profil.svg'
+import profileIconWhite from '../assets/icons/ProfilWhite.svg'
 import profileRed from '../assets/icons/Profil_red.svg'
 import { useState } from 'react'
+import DarkMode from '../components/DarkMode'
 
 function NavbarMobile({ darkMode }) {
   const [toggleSearchBar, setToggleSearchBar] = useState(false)
@@ -23,11 +28,15 @@ function NavbarMobile({ darkMode }) {
       <li className="flex flex-col justify-center items-center">
         <NavLink to="/feed">
           <img
-            src={location.pathname === '/feed' ? homeIconRed : homeIcon}
+            src={location.pathname === '/feed' ? homeIconRed : DarkMode ? homeIconWhite : homeIcon}
             alt="home icon"
             className="h-[24px] mx-auto"
           />
-          <p style={location.pathname === '/feed' ? { color: 'red' } : { color: ' ' }}>Home</p>
+          <p
+            className={DarkMode ? 'text-white' : ''}
+            style={location.pathname === '/feed' ? { color: 'red' } : { color: ' ' }}>
+            Home
+          </p>
         </NavLink>
       </li>
       <li className="flex flex-col justify-center">
@@ -37,31 +46,43 @@ function NavbarMobile({ darkMode }) {
             setToggleSearchBar(!toggleSearchBar)
           }}>
           <img
-            src={location.pathname === '/search' ? searchIconRed : searchIcon}
+            src={location.pathname === '/search' ? searchIconRed : DarkMode ? searchIconWhite : searchIcon}
             alt="search icon"
             className="h-[24px] mx-auto"
           />
-          <p style={location.pathname === '/search' ? { color: 'red' } : { color: ' ' }}>Search</p>
+          <p
+            className={DarkMode ? 'text-white' : ''}
+            style={location.pathname === '/search' ? { color: 'red' } : { color: ' ' }}>
+            Search
+          </p>
         </NavLink>
       </li>
       <li className="flex flex-col justify-center">
         <NavLink to="/upload">
           <img
-            src={location.pathname.includes('/upload') ? uploadIconRed : uploadIcon}
+            src={location.pathname.includes('/upload') ? uploadIconRed : DarkMode ? uploadIconWhite : uploadIcon}
             alt="upload icon"
             className="h-[24px] mx-auto"
           />
-          <p style={location.pathname.includes('/upload') ? { color: 'red' } : { color: ' ' }}>Upload</p>
+          <p
+            className={DarkMode ? 'text-white' : ''}
+            style={location.pathname.includes('/upload') ? { color: 'red' } : { color: ' ' }}>
+            Upload
+          </p>
         </NavLink>
       </li>
       <li className="flex flex-col justify-center">
         <NavLink to="/profile" style={location.pathname === '/profile' ? { color: 'red' } : { color: ' ' }}>
           <img
-            src={location.pathname === '/profile' ? profileRed : profileIcon}
+            src={location.pathname === '/profile' ? profileRed : darkMode ? profileIconWhite : profileIcon}
             alt="profile icon"
             className="h-[24px] mx-auto"
           />
-          <p style={location.pathname === '/profile' ? { color: 'red' } : { color: ' ' }}>Profile</p>
+          <p
+            className={DarkMode ? 'text-white' : ''}
+            style={location.pathname === '/profile' ? { color: 'red' } : { color: ' ' }}>
+            Profile
+          </p>
         </NavLink>
       </li>
     </ul>

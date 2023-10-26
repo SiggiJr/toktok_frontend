@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react'
 import { getLikes } from '../utils/fetches/getLikesFetch.js'
 import like from '../assets/icons/Heart.svg'
+import likeWhite from '../assets/icons/HeartWhite.svg'
 import likeActive from '../assets/icons/HeartRed.svg'
+import DarkMode from './DarkMode'
 
-function LikeButton({ nickname, likesAmount, postId, setReload, post }) {
+function LikeButton({ nickname, likesAmount, postId, setReload, post, darkMode }) {
   const myNickname = JSON.parse(sessionStorage.getItem('nickname'))
   const [isLiked, setIsLiked] = useState(false)
   const [likes, setLikes] = useState(() => {
@@ -28,8 +30,17 @@ function LikeButton({ nickname, likesAmount, postId, setReload, post }) {
         className="h-6 w-6 cursor-pointer"
         role="presentation"
         onClick={handleLikes}
-        src={post.likes?.includes(myNickname) ? likeActive : like}
-        alt=" like icon"
+        // src={post.likes?.includes(myNickname) ? likeActive : like}
+        src={
+          darkMode
+            ? post.likes?.includes(myNickname)
+              ? likeActive
+              : likeWhite
+            : post.likes?.includes(myNickname)
+            ? likeActive
+            : like
+        }
+        alt="like_icon"
       />
       <p>{likesAmount.length}</p>
     </div>

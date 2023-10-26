@@ -5,6 +5,7 @@ import uploadIcon from '../assets/icons/Editsquare.svg'
 import { updateUser } from '../utils/fetches/registerFetch.js'
 import { getUser } from '../utils/fetches/getUserFetch'
 import backIcon from '../assets/icons/back.svg'
+import backIconWhite from '../assets/icons/backWhite.svg'
 
 function UpdateUserProfile({ darkMode }) {
   const userId = JSON.parse(sessionStorage.getItem('userId'))
@@ -37,7 +38,7 @@ function UpdateUserProfile({ darkMode }) {
           className=" cursor-pointer w-[17px]"
           role="presentation"
           onClick={() => navigate(-1)}
-          src={backIcon}
+          src={darkMode ? backIconWhite : backIcon}
           alt="backIcon"
         />
         <h2 className="text-start mx-auto text-3xl">Update your profile</h2>

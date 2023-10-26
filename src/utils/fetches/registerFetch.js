@@ -6,7 +6,7 @@ export const registerFetch = async (event, navigate) => {
     body: form,
   })
 
-  if (response) {
+  if (response.ok) {
     const dataJson = response.json()
     const data = JSON.parse(await dataJson)
     sessionStorage.setItem('userId', JSON.stringify(data.id))
@@ -25,7 +25,7 @@ export const createUser = async (event, params, navigate) => {
     method: 'PUT',
     body: form,
   })
-  if (response) {
+  if (response.ok) {
     const data = await response.json()
     sessionStorage.setItem('nickname', JSON.stringify(data))
     navigate('/profile')

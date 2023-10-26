@@ -3,9 +3,12 @@ import { useEffect, useState } from 'react'
 import { Button, Input, Switch, Textarea } from '@material-tailwind/react'
 import { getUser } from '../utils/fetches/getUserFetch.js'
 import backIcon from '../assets/icons/back.svg'
+import backIconWhite from '../assets/icons/backWhite.svg'
 import { getUploadImageUrl, newPost } from '../utils/fetches/uploadFetch.js'
 import locationIcon from '../assets/icons/mapmarker.svg'
+import locationIconWhite from '../assets/icons/mapmarkerWhite.svg'
 import settingIcon from '../assets/icons/Setting.svg'
+import settingIconWhite from '../assets/icons/SettingWhite.svg'
 import facbookIcon from '../assets/icons/Facebook.svg'
 import twitterIcon from '../assets/icons/Twitterx.svg'
 import tumblrIcon from '../assets/icons/Tumblr.svg'
@@ -33,7 +36,7 @@ function NewPostPage({ darkMode }) {
           role="presentation"
           onClick={() => navigate(-1)}
           className="w-[17px] cursor-pointer"
-          src={backIcon}
+          src={darkMode ? backIconWhite : backIcon}
           alt=" back icon "
         />
         <h1>New Post</h1>
@@ -63,7 +66,7 @@ function NewPostPage({ darkMode }) {
             <div className="flex w-[54px] h-[54px] p-[10px] overflow-hidden">
               <img
                 className="w-[34px] h-[34px] object-center justify-around"
-                src={locationIcon}
+                src={darkMode ? locationIconWhite : locationIcon}
                 alt=" map maker icon"
               />
             </div>
@@ -106,7 +109,7 @@ function NewPostPage({ darkMode }) {
           </Button>
         </div>
         <div className="flex gap-2 mt-6">
-          <img src={settingIcon} alt=" setting icon" />
+          <img src={darkMode ? settingIconWhite : settingIcon} alt=" setting icon" />
           <button type="submit" className={darkMode ? 'text-white' : 'text-[#424242]'}>
             Advanced Settings
           </button>

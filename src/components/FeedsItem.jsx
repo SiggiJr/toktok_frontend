@@ -2,10 +2,12 @@ import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import LikeButton from './LikeButton.jsx'
 import bookmark from '../assets/icons/Bookmark.svg'
+import bookmarkWhite from '../assets/icons/BookmarkWhite.svg'
 import commentIcon from '../assets/icons/comment.svg'
+import commentIconWhite from '../assets/icons/commentWhite.svg'
 import { pushToFavorites } from '../utils/fetches/getFavPostsFetch.js'
 
-function FeedsItem({ post, setReload }) {
+function FeedsItem({ post, setReload, darkMode }) {
   const navigate = useNavigate()
   const postId = post._id
 
@@ -32,13 +34,14 @@ function FeedsItem({ post, setReload }) {
             postId={post._id}
             setReload={setReload}
             post={post}
+            darkMode={darkMode}
           />
 
           <img
             className="ml-2 h-5 w-5 cursor-pointer"
             role="presentation"
             onClick={() => navigate(`/comment/${post._id}`)}
-            src={commentIcon}
+            src={darkMode ? commentIconWhite : commentIcon}
             alt=" comment icon"
           />
           <p>{post.comments.length}</p>
@@ -50,8 +53,8 @@ function FeedsItem({ post, setReload }) {
               pushToFavorites(postId)
             }}
             role="presentation"
-            src={bookmark}
-            alt=" bookmark icon"
+            src={darkMode ? bookmarkWhite : bookmark}
+            alt="bookmark_icon"
           />
         </div>
       </div>

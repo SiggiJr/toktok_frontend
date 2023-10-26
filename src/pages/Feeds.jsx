@@ -3,8 +3,9 @@ import { useNavigate } from 'react-router-dom'
 import { getFeedFetch } from '../utils/fetches/getFeedFetch.js'
 import FeedsItem from '../components/FeedsItem.jsx'
 import like from '../assets/icons/Heart.svg'
+import likeWhite from '../assets/icons/HeartWhite.svg'
 
-function Feeds() {
+function Feeds({ darkMode }) {
   const [reload, setReload] = useState(false)
   const [followerPost, setFollowerPosts] = useState([])
   const navigate = useNavigate()
@@ -18,10 +19,15 @@ function Feeds() {
     <section className="flex flex-col p-6 my-6 mt-0">
       <div className="flex justify-between">
         <h1 className="text-xl ">For you</h1>
-        <img role="presentation" onClick={() => navigate(`/favorite/${userId}`)} src={like} alt="" />
+        <img
+          role="presentation"
+          onClick={() => navigate(`/favorite/${userId}`)}
+          src={darkMode ? likeWhite : like}
+          alt=""
+        />
       </div>
       {followerPost.map(post => (
-        <FeedsItem key={post._id} post={post} setReload={setReload} />
+        <FeedsItem key={post._id} post={post} setReload={setReload} darkMode={darkMode} />
       ))}
     </section>
   )

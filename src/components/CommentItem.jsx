@@ -41,6 +41,7 @@ export default function CommentItem({ comment, setReload, postId, darkMode }) {
           setReload={setReload}
           commentId={comment.comment_id}
           comment={comment}
+          darkMode={darkMode}
         />
       </div>
       <div className="flex flex-start mt-1">
