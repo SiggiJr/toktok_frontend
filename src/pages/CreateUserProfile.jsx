@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { createUser } from '../utils/fetches/registerFetch.js'
 import uploadIcon from '../assets/icons/Editsquare.svg'
 
-function CreateUserProfile() {
+function CreateUserProfile({ darkMode }) {
   const userId = JSON.parse(sessionStorage.getItem('userId'))
   const navigate = useNavigate()
 
@@ -31,6 +31,7 @@ function CreateUserProfile() {
         <div className=" relative w-[140px] h-[140px] mt-4 mx-auto flex">
           <img className="object-cover rounded-full p-1 items-center mx-auto" src={imgUrl} alt="profile_image" />
           <img
+            role="presentation"
             className=" absolute bottom-0 right-[5%]"
             src={uploadIcon}
             alt="upload_icon"
@@ -39,22 +40,22 @@ function CreateUserProfile() {
           <input type="file" name="profile_image" id="uploadInput" onChange={previewImage} className="hidden" />
         </div>
         <div className="w-72 mt-8 mx-auto">
-          <Input label="first name" type="text" name="first_name" required />
+          <Input color={darkMode ? 'white' : 'gray'} label="first name" type="text" name="first_name" required />
         </div>
         <div className="w-72 mt-3 mx-auto">
-          <Input label="last name" type="text" name="last_name" required />
+          <Input color={darkMode ? 'white' : 'gray'} label="last name" type="text" name="last_name" required />
         </div>
         <div className="w-72 mt-3 mx-auto">
-          <Input label="nickname" type="text" name="nickname" required />
+          <Input color={darkMode ? 'white' : 'gray'} label="nickname" type="text" name="nickname" required />
         </div>
         <div className="w-72 mt-3 mx-auto">
-          <Input label="profession" type="text" name="profession" />
+          <Input color={darkMode ? 'white' : 'gray'} label="profession" type="text" name="profession" />
         </div>
         <div className="w-72 mt-3 mx-auto">
-          <Input label="date of birth" type="date" name="date_of_birth" required />
+          <Input color={darkMode ? 'white' : 'gray'} label="date of birth" type="date" name="date_of_birth" required />
         </div>
         <div className="w-72 mt-3 mx-auto">
-          <Input label="Mobile" type="number" name="mobile_number" />
+          <Input color={darkMode ? 'white' : 'gray'} label="Mobile" type="number" name="mobile_number" />
         </div>
 
         <div className="flex w-72 mt-3 mx-auto gap-8 text-blue-gray-400 justify-around">
@@ -79,7 +80,7 @@ function CreateUserProfile() {
         </div>
 
         <div className="w-72 mt-3 mx-auto">
-          <Input label="Website" type="text" name="website" />
+          <Input color={darkMode ? 'white' : 'gray'} label="Website" type="text" name="website" />
         </div>
         <Button className="w-72 mt-8 mx-auto bg-[#E98090] rounded-3xl" type="submit">
           Create User

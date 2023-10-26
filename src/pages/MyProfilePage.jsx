@@ -11,7 +11,7 @@ import { getUser } from '../utils/fetches/getUserFetch.js'
 import { myPostsFetch } from '../utils/fetches/getFeedFetch.js'
 import MyProfilePosts from '../components/MyProfilePosts.jsx'
 
-function MyProfilePage({ loading, setLoading, toggleDarkmode, setToggleDarkmode }) {
+function MyProfilePage({ loading, setLoading, toggleTheme, darkMode }) {
   const [user, setUser] = useState(false)
   const [isExpanded, setIsExpanded] = useState(false)
   const [myPosts, setMyPosts] = useState([])
@@ -23,8 +23,6 @@ function MyProfilePage({ loading, setLoading, toggleDarkmode, setToggleDarkmode 
   useEffect(() => {
     myPostsFetch(setMyPosts)
   }, [])
-
-  const handleEditClick = () => {}
 
   useEffect(() => {
     getUser(setUser)
@@ -43,11 +41,14 @@ function MyProfilePage({ loading, setLoading, toggleDarkmode, setToggleDarkmode 
           <h2 className="text-2xl">my profile</h2>
         </div>
         <div className="flex gap-2">
+          <div role="presentation" onClick={toggleTheme}>
+            XX
+          </div>
           <Link to="/upload">
             <img src={plusIcon} alt=" plus icon" />
           </Link>
           <Link to={`/update/${user._id}`}>
-            <img role="presentation" src={edit} alt="edit icon" onClick={handleEditClick} />
+            <img role="presentation" src={edit} alt="edit icon" />
           </Link>
           <img role="presentation" src={moreIcon} alt="more icon" onClick={handleMoreCycleClick} />
         </div>
@@ -56,24 +57,28 @@ function MyProfilePage({ loading, setLoading, toggleDarkmode, setToggleDarkmode 
         <Avatar src={user.profile_image_url} alt="avatar" size="xxl" />
       </div>
       <article>
-        <h2 className="text-2xl text-center ">{user.nickname}</h2>
-        <h3 className="text-l text-center py-2">{user.profession}</h3>
-        <p className=" text-xs text-center text-[#424242]">{user.bio}</p>
+        <h2 className={darkMode ? 'text-white text-2xl text-center' : 'text-2xl text-center text-[#424242]'}>
+          {user.nickname}
+        </h2>
+        <h3 className={darkMode ? 'text-white text-l text-center py-2' : 'text-l text-center py-2 text-[#424242]'}>
+          {user.profession}
+        </h3>
+        <p className={darkMode ? 'text-white text-xs text-center' : 'text-xs text-center text-[#424242]'}>{user.bio}</p>
         <p className="text-xs text-center text-[#246BFD] pt-2">{user.website}</p>
       </article>
       <article>
         <ul className="flex justify-evenly mt-6 ">
           <li className="flex flex-col w-16 items-center">
-            <span className="text-2xl">{user.posts?.length}</span>
-            <p className="text-sm text-[#424242]">Posts</p>
+            <span className="text-2xl text-[#424242]">{user.posts?.length}</span>
+            <p className={darkMode ? 'text-white text-sm' : 'text-[#424242] text-sm'}>Posts</p>
           </li>
           <li className="flex flex-col w-16 items-center">
-            <span className="text-2xl">{user.follower?.length}</span>
-            <p className="text-sm text-[#424242]">Followers</p>
+            <span className="text-2xl text-[#424242]">{user.follower?.length}</span>
+            <p className={darkMode ? 'text-white text-sm' : 'text-[#424242] text-sm'}>Followers</p>
           </li>
           <li className="flex flex-col w-16 items-center">
-            <span className="text-2xl">{user.following?.length}</span>
-            <p className="text-sm text-[#424242]">Following</p>
+            <span className="text-2xl text-[#424242]">{user.following?.length}</span>
+            <p className={darkMode ? 'text-white text-sm' : 'text-[#424242] text-sm'}>Following</p>
           </li>
         </ul>
       </article>

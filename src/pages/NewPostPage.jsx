@@ -10,7 +10,7 @@ import facbookIcon from '../assets/icons/Facebook.svg'
 import twitterIcon from '../assets/icons/Twitterx.svg'
 import tumblrIcon from '../assets/icons/Tumblr.svg'
 
-function NewPostPage() {
+function NewPostPage({ darkMode }) {
   const navigate = useNavigate()
   const imageId = useParams().id
   const [user, setUser] = useState([])
@@ -49,9 +49,8 @@ function NewPostPage() {
               />
             </div>
             <div className="mx-4">
-              <Textarea label="Write a caption..." name="caption" />
+              <Textarea color={darkMode ? 'amber' : 'gray'} label="Write a caption..." name="caption" />
             </div>
-
             <div className="overflow-hidden">
               <img
                 className="w-[54x] h-[54px] aspect-square rounded-2xl object-cover"
@@ -69,7 +68,7 @@ function NewPostPage() {
               />
             </div>
             <div className="mx-4">
-              <Input label="Add location" type="text" name="location" />
+              <Input color={darkMode ? 'white' : 'gray'} label="Add location" type="text" name="location" />
             </div>
             <div className="flex w-[54px] h-[54px]"></div>
           </div>
@@ -108,7 +107,9 @@ function NewPostPage() {
         </div>
         <div className="flex gap-2 mt-6">
           <img src={settingIcon} alt=" setting icon" />
-          <button className="text-[#424242]">Advanced Settings</button>
+          <button type="submit" className={darkMode ? 'text-white' : 'text-[#424242]'}>
+            Advanced Settings
+          </button>
         </div>
       </form>
     </section>

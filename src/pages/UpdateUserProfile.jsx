@@ -6,7 +6,7 @@ import { updateUser } from '../utils/fetches/registerFetch.js'
 import { getUser } from '../utils/fetches/getUserFetch'
 import backIcon from '../assets/icons/back.svg'
 
-function UpdateUserProfile() {
+function UpdateUserProfile({ darkMode }) {
   const userId = JSON.parse(sessionStorage.getItem('userId'))
   const navigate = useNavigate()
   const [imgUrl, setImgUrl] = useState('/img/dummy.svg')
@@ -59,28 +59,75 @@ function UpdateUserProfile() {
           <input type="file" name="profile_image" id="uploadInput" onChange={previewImage} className="hidden" />
         </div>
         <div className=" mt-8">
-          <Input label="first name" type="text" name="first_name" defaultValue={user.first_name} required />
+          <Input
+            color={darkMode ? 'white' : 'gray'}
+            label="first name"
+            type="text"
+            name="first_name"
+            defaultValue={user.first_name}
+            required
+          />
         </div>
         <div className=" mt-3">
-          <Input label="last name" type="text" name="last_name" defaultValue={user.last_name} required />
+          <Input
+            color={darkMode ? 'white' : 'gray'}
+            label="last name"
+            type="text"
+            name="last_name"
+            defaultValue={user.last_name}
+            required
+          />
         </div>
         <div className=" mt-3">
-          <Input label="nickname" type="text" name="nickname" defaultValue={user.nickname} required />
+          <Input
+            color={darkMode ? 'white' : 'gray'}
+            label="nickname"
+            type="text"
+            name="nickname"
+            defaultValue={user.nickname}
+            required
+          />
         </div>
         <div className=" mt-3">
-          <Input label="profession" type="text" name="profession" defaultValue={user.profession} />
+          <Input
+            color={darkMode ? 'white' : 'gray'}
+            label="profession"
+            type="text"
+            name="profession"
+            defaultValue={user.profession}
+          />
         </div>
         <div className=" mt-3">
-          <Textarea label="bio" name="bio" defaultValue={user?.bio} rows="3" />
+          <Input color={darkMode ? 'white' : 'gray'} label="bio" name="bio" defaultValue={user?.bio} rows="3" />
         </div>
         <div className=" mt-3">
-          <Input label="date of birth" type="date" name="date_of_birth" defaultValue={user.date_of_birth} required />
+          <Input
+            color={darkMode ? 'white' : 'gray'}
+            label="date of birth"
+            type="date"
+            name="date_of_birth"
+            defaultValue={user.date_of_birth}
+            required
+          />
         </div>
         <div className=" mt-3">
-          <Input label="Email" type="email" name="email" defaultValue={user.email} required />
+          <Input
+            color={darkMode ? 'white' : 'gray'}
+            label="Email"
+            type="email"
+            name="email"
+            defaultValue={user.email}
+            required
+          />
         </div>
         <div className=" mt-3">
-          <Input label="Mobile" type="number" name="mobile_number" defaultValue={user.mobile_number} />
+          <Input
+            color={darkMode ? 'white' : 'gray'}
+            label="Mobile"
+            type="number"
+            name="mobile_number"
+            defaultValue={user.mobile_number}
+          />
         </div>
         <div className="flex w-72 mt-3 mx-auto gap-8 justify-around text-blue-gray-400">
           <div className="flex">
@@ -103,7 +150,13 @@ function UpdateUserProfile() {
           </div>
         </div>
         <div className=" mt-3 ">
-          <Input label="Website" type="text" name="website" defaultValue={user.website} />
+          <Input
+            color={darkMode ? 'white' : 'gray'}
+            label="Website"
+            type="text"
+            name="website"
+            defaultValue={user.website}
+          />
         </div>
         <Button className=" mt-8 bg-[#E98090] rounded-3xl" type="submit">
           Update
