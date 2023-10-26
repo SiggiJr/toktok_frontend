@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import LikeButton from './LikeButton.jsx'
 import bookmark from '../assets/icons/Bookmark.svg'
@@ -10,6 +10,29 @@ import { pushToFavorites } from '../utils/fetches/getFavPostsFetch.js'
 function FeedsItem({ post, setReload, darkMode }) {
   const navigate = useNavigate()
   const postId = post._id
+  const [time, setTime] = useState('0 mins')
+  const myDate = new Date()
+
+  useEffect(() => {
+    if (post.timestamp) {
+      const postDate = new Date(post.timestamp)
+      const timeDifference = myDate.getTime() - postDate.getTime()
+      const hourDifference = Math.floor(timeDifference / (1000 * 60 * 60))
+      const minutesDifference = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60))
+      const dayDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24))
+
+      if (minutesDifference < 60 && minutesDifference <= 0) {
+        setTime(`${minutesDifference}mins`)
+      }
+      if (minutesDifference > 60) {
+        setTime(`${hourDifference}h`)
+      }
+      if (minutesDifference > 60 && hourDifference > 24) {
+        setTime(`${dayDifference}days`)
+      }
+      console.log(time)
+    }
+  }, [])
 
   return (
     <div className="flex flex-col  my-3">
@@ -59,7 +82,10 @@ function FeedsItem({ post, setReload, darkMode }) {
         </div>
       </div>
       <div className="flex gap-2 mt-2">
-        <p className=" font-bold">{post.nickname}</p>
+        <p className=" font-bold">
+          {post.nickname}
+          <span className="text-xs font-light"> {time} ago</span>
+        </p>
         <p>{post.caption}</p>
       </div>
     </div>

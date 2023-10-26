@@ -43,7 +43,7 @@ export default function CommentItem({ comment, setReload, postId, darkMode }) {
         <div className="flex flex-col">
           <h2 className="text-xl">
             {user.nickname}
-            <span className="ml-4 text-xs">{time} ago</span>
+            <span className="ml-4 text-xs font-light">{time} ago</span>
           </h2>
         </div>
       </div>
