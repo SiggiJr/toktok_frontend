@@ -3,9 +3,10 @@ import { Button } from '@material-tailwind/react'
 import { useState } from 'react'
 import { uploadFetch } from '../utils/fetches/uploadFetch'
 import closeIcon from '../assets/icons/Closesquare.svg'
+import closeIconWhite from '../assets/icons/ClosesquareWhite.svg'
 import cameraIcon from '../assets/icons/cam.svg'
 
-function Upload() {
+function Upload({ darkMode }) {
   const [selectedImage, setSelectedImage] = useState(null)
 
   function handleImageChange(event) {
@@ -23,7 +24,12 @@ function Upload() {
   return (
     <section className="p-6 flex flex-col">
       <article className="flex mt-6 gap-2 items-center">
-        <img role="presentation" onClick={() => navigate(-1)} src={closeIcon} alt=" plus icon" />
+        <img
+          role="presentation"
+          onClick={() => navigate(-1)}
+          src={darkMode ? closeIconWhite : closeIcon}
+          alt=" plus icon"
+        />
         <h2 className="text-xl">New Post</h2>
       </article>
       <article className="mt-6">

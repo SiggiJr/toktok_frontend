@@ -15,7 +15,6 @@ export default function ReplyPage({ setReload, reload, darkMode }) {
   useEffect(() => {
     getComment(postId, commentId, setComment)
   }, [reload])
-
   if (!comment) {
     return <p>is Loading...</p>
   }

@@ -73,7 +73,7 @@ function App() {
           <Route path="/details/:postId" element={<CommentDetails />} />
           <Route path="/favorites" element={<FavPage />} />
           <Route path="/saved" element={<SavedPosts />} />
-          <Route path="/upload" element={<Upload />} />
+          <Route path="/upload" element={<Upload darkMode={darkMode} />} />
           <Route path="/upload/:id" element={<NewPostPage darkMode={darkMode} />} />
           <Route path="/update/:id" element={<UpdateUserProfile darkMode={darkMode} />} />
           <Route

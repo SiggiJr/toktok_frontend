@@ -9,6 +9,8 @@ import edit from '../assets/icons/Edit.svg'
 import editWhite from '../assets/icons/EditWhite.svg'
 import moreIcon from '../assets/icons/MoreCircle.svg'
 import moreIconWhite from '../assets/icons/MoreCircleWhite.svg'
+import darkmodeWhite from '../assets/icons/darkmodeWhite.svg'
+import darkmodeBlack from '../assets/icons/darkmodeBlack.svg'
 import postIcon from '../assets/icons/posticon.svg'
 import { getUser } from '../utils/fetches/getUserFetch.js'
 import { myPostsFetch } from '../utils/fetches/getFeedFetch.js'
@@ -44,9 +46,13 @@ function MyProfilePage({ loading, setLoading, toggleTheme, darkMode }) {
           <h2 className="text-2xl">my profile</h2>
         </div>
         <div className="flex gap-2">
-          <div role="presentation" onClick={toggleTheme}>
-            XX
-          </div>
+          <img
+            className="w-[29px] h-[29px]"
+            role="presentation"
+            src={darkMode ? darkmodeWhite : darkmodeBlack}
+            onClick={toggleTheme}
+            alt="darkmode"
+          />
           <Link to="/upload">
             <img src={darkMode ? plusIconWhite : plusIcon} alt=" plus icon" />
           </Link>
