@@ -21,10 +21,15 @@ function ProfileSettings() {
   }
 
   return (
+<<<<<<< HEAD
     <div>
       <ul className="flex flex-col gap-6 px-6 rounded-t-3xl border-2 border-zinc-600 absolute fixed bottom-0 w-screen z-10  bg-white pb-4">
+=======
+    <div className="fixed bottom-12 left-0">
+      <ul className="flex flex-col gap-6 px-6 rounded-t-3xl border-2 border-zinc-600 w-screen  bg-white">
+>>>>>>> 558db7d54027f2d3357489d618499941baa92d6a
         <div className="flex mx-auto pt-2">
-          <img src={line} alt="" />
+          <img src={line} alt="line icon" />
         </div>
 
         <li>

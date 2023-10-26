@@ -20,7 +20,7 @@ export default function CommentItem({ comment, setReload, postId, replyToggle, s
   }
 
   return (
-    <div className="flex flex-col my-6">
+    <div className=" flex flex-col my-6  border-gray-200 border-b-[2px] pb-1 ">
       <div onClick={() => navigate(`/user/${user._id}`)} role="presentation" className="flex gap-2 cursor-pointer">
         <img className="w-[48px] h-[48px] object-cover rounded-full " src={user.profile_image_url} alt="" />
         <div className="flex flex-col">
@@ -29,7 +29,7 @@ export default function CommentItem({ comment, setReload, postId, replyToggle, s
         </div>
       </div>
       <div className="flex justify-between" role="presentation">
-        <p className="text-[14px] text-[#212121] py-3">{comment.comment}</p>
+        <p className="text-[16px] text-[#212121] py-3">{comment.comment}</p>
         <LikeComments
           nickname={JSON.parse(sessionStorage.getItem('nickname'))}
           likesAmount={comment.likes || []}
@@ -38,7 +38,7 @@ export default function CommentItem({ comment, setReload, postId, replyToggle, s
           commentId={comment.comment_id}
         />
       </div>
-      <p onClick={() => navigate(`reply/${comment.comment_id}`)} role="presentation">
+      <p className="text-[12px]" onClick={() => navigate(`reply/${comment.comment_id}`)} role="presentation">
         Reply
       </p>
       {/* <p>{new Date(comment.timestamp)}</p> */}

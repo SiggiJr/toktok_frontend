@@ -3,9 +3,9 @@ import SetFollow from './SetFollow'
 
 function SearchUserItem({ user, reload, setReload }) {
   return (
-    <section className="flex justify-between items-center ">
+    <section className="flex justify-between items-center border-gray-200 border-b-[1px] pb-2 ">
       <Link to={`/user/${user._id}`}>
-        <article className="flex justify-between mt-4">
+        <article className="flex justify-between mt-4 ">
           <div className="flex gap-2">
             <div className="  flex justify-center items-center">
               <img
@@ -17,15 +17,17 @@ function SearchUserItem({ user, reload, setReload }) {
             </div>
 
             <div>
-              <h2 className="text-xl text-center ">{user.nickname}</h2>
-              <p className="text-xs text-center text-[#424242]">{user.profession}</p>
+              <h2 className="text-xl text-start ">{user.nickname.substring(0, 12)}</h2>
+              <p className="text-xs text-start text-[#424242]">{user.profession}</p>
             </div>
           </div>
         </article>
       </Link>
 
-      <div className="flex">
+
+      <div className="flex w-[117px]">
         <SetFollow nickname={user.nickname} follower={user.follower || []} setReload={setReload} reload={reload} />
+
       </div>
     </section>
   )
