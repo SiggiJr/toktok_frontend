@@ -14,7 +14,7 @@ export default function ReplyItem({ reply, userId, setReload }) {
       <div className="flex gap-2 items-center ">
         <img className="w-[48px] h-[48px] object-cover rounded-full " src={user.profile_image_url} alt="" />
         <div className="flex gap-2 items-baseline">
-          <h2 className="text-xl">{reply.nickname}</h2>
+          <h2 className="text-xl">{user.nickname}</h2>
           <p className="text-[16px] text-[#616161]"> {reply.timestamp.substring(0, 10)}</p>
           <p className="text-[16px] text-[#616161]">{reply.timestamp.substring(11, 16)}</p>
         </div>
