@@ -4,8 +4,8 @@ export const deletePost = async postId => {
   })
 }
 
-export const deleteComment = async postId => {
-  const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/post/deletecomment?${postId}`, {
+export const deleteComment = async (commentId, postId) => {
+  const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/post/deletecomment?${commentId}`, {
     credentials: 'include',
   })
 }

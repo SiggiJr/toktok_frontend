@@ -9,9 +9,6 @@ import locationIcon from '../assets/icons/mapmarker.svg'
 import locationIconWhite from '../assets/icons/mapmarkerWhite.svg'
 import settingIcon from '../assets/icons/Setting.svg'
 import settingIconWhite from '../assets/icons/SettingWhite.svg'
-import facbookIcon from '../assets/icons/Facebook.svg'
-import twitterIcon from '../assets/icons/Twitterx.svg'
-import tumblrIcon from '../assets/icons/Tumblr.svg'
 
 function NewPostPage({ darkMode }) {
   const navigate = useNavigate()
@@ -82,21 +79,18 @@ function NewPostPage({ darkMode }) {
           </div>
           <div className="flex justify-between mt-4">
             <div className="flex items-center gap-2">
-              <img className="w-[50px]" src={facbookIcon} alt=" facebook icon" />
               <label htmlFor="facebook">Facebook</label>
             </div>
             <Switch name="facebook" />
           </div>
           <div className="flex justify-between mt-2">
             <div className="flex items-center gap-2">
-              <img className="w-[50px]" src={twitterIcon} alt=" twitter icon" />
               <label htmlFor="x">X</label>
             </div>
             <Switch name="x" />
           </div>
           <div className="flex justify-between mt-2">
             <div className="flex items-center gap-2">
-              <img className="w-[50px]" src={tumblrIcon} alt=" tumblr icon" />
               <label htmlFor="tumblr">Tumblr</label>
             </div>
             <Switch name="tumblr" />

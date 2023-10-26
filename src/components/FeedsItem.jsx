@@ -72,7 +72,6 @@ function FeedsItem({ post, setReload, darkMode, userFavorites }) {
               pushToFavorites(postId, setReload)
             }}
             role="presentation"
-            src={darkMode ? bookmarkWhite : bookmark}
             src={
               darkMode
                 ? userFavorites?.includes(postId)
