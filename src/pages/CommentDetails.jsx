@@ -8,7 +8,7 @@ import sendIcon from '../assets/icons/paperPlanes.svg'
 import bookmark from '../assets/icons/Bookmark.svg'
 import { pushToFavorites } from '../utils/fetches/getFavPostsFetch.js'
 
-function CommentDetails({ reload, setReload }) {
+function CommentDetails({ reload, setReload, darkMode }) {
   const { postId } = useParams()
   const [post, setPost] = useState([])
   const [commentId, setCommentId] = useState()
@@ -52,16 +52,18 @@ function CommentDetails({ reload, setReload }) {
       </article>
       <article className="flex flex-col border-gray-200 border-b-[1px] pb-1 mb-1">
         <img className="w-[380px] h-[380px] object-cover rounded-2xl my-2" src={post.image_url} alt="" />
-        <p className=" text-[14px]">{post.caption}</p>
-        <img
-          className=" h-5 w-5 cursor-pointer"
-          onClick={() => {
-            pushToFavorites(postId)
-          }}
-          role="presentation"
-          src={bookmark}
-          alt=" bookmark icon"
-        />
+        <div className="flex justify-between">
+          <p className=" text-[16px]">{post.caption}</p>
+          <img
+            className=" h-5 w-5 cursor-pointer"
+            onClick={() => {
+              pushToFavorites(postId)
+            }}
+            role="presentation"
+            src={bookmark}
+            alt=" bookmark icon"
+          />
+        </div>
       </article>
       <article>
         {post.comments.map(comment => (
@@ -72,6 +74,7 @@ function CommentDetails({ reload, setReload }) {
             setReload={setReload}
             setCommentId={setCommentId}
             commentId={commentId}
+            darkMode={darkMode}
           />
         ))}
       </article>

@@ -23,7 +23,7 @@ function Upload() {
   return (
     <section className="p-6 flex flex-col">
       <article className="flex mt-6 gap-2 items-center">
-        <img src={closeIcon} alt=" plus icon" />
+        <img role="presentation" onClick={() => navigate(-1)} src={closeIcon} alt=" plus icon" />
         <h2 className="text-xl">New Post</h2>
       </article>
       <article className="mt-6">
@@ -31,11 +31,15 @@ function Upload() {
           <div className="flex items-center justify-center w-full">
             <label
               htmlFor="selected_image"
-              className="flex flex-col items-center justify-center w-full h-64 border-2
-              border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
+              className="flex flex-col items-center justify-center w-full h-64 border-2 
+              border-gray-300 border-dashed rounded-lg cursor-pointer bg-transparent dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-transparent dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
               {selectedImage ? (
                 <div className="flex flex-col items-center justify-center pt-5 pb-6 overflow-hidden">
-                  <img className="object-cover " src={selectedImage} alt="selected image" />
+                  <img
+                    className="object-cover object-center object-top h-[380px] w-[380px]"
+                    src={selectedImage}
+                    alt="selected_image"
+                  />
                 </div>
               ) : (
                 <div className="flex flex-col items-center justify-center pt-5 pb-6">

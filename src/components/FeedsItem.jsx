@@ -10,7 +10,7 @@ function FeedsItem({ post, setReload }) {
   const postId = post._id
 
   return (
-    <div className="flex flex-col my-3">
+    <div className="flex flex-col  my-3">
       <section role="presentation" onClick={() => navigate(`/user/${post.owner}`)}>
         <div className="flex gap-2">
           <img className="w-[54px] h-[54px] object-cover rounded-full " src={post.owner_image} alt="owner_image" />
@@ -31,6 +31,7 @@ function FeedsItem({ post, setReload }) {
             likesAmount={post.likes || []}
             postId={post._id}
             setReload={setReload}
+            post={post}
           />
 
           <img

@@ -9,12 +9,17 @@ import profileIcon from '../assets/icons/Profil.svg'
 import profileRed from '../assets/icons/Profil_red.svg'
 import { useState } from 'react'
 
-function NavbarMobile() {
+function NavbarMobile({ darkMode }) {
   const [toggleSearchBar, setToggleSearchBar] = useState(false)
 
   const location = useLocation()
   return (
-    <ul className="fixed bottom-0 left-0 right-0 flex w-sceen justify-evenly  h-12 text-[#9E9E9E] text-[10px] bg-white">
+    <ul
+      className={
+        darkMode
+          ? 'fixed bottom-0 left-0 right-0 flex w-sceen justify-evenly  h-12 text-[#9E9E9E] text-[10px] bg-gray-900'
+          : 'fixed bottom-0 left-0 right-0 flex w-sceen justify-evenly  h-12 text-[#9E9E9E] text-[10px] bg-white'
+      }>
       <li className="flex flex-col justify-center items-center">
         <NavLink to="/feed">
           <img

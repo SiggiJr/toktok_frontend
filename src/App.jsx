@@ -1,5 +1,7 @@
+import { ThemeProvider, createTheme } from '@mui/material/styles'
+import CssBaseline from '@mui/material/CssBaseline'
 import { Route, Routes } from 'react-router-dom'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Register from './pages/Register.jsx'
 import Brandscreen from './pages/Brandscreen.jsx'
 import Login from './pages/Login.jsx'
@@ -22,45 +24,78 @@ import ReplyPage from './pages/ReplyPage.jsx'
 
 function App() {
   const [navbarLoading, setNavbarLoading] = useState(false)
+  const [darkMode, setDarkMode] = useState(() => {
+    const storedTheme = localStorage.getItem('darkMode')
+    return storedTheme ? JSON.parse(storedTheme) : false
+  })
+  const themeStatus = localStorage.getItem('darkMode')
+
+  useEffect(() => {
+    localStorage.setItem('darkMode', JSON.stringify(darkMode))
+  }, [darkMode])
+
+  const toggleTheme = () => {
+    setDarkMode(prev => !prev)
+  }
+
+  const themeMode = createTheme({
+    palette: {
+      mode: darkMode ? 'dark' : 'light',
+    },
+  })
+
   return (
-    <>
+    <ThemeProvider theme={themeMode}>
+      <CssBaseline />
       <Routes>
         <Route path="/" element={<Brandscreen />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/register" element={<Register darkMode={darkMode} />} />
         <Route path="/login" element={<Login />} />
         <Route element={<Protected />}>
-          <Route path="/register/:id" element={<CreateUserProfile />} />
+          <Route path="/register/:id" element={<CreateUserProfile darkMode={darkMode} />} />
           <Route path="/feed" element={<Feeds />} />
-          <Route path="/profile" element={<MyProfilePage loading={navbarLoading} setLoading={setNavbarLoading} />} />
+          <Route
+            path="/profile"
+            element={
+              <MyProfilePage
+                darkMode={darkMode}
+                loading={navbarLoading}
+                setLoading={setNavbarLoading}
+                toggleTheme={toggleTheme}
+              />
+            }
+          />
           <Route
             path="/user/:id"
-            element={<OtherUserProfile loading={navbarLoading} setLoading={setNavbarLoading} />}
+            element={<OtherUserProfile loading={navbarLoading} setLoading={setNavbarLoading} darkMode={darkMode} />}
           />
           <Route path="/details" element={<Details />} />
           <Route path="/details/:postId" element={<CommentDetails />} />
           <Route path="/favorites" element={<FavPage />} />
-          <Route path="/feed/:hashtag" element={<HashtagPage />} />
+          <Route path="/feed/:hashtag" element={<HashtagPage likedPosts />} />
           <Route path="/saved" element={<SavedPosts />} />
-
           <Route path="/upload" element={<Upload />} />
-          <Route path="/upload/:id" element={<NewPostPage />} />
-          <Route path="/update/:id" element={<UpdateUserProfile />} />
-          <Route path="/search" element={<SearchPage />} />
+          <Route path="/upload/:id" element={<NewPostPage darkMode={darkMode} />} />
+          <Route path="/update/:id" element={<UpdateUserProfile darkMode={darkMode} />} />
+          <Route
+            path="/search"
+            element={<SearchPage setReload={setNavbarLoading} reload={navbarLoading} darkMode={darkMode} />}
+          />
           <Route
             path="/comment/:postId"
-            element={<CommentDetails setReload={setNavbarLoading} reload={navbarLoading} />}
+            element={<CommentDetails darkMode={darkMode} setReload={setNavbarLoading} reload={navbarLoading} />}
           />
           <Route
             path="/comment/:postId/reply/:id"
-            element={<ReplyPage setReload={setNavbarLoading} reload={navbarLoading} />}
+            element={<ReplyPage darkMode={darkMode} setReload={setNavbarLoading} reload={navbarLoading} />}
           />
           <Route path="/favorite/:id" element={<FavPage setReload={setNavbarLoading} reload={navbarLoading} />} />
         </Route>
       </Routes>
       {location.pathname === '/' || location.pathname === '/login' || location.pathname === '/register' ? null : (
-        <NavbarMobile />
+        <NavbarMobile darkMode={darkMode} />
       )}
-    </>
+    </ThemeProvider>
   )
 }
 

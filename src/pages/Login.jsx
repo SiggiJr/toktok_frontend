@@ -43,6 +43,7 @@ function Login() {
         <div className="w-72 mt-8 mx-auto relative">
           <Input label="Password" type={type} name="password" id="password" />
           <img
+            role="presentation"
             className="cursor-pointer absolute top-2 right-2"
             onClick={handleToggle}
             src={icon ? eye : eyeOff}

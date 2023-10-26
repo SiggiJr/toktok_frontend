@@ -6,7 +6,7 @@ import eye from '../../src/assets/icons/visibility_on.svg'
 import brandIcon from '../assets/icons/Logo.svg'
 import { registerFetch } from '../utils/fetches/registerFetch.js'
 
-function Register() {
+function Register({ darkMode }) {
   const [type, setType] = useState('password')
   const [icon, setIcon] = useState(false)
   const navigate = useNavigate()
@@ -14,6 +14,7 @@ function Register() {
     event.preventDefault()
     registerFetch(event, navigate)
   }
+  console.log(darkMode)
 
   const handleToggle = () => {
     if (type === 'password') {
@@ -34,13 +35,14 @@ function Register() {
       <div className=" my-28">
         <img src={brandIcon} alt="logo icon" className="w-[140px]" />
       </div>
-      <form onSubmit={register} className="felx flex-col bg-zinc-600 justify-center">
+      <form onSubmit={register} className="flex flex-col bg-zinc-600 justify-center">
         <div className="w-72 mt-8 mx-auto">
-          <Input label="Email" type="email" name="email" id="email" />
+          <Input color={darkMode ? 'white' : 'gray'} label="Email" type="email" name="email" id="email" />
         </div>
         <div className="w-72 mt-8 mx-auto relative">
-          <Input label="Password" type={type} name="password" id="password" />
+          <Input color={darkMode ? 'white' : 'gray'} label="Password" type={type} name="password" id="password" />
           <img
+            role="presentation"
             className="cursor-pointer absolute top-2 right-2"
             onClick={handleToggle}
             src={icon ? eye : eyeOff}
