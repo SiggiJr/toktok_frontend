@@ -5,6 +5,8 @@ import { getPost, replyComment, writeComment } from '../utils/fetches/commentFet
 import CommentItem from '../components/CommentItem.jsx'
 import backIcon from '../assets/icons/back.svg'
 import sendIcon from '../assets/icons/paperPlanes.svg'
+import bookmark from '../assets/icons/Bookmark.svg'
+import { pushToFavorites } from '../utils/fetches/getFavPostsFetch.js'
 
 function CommentDetails({ reload, setReload }) {
   const { postId } = useParams()
@@ -51,6 +53,15 @@ function CommentDetails({ reload, setReload }) {
       <article className="flex flex-col border-gray-200 border-b-[1px] pb-1 mb-1">
         <img className="w-[380px] h-[380px] object-cover rounded-2xl my-2" src={post.image_url} alt="" />
         <p className=" text-[14px]">{post.caption}</p>
+        <img
+          className=" h-5 w-5 cursor-pointer"
+          onClick={() => {
+            pushToFavorites(postId)
+          }}
+          role="presentation"
+          src={bookmark}
+          alt=" bookmark icon"
+        />
       </article>
       <article>
         {post.comments.map(comment => (
