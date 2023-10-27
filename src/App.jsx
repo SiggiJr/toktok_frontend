@@ -48,7 +48,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Brandscreen />} />
         <Route path="/register" element={<Register darkMode={darkMode} />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<Login darkMode={darkMode} />} />
         <Route element={<Protected />}>
           <Route path="/register/:id" element={<CreateUserProfile darkMode={darkMode} />} />
           <Route

@@ -4,9 +4,11 @@ import { useState } from 'react'
 import { loginFetch } from '../utils/fetches/loginFetch.js'
 import brandIcon from '../assets/icons/Logo.svg'
 import eye from '../assets/icons/visibility_on.svg'
+import eyeWhite from '../assets/icons/visibility_onWhite.svg'
 import eyeOff from '../assets/icons/visibility_off.svg'
+import eyeOffWhite from '../assets/icons/visibility_offWhite.svg'
 
-function Login() {
+function Login({ darkMode }) {
   const [type, setType] = useState('password')
   const [icon, setIcon] = useState(false)
   const navigate = useNavigate()
@@ -46,7 +48,7 @@ function Login() {
             role="presentation"
             className="cursor-pointer absolute top-2 right-2"
             onClick={handleToggle}
-            src={icon ? eye : eyeOff}
+            src={darkMode ? (icon ? eyeWhite : eyeOffWhite) : icon ? eye : eyeOff}
             alt="pw_visibility"
           />
         </div>
