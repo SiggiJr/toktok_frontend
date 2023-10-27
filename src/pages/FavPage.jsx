@@ -7,7 +7,7 @@ import backIconWhite from '../assets/icons/backWhite.svg'
 
 function FavPage({ darkMode }) {
   const [posts, setPosts] = useState([])
-  console.log(`meine favoriten`, posts)
+
   const navigate = useNavigate()
   useEffect(() => {
     getFavPosts(setPosts)

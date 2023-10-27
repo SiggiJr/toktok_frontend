@@ -16,7 +16,6 @@ function Register({ darkMode }) {
     event.preventDefault()
     registerFetch(event, navigate)
   }
-  console.log(darkMode)
 
   const handleToggle = () => {
     if (type === 'password') {

@@ -10,9 +10,9 @@ import { pushToFavorites } from '../utils/fetches/getFavPostsFetch.js'
 
 function FeedsItem({ post, setReload, darkMode, userFavorites }) {
   const navigate = useNavigate()
-  console.log(post._id)
+
   const postId = post._id
-  console.log(postId)
+
   const [time, setTime] = useState(0)
   const myDate = new Date()
   useEffect(() => {
@@ -21,10 +21,11 @@ function FeedsItem({ post, setReload, darkMode, userFavorites }) {
     const hourDifference = Math.floor(timeDifference / (1000 * 60 * 60))
     const minutesDifference = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60))
     const dayDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24))
-    if (minutesDifference < 60 && minutesDifference > 0) {
+
+    if (minutesDifference < 60 && minutesDifference > 0 && hourDifference === 0) {
       setTime(`${minutesDifference}mins`)
     } else if (hourDifference >= 1 && hourDifference < 24) {
-      setTime(`${hourDifference}h ${minutesDifference}mins`)
+      setTime(`${hourDifference}h`)
     } else if (hourDifference >= 24) {
       setTime(`${dayDifference}days`)
     }

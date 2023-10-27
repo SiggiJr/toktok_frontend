@@ -21,13 +21,11 @@ export default function CommentItem({ comment, setReload, postId, darkMode }) {
     const hourDifference = Math.floor(timeDifference / (1000 * 60 * 60))
     const minutesDifference = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60))
     const dayDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24))
-    if (minutesDifference < 60) {
+    if (minutesDifference < 60 && minutesDifference > 0 && hourDifference === 0) {
       setTime(`${minutesDifference}mins`)
-    }
-    if (minutesDifference > 60) {
+    } else if (hourDifference >= 1 && hourDifference < 24) {
       setTime(`${hourDifference}h`)
-    }
-    if (minutesDifference > 60 && hourDifference > 24) {
+    } else if (hourDifference >= 24) {
       setTime(`${dayDifference}days`)
     }
   }, [])
@@ -35,7 +33,7 @@ export default function CommentItem({ comment, setReload, postId, darkMode }) {
   if (!user._id && !post._id && !comment.comment_id) {
     return <p>is Loading...</p>
   }
-  console.log(postId)
+
   const handleDeleteComment = () => {
     deleteComment(comment.comment_id, postId)
 
@@ -72,7 +70,7 @@ export default function CommentItem({ comment, setReload, postId, darkMode }) {
         />
       </div>
       <div className="flex flex-start mt-1">
-        <p className="text-[12px] ml-3" onClick={() => navigate(`reply/${comment.comment_id}`)} role="presentation">
+        <p className="text-[12px] ml-2" onClick={() => navigate(`reply/${comment.comment_id}`)} role="presentation">
           Reply
         </p>
         <img onClick={handleDeleteComment} className="w-4 h-4 absolute right-0" src={trash} alt="trash icon" />

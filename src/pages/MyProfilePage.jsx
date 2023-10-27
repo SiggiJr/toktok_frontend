@@ -20,7 +20,6 @@ function MyProfilePage({ loading, setLoading, toggleTheme, darkMode }) {
   const [user, setUser] = useState(false)
   const [isExpanded, setIsExpanded] = useState(false)
   const [myPosts, setMyPosts] = useState([])
-  console.log(`meine stacks`, user.following)
 
   const handleMoreCycleClick = () => {
     setIsExpanded(prevState => !prevState)

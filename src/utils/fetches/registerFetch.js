@@ -16,7 +16,6 @@ export const registerFetch = async (event, navigate) => {
 }
 
 export const createUser = async (event, params, navigate) => {
-  console.log(event.target)
   const form = new FormData(event.target)
   form.set('id', params)
   form.set('following', [])
