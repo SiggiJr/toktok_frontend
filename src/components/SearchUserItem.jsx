@@ -26,7 +26,7 @@ function SearchUserItem({ user, reload, setReload, darkMode }) {
       </Link>
 
       <div className="flex w-[117px]">
-        <SetFollow nickname={user.nickname} follower={user.follower || []} setReload={setReload} reload={reload} />
+        <SetFollow nickname={user.nickname} follower={user.follower} setReload={setReload} reload={reload} />
       </div>
     </section>
   )

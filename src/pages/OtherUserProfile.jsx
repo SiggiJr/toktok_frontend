@@ -21,7 +21,6 @@ function OtherUserProfile({ loading, setLoading, darkMode }) {
   if (!user) {
     return <p>is Loading...</p>
   }
-
   return (
     <section className="flex flex-col p-6 mb-6">
       <article className="flex gap-2 justify-between items-center">
@@ -68,7 +67,7 @@ function OtherUserProfile({ loading, setLoading, darkMode }) {
         </ul>
       </article>
       <div className="mt-4 flex w-[27]">
-        <SetFollow setLoading={setLoading} nickname={user.nickname} follower={user.follower || []} />
+        <SetFollow setLoading={setLoading} nickname={user.nickname} follower={user.follower} />
       </div>
       <article>
         <div className="flex justify-center items-center gap-3 border-b-[3px] border-[#FF4D67] w-1/3 mt-8 pb-2">

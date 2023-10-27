@@ -14,7 +14,6 @@ function Feeds({ darkMode, setReload, reload }) {
   const [user, setUser] = useState([])
   const currentTime = new Date()
 
-  console.log(followerPost)
   useEffect(() => {
     getFeedFetch(setFollowerPosts)
     getUser(setUser)
@@ -28,7 +27,7 @@ function Feeds({ darkMode, setReload, reload }) {
           role="presentation"
           onClick={() => navigate(`/favorite/${userId}`)}
           src={darkMode ? likeWhite : like}
-          alt=""
+          alt=" like icon"
         />
       </div>
       {followerPost.map(post => (

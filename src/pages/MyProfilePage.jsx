@@ -20,6 +20,7 @@ function MyProfilePage({ loading, setLoading, toggleTheme, darkMode }) {
   const [user, setUser] = useState(false)
   const [isExpanded, setIsExpanded] = useState(false)
   const [myPosts, setMyPosts] = useState([])
+  console.log(`meine stacks`, user.following)
 
   const handleMoreCycleClick = () => {
     setIsExpanded(prevState => !prevState)
@@ -53,7 +54,6 @@ function MyProfilePage({ loading, setLoading, toggleTheme, darkMode }) {
             onClick={toggleTheme}
             alt="darkmode"
           />
-          {/* dwasd */}
           <Link to="/upload">
             <img src={darkMode ? plusIconWhite : plusIcon} alt=" plus icon" />
           </Link>
@@ -84,7 +84,7 @@ function MyProfilePage({ loading, setLoading, toggleTheme, darkMode }) {
       <article>
         <ul className="flex justify-evenly mt-6 ">
           <li className="flex flex-col w-16 items-center">
-            <span className={darkMode ? 'text-2xl text-white' : 'text-2xl text-[#424242]'}>{user.posts?.length}</span>
+            <span className={darkMode ? 'text-2xl text-white' : 'text-2xl text-[#424242]'}>{myPosts.length}</span>
             <p className={darkMode ? 'text-white text-sm' : 'text-[#424242] text-sm'}>Posts</p>
           </li>
           <li className="flex flex-col w-16 items-center">
@@ -106,7 +106,7 @@ function MyProfilePage({ loading, setLoading, toggleTheme, darkMode }) {
           <img src={postIcon} alt=" post icon" />
           <h2 className="text-[#FF4D67]">Posts</h2>
         </div>
-        <ul className="flex flex-wrap my-6 overflow-hidden">
+        <ul className="flex flex-wrap my-6 ">
           {myPosts.map(post => (
             <MyProfilePosts key={post._id} post={post} />
           ))}

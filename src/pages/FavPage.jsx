@@ -7,8 +7,8 @@ import backIconWhite from '../assets/icons/backWhite.svg'
 
 function FavPage({ darkMode }) {
   const [posts, setPosts] = useState([])
+  console.log(`meine favoriten`, posts)
   const navigate = useNavigate()
-
   useEffect(() => {
     getFavPosts(setPosts)
   }, [])
@@ -44,8 +44,8 @@ function FavPage({ darkMode }) {
             <img
               className="w-[114px] h-[114px] object-cover rounded-xl p-1 cursor-pointer"
               role="presentation"
-              onClick={() => navigate(`/details/${post._id}`)}
               src={post.image_url}
+              onClick={() => navigate(`/details/${post._id}`)}
               alt="post_image"
             />
           </li>

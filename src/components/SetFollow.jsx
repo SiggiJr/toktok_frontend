@@ -10,20 +10,21 @@ function SetFollow({ nickname, follower, setReload }) {
       }
       return accumulator
     }, false)
-
     return result
   })
-
   const handleFollow = () => {
-    updateFollower(nickname, setReload)
+    if (follow) {
+      updateFollower(nickname, setReload, 'unfollow')
+    } else {
+      updateFollower(nickname, setReload, 'follow')
+    }
     setFollow(!follow)
+    location.reload()
   }
-
   return (
     <Button className="h-fit w-full bg-[#E98090] rounded-3xl" onClick={handleFollow} type="button">
       {follow ? 'Unfollow' : 'Follow'}
     </Button>
   )
 }
-
 export default SetFollow

@@ -1,6 +1,6 @@
 import { useNavigate, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import { Input } from '@material-tailwind/react'
+import { Button, Input } from '@material-tailwind/react'
 import { getPost, replyComment, writeComment } from '../utils/fetches/commentFetch.js'
 import CommentItem from '../components/CommentItem.jsx'
 import backIcon from '../assets/icons/back.svg'
@@ -9,28 +9,27 @@ import sendIcon from '../assets/icons/paperPlanes.svg'
 import sendIconWhite from '../assets/icons/paperPlanesWhite.svg'
 import bookmark from '../assets/icons/Bookmark.svg'
 import bookmarkWhite from '../assets/icons/BookmarkWhite.svg'
+import bookmarkRed from '../assets/icons/BookmarkRed.svg'
 import { pushToFavorites } from '../utils/fetches/getFavPostsFetch.js'
+import { compileString } from 'sass'
 
 function CommentDetails({ reload, setReload, darkMode }) {
-  const { postId } = useParams()
+  const postId = useParams()
+  const [userFavorites, setUuserFavorites] = useState([])
   const [post, setPost] = useState([])
   const [commentId, setCommentId] = useState()
   const navigate = useNavigate()
 
   useEffect(() => {
-    getPost(postId, setPost)
+    getPost(postId.postId, setPost)
   }, [reload])
-
   const sendComment = event => {
     event.preventDefault()
-
-    writeComment(event, postId, setReload)
+    writeComment(event, postId.postId, setReload)
   }
-
   if (!post.comments) {
     return <p>is Loading...</p>
   }
-
   return (
     <section className="flex flex-col p-6 mb-6 mt-0">
       <div className="flex justify-between">
@@ -60,11 +59,20 @@ function CommentDetails({ reload, setReload, darkMode }) {
           <img
             className=" h-5 w-5 cursor-pointer"
             onClick={() => {
-              pushToFavorites(postId)
+              location.reload()
+              pushToFavorites(post._id)
             }}
             role="presentation"
-            src={bookmark}
-            alt=" bookmark icon"
+            src={
+              darkMode
+                ? userFavorites?.includes(post._id)
+                  ? bookmarkRed
+                  : bookmarkWhite
+                : userFavorites?.includes(post._id)
+                ? bookmarkRed
+                : bookmark
+            }
+            alt="bookmark_icon"
           />
         </div>
       </article>
@@ -84,13 +92,12 @@ function CommentDetails({ reload, setReload, darkMode }) {
       <form onSubmit={sendComment}>
         <div className="flex gap-2">
           <Input label="Your Comment" type="text" name="comment" />
-          <button className="text-[#E98090]" type="submit">
+          <Button className="text-[#E98090] bg-white" type="submit">
             Comment
-          </button>
+          </Button>
         </div>
       </form>
     </section>
   )
 }
-
 export default CommentDetails
