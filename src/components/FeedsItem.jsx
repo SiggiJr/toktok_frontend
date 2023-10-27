@@ -7,30 +7,28 @@ import bookmarkRed from '../assets/icons/BookmarkRed.svg'
 import commentIcon from '../assets/icons/comment.svg'
 import commentIconWhite from '../assets/icons/commentWhite.svg'
 import { pushToFavorites } from '../utils/fetches/getFavPostsFetch.js'
-import { getUser } from '../utils/fetches/getUserFetch'
 
 function FeedsItem({ post, setReload, darkMode, userFavorites }) {
   const navigate = useNavigate()
+  console.log(post._id)
   const postId = post._id
+  console.log(postId)
   const [time, setTime] = useState(0)
   const myDate = new Date()
-
   useEffect(() => {
     const postDate = new Date(post.timestamp)
     const timeDifference = myDate.getTime() - postDate.getTime()
     const hourDifference = Math.floor(timeDifference / (1000 * 60 * 60))
     const minutesDifference = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60))
     const dayDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24))
-
-    if (hourDifference >= 24) {
-      setTime(`${dayDifference}days`)
-    } else if (minutesDifference >= 60 && hourDifference < 24) {
-      setTime(`${hourDifference}h`)
-    } else if (minutesDifference < 60 && minutesDifference > 0) {
+    if (minutesDifference < 60 && minutesDifference > 0) {
       setTime(`${minutesDifference}mins`)
+    } else if (hourDifference >= 1 && hourDifference < 24) {
+      setTime(`${hourDifference}h ${minutesDifference}mins`)
+    } else if (hourDifference >= 24) {
+      setTime(`${dayDifference}days`)
     }
   }, [])
-
   return (
     <div className="flex flex-col  my-3">
       <section role="presentation" onClick={() => navigate(`/user/${post.owner}`)}>
@@ -42,8 +40,7 @@ function FeedsItem({ post, setReload, darkMode, userFavorites }) {
           </div>
         </div>
       </section>
-
-      <div role="presentation" onClick={() => navigate(`/comment/${post._id}`)}>
+      <div role="presentation" onClick={() => navigate(`/comment/${postId}`)}>
         <img className="w-[380px] h-[380px] object-cover rounded-2xl mt-2" src={post.image_url} alt="posted_image" />
       </div>
       <div className="flex justify-between mt-1">
@@ -59,7 +56,7 @@ function FeedsItem({ post, setReload, darkMode, userFavorites }) {
           <img
             className="ml-2 h-5 w-5 cursor-pointer"
             role="presentation"
-            onClick={() => navigate(`/comment/${post._id}`)}
+            onClick={() => navigate(`/comment/${postId}`)}
             src={darkMode ? commentIconWhite : commentIcon}
             alt=" comment icon"
           />
@@ -69,15 +66,16 @@ function FeedsItem({ post, setReload, darkMode, userFavorites }) {
           <img
             className=" h-5 w-5 cursor-pointer"
             onClick={() => {
-              pushToFavorites(postId, setReload)
+              location.reload()
+              pushToFavorites(post._id)
             }}
             role="presentation"
             src={
               darkMode
-                ? userFavorites?.includes(postId)
+                ? userFavorites?.includes(post._id)
                   ? bookmarkRed
                   : bookmarkWhite
-                : userFavorites?.includes(postId)
+                : userFavorites?.includes(post._id)
                 ? bookmarkRed
                 : bookmark
             }
@@ -95,5 +93,4 @@ function FeedsItem({ post, setReload, darkMode, userFavorites }) {
     </div>
   )
 }
-
 export default FeedsItem

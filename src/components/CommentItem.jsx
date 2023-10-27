@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { getUserProfile } from '../utils/fetches/getUserFetch'
 import LikeComments from './LikeComments'
+import trash from '../assets/icons/trashIcon.png'
+import { deleteComment } from '../utils/fetches/deleteFetches'
 
 export default function CommentItem({ comment, setReload, postId, darkMode }) {
   const userId = comment.owner
@@ -19,7 +21,6 @@ export default function CommentItem({ comment, setReload, postId, darkMode }) {
     const hourDifference = Math.floor(timeDifference / (1000 * 60 * 60))
     const minutesDifference = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60))
     const dayDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24))
-
     if (minutesDifference < 60) {
       setTime(`${minutesDifference}mins`)
     }
@@ -29,11 +30,16 @@ export default function CommentItem({ comment, setReload, postId, darkMode }) {
     if (minutesDifference > 60 && hourDifference > 24) {
       setTime(`${dayDifference}days`)
     }
-    console.log(commentDate)
   }, [])
 
   if (!user._id && !post._id && !comment.comment_id) {
     return <p>is Loading...</p>
+  }
+  console.log(postId)
+  const handleDeleteComment = () => {
+    deleteComment(comment.comment_id, postId)
+
+    window.location.reload()
   }
 
   return (
@@ -53,7 +59,8 @@ export default function CommentItem({ comment, setReload, postId, darkMode }) {
           {comment.comment}
         </p>
       </div>
-      <div className="absolute right-0 top-6 ">
+      <div className="absolute flex gap-2 right-0 top-6 ">
+        <p className="text-[12px]">{comment.likes?.length}</p>
         <LikeComments
           nickname={JSON.parse(sessionStorage.getItem('nickname'))}
           likesAmount={comment.likes || []}
@@ -65,10 +72,10 @@ export default function CommentItem({ comment, setReload, postId, darkMode }) {
         />
       </div>
       <div className="flex flex-start mt-1">
-        <p className="text-[12px] ml-14">{comment.likes?.length}</p>
         <p className="text-[12px] ml-3" onClick={() => navigate(`reply/${comment.comment_id}`)} role="presentation">
           Reply
         </p>
+        <img onClick={handleDeleteComment} className="w-4 h-4 absolute right-0" src={trash} alt="trash icon" />
       </div>
     </div>
   )

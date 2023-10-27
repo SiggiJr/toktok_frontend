@@ -13,14 +13,11 @@ function CreateUserProfile({ darkMode }) {
     createUser(event, userId, navigate)
   }
   console.log(userId)
-
   const [imgUrl, setImgUrl] = useState('/img/dummy.svg')
-
   function previewImage(event) {
     const url = URL.createObjectURL(event.target.files[0])
     setImgUrl(url)
   }
-
   return (
     <section className="flex flex-col items-center">
       <article className="mt-6">

@@ -29,11 +29,9 @@ function App() {
     return storedTheme ? JSON.parse(storedTheme) : false
   })
   const themeStatus = localStorage.getItem('darkMode')
-
   useEffect(() => {
     localStorage.setItem('darkMode', JSON.stringify(darkMode))
   }, [darkMode])
-
   const toggleTheme = () => {
     setDarkMode(prev => !prev)
   }
