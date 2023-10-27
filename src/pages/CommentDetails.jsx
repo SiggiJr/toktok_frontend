@@ -11,7 +11,6 @@ import bookmark from '../assets/icons/Bookmark.svg'
 import bookmarkWhite from '../assets/icons/BookmarkWhite.svg'
 import bookmarkRed from '../assets/icons/BookmarkRed.svg'
 import { pushToFavorites } from '../utils/fetches/getFavPostsFetch.js'
-import { compileString } from 'sass'
 
 function CommentDetails({ reload, setReload, darkMode }) {
   const postId = useParams()
