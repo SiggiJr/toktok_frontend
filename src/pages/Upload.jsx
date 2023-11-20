@@ -5,22 +5,21 @@ import { uploadFetch } from '../utils/fetches/uploadFetch'
 import closeIcon from '../assets/icons/Closesquare.svg'
 import closeIconWhite from '../assets/icons/ClosesquareWhite.svg'
 import cameraIcon from '../assets/icons/cam.svg'
-
 function Upload({ darkMode }) {
   const [selectedImage, setSelectedImage] = useState(null)
-
+  console.log(selectedImage)
   function handleImageChange(event) {
     const file = event.target.files[0]
-    const imageUrl = URL.createObjectURL(file)
-    setSelectedImage(imageUrl)
+    if (file) {
+      const imageUrl = URL.createObjectURL(file)
+      setSelectedImage(imageUrl)
+    }
   }
-
   const navigate = useNavigate()
   const upload = event => {
     event.preventDefault()
     uploadFetch(event, navigate)
   }
-
   return (
     <section className="p-6 flex flex-col">
       <article className="flex mt-6 gap-2 items-center">
@@ -64,12 +63,11 @@ function Upload({ darkMode }) {
                     />
                   </svg>
                   <p className="mb-2 text-sm text-gray-500 dark:text-gray-400">
-                    <span className="font-semibold">Click to upload</span> or drag and drop
+                    <span className="font-semibold">Click to upload</span>
                   </p>
                   <p className="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
                 </div>
               )}
-
               <input
                 id="selected_image"
                 name="selected_image"
@@ -161,5 +159,4 @@ function Upload({ darkMode }) {
     </section>
   )
 }
-
 export default Upload

@@ -10,6 +10,7 @@ export default function CommentItem({ comment, setReload, postId, darkMode }) {
   const [user, setUser] = useState([])
   const [post, setPost] = useState([])
   const [time, setTime] = useState(0)
+  const currentUser = JSON.parse(sessionStorage.getItem('userId'))
 
   const myDate = new Date()
   const navigate = useNavigate()
@@ -42,7 +43,10 @@ export default function CommentItem({ comment, setReload, postId, darkMode }) {
 
   return (
     <div className=" flex flex-col my-6  border-gray-200 border-b-[1px] pb-2 relative ">
-      <div onClick={() => navigate(`/user/${user._id}`)} role="presentation" className="flex gap-2 cursor-pointer">
+      <div
+        onClick={() => navigate(currentUser === user._id ? `/profile` : `/user/${user._id}`)}
+        role="presentation"
+        className="flex gap-2 cursor-pointer">
         <img className="w-[48px] h-[48px] object-cover rounded-full " src={user.profile_image_url} alt="" />
         <div className="flex flex-col">
           <h2 className="text-xl">
@@ -73,7 +77,9 @@ export default function CommentItem({ comment, setReload, postId, darkMode }) {
         <p className="text-[12px] ml-2" onClick={() => navigate(`reply/${comment.comment_id}`)} role="presentation">
           Reply
         </p>
-        <img onClick={handleDeleteComment} className="w-4 h-4 absolute right-0" src={trash} alt="trash icon" />
+        {currentUser === comment.owner && (
+          <img onClick={handleDeleteComment} className="w-4 h-4 absolute right-0" src={trash} alt="trash icon" />
+        )}
       </div>
     </div>
   )

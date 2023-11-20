@@ -14,9 +14,11 @@ import { pushToFavorites } from '../utils/fetches/getFavPostsFetch.js'
 
 function CommentDetails({ reload, setReload, darkMode }) {
   const postId = useParams()
+  const cuttentUser = JSON.parse(sessionStorage.getItem('nickname'))
   const [userFavorites, setUuserFavorites] = useState([])
   const [post, setPost] = useState([])
   const [commentId, setCommentId] = useState()
+  const [isBookmarked, setIsBookmarked] = useState(false)
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -44,30 +46,33 @@ function CommentDetails({ reload, setReload, darkMode }) {
         </div>
         <img src={darkMode ? sendIconWhite : sendIcon} alt="sendIcon" />
       </div>
-      <article onClick={() => navigate(`/user/${post.owner}`)} role="presentation" className="flex gap-2 pb-1 mb-1">
-        <img className="w-[54px] h-[54px] object-cover rounded-full " src={post.owner_image} alt="" />
+      <article
+        onClick={() => navigate(cuttentUser === post.nickname ? `/profile` : `/user/${post.owner}`)}
+        role="presentation"
+        className="flex gap-2 pb-1 mb-1">
+        <img className="w-[54px] h-[54px] object-cover rounded-full " src={post.owner_image} alt=" user_image" />
         <div>
           <h2 className="text-xl">{post.nickname}</h2>
           <p>{post.profession}</p>
         </div>
       </article>
       <article className="flex flex-col border-gray-200 border-b-[1px] pb-1 mb-1">
-        <img className="w-[380px] h-[380px] object-cover rounded-2xl my-2" src={post.image_url} alt="" />
+        <img className="w-[380px] h-[380px] object-cover rounded-2xl my-2" src={post.image_url} alt=" posted_image" />
         <div className="flex justify-between">
           <p className=" text-[16px]">{post.caption}</p>
           <img
             className=" h-5 w-5 cursor-pointer"
             onClick={() => {
-              location.reload()
+              setIsBookmarked(prev => !prev)
               pushToFavorites(post._id)
             }}
             role="presentation"
             src={
               darkMode
-                ? userFavorites?.includes(post._id)
+                ? isBookmarked || userFavorites.includes(post._id)
                   ? bookmarkRed
                   : bookmarkWhite
-                : userFavorites?.includes(post._id)
+                : isBookmarked || userFavorites.includes(post._id)
                 ? bookmarkRed
                 : bookmark
             }

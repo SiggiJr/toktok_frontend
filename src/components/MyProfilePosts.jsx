@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react'
 import { deletePost } from '../utils/fetches/deleteFetches.js'
 
 function MyProfilePosts({ post }) {
+  const currentUser = JSON.parse(sessionStorage.getItem('userId'))
   const handleDeletePost = () => {
     deletePost(post._id)
     window.location.reload()
@@ -15,12 +16,14 @@ function MyProfilePosts({ post }) {
         <Link to={`/comment/${post._id}`}>
           <img className="w-[114px] h-[114px] object-cover rounded-2xl p-1" src={post.image_url} alt="" />
         </Link>
-        <img
-          className="absolute top-[-6px] right-[-6px] w-[15px]  "
-          src={tarsh}
-          alt="Mülleimer-Symbol"
-          onClick={handleDeletePost}
-        />
+        {currentUser === post.owner && (
+          <img
+            className="absolute top-[-6px] right-[-6px] w-[15px]  "
+            src={tarsh}
+            alt="Mülleimer-Symbol"
+            onClick={handleDeletePost}
+          />
+        )}
       </div>
     </li>
   )

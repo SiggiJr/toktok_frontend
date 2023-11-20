@@ -14,6 +14,7 @@ function FeedsItem({ post, setReload, darkMode, userFavorites }) {
   const postId = post._id
 
   const [time, setTime] = useState(0)
+  const [isBookmarked, setIsBookmarked] = useState(false)
   const myDate = new Date()
   useEffect(() => {
     const postDate = new Date(post.timestamp)
@@ -67,16 +68,16 @@ function FeedsItem({ post, setReload, darkMode, userFavorites }) {
           <img
             className=" h-5 w-5 cursor-pointer"
             onClick={() => {
-              location.reload()
+              setIsBookmarked(prev => !prev)
               pushToFavorites(post._id)
             }}
             role="presentation"
             src={
               darkMode
-                ? userFavorites?.includes(post._id)
+                ? isBookmarked || userFavorites.includes(post._id)
                   ? bookmarkRed
                   : bookmarkWhite
-                : userFavorites?.includes(post._id)
+                : isBookmarked || userFavorites.includes(post._id)
                 ? bookmarkRed
                 : bookmark
             }
