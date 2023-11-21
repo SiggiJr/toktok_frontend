@@ -1,10 +1,17 @@
-# React + Vite
+#Instagram-inspiriertes Projekt
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Willkommen zum TokTok Abschluss Projekt! Dieses Projekt ist von der beliebten Social-Media-Plattform Instagram inspiriert und wurde mit React, JavaScript und Tailwind CSS entwickelt.
 
-Currently, two official plugins are available:
+## Über TokTok
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-# tocktock_Frontend
-# tocktock_Frontend
+TokTok ist eine Webanwendung, die es Benutzern ermöglicht, Fotos hochzuladen, zu teilen und mit anderen Benutzern zu interagieren. Ähnlich wie bei Instagram können Benutzer ihre eigenen Profile erstellen, Beiträge veröffentlichen, andere Benutzer folgen und deren Beiträge kommentieren und liken.
+
+## Technologien
+
+Das TokTok Frontend-Projekt verwendet folgende Technologien:
+
+- React: Eine leistungsstarke JavaScript-Bibliothek zur Entwicklung von Benutzeroberflächen. React ermöglicht die Erstellung von wiederverwendbaren Komponenten und eine effiziente Aktualisierung der Benutzeroberfläche.
+
+- JavaScript: Eine weit verbreitete Programmiersprache, die für die Interaktivität und Funktionalität der Webanwendung verwendet wird. JavaScript ermöglicht die Manipulation von DOM-Elementen und die Kommunikation mit dem Backend.
+
+- Tailwind CSS: Ein CSS-Framework, das eine Reihe von vorgefertigten Klassen bereitstellt, um das Styling der Benutzeroberfläche zu vereinfachen. Tailwind CSS ermöglicht eine schnelle und flexible Gestaltung der Komponenten.
