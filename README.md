@@ -4,7 +4,7 @@ Willkommen zum TokTok Abschluss Projekt! Dieses Projekt ist von der beliebten So
 
 ## Über [TokTok](https://fakestagram.onrender.com)
 
-TokTok ist eine Webanwendung, die es Benutzern ermöglicht, Fotos hochzuladen, zu teilen und mit anderen Benutzern zu interagieren. Ähnlich wie bei Instagram können Benutzer ihre eigenen Profile erstellen, Beiträge veröffentlichen, andere Benutzer folgen und deren Beiträge kommentieren und liken.
+TokTok ist eine Webanwendung, die es Benutzern ermöglicht, Fotos hochzuladen, zu teilen und mit anderen Benutzern zu interagieren. Ähnlich wie bei Instagram können Benutzer ihre eigenen Profile erstellen, Beiträge veröffentlichen, andere Benutzer folgen und deren Beiträge kommentieren und liken. Wir haben diese App in Iphone 12 Pro resolution gebaut.
 
 ## Technologien
 
